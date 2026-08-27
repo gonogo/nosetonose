@@ -1,0 +1,100 @@
+---
+id: de/was/burnout-prevention
+type: page
+title: "Clown and Conflict"
+source_url: https://www.nosetonose.info/de/was/burnout-prevention
+---
+
+## **Mit dem Herz arbeiten: Clown & Conflict**
+
+***„Verwirrung, die wahrgenommen und anerkannt ist, hat Kraft … jemanden zu demütigen ist das Schlimmste, das wir tun können … die Ursache von Konflikten ist Demütigung, jemanden zu erniedrigen.“***
+
+*Going Sane, Adam Philip*
+
+Clowning lädt dazu ein, uns in die Welt einzufühlen, statt sie nur über den Verstand verstehen zu wollen. Wenn wir Clown spielen, entdecken wir neue Wege, wie wir uns in Konflikten verhalten können und wie wir mit ihnen leben.
+
+[![Hopkins_04.04.17-66 Zuschnitt](http://www.nosetonose.info/de/wp-content/uploads/2015/11/Hopkins_04.04.17-66-Zuschnitt-300x200.jpg)](https://www.nosetonose.info/de/wp-content/uploads/2015/11/Hopkins_04.04.17-66-Zuschnitt.jpg)
+
+Im Clowning werden Möglichkeiten und Beziehungen erforscht. Durch die hinzugewonnenen Qualitäten wird es nicht nur möglich, den Blick auf uns selbst und auf Probleme zu verändern, sondern auch die Art, wie wir miteinander kommunizieren.
+
+…und jetzt folgt viel zu lesen!
+
+**Clown:** Der Clown lebt jedes Gefühl mit ganzem Herzen. Da er dabei in der magischen Welt des Augenblicks lebt, ist er völlig von Kleinigkeiten eingenommen, er spielt in Bildern und Vorstellungen, geht in der Welt der Gefühle auf und ist offen für Veränderungen. Der Clown nimmt Konflikte mit offenen Armen auf und erfreut sich an Problemen. Es geht ihm nicht so sehr darum, was er tut, sondern vielmehr darum, wie er es tut. Er steigt aus dem Zug der linearen Zeit aus und tanzt mit dem gegenwärtigen Moment!
+
+**Konflikt:** Konflikte sind eine Möglichkeit zur Veränderung und Wachstum. Sie stellen uns vor die Wahl, uns für eine Reaktion zu entscheiden und eröffnen damit die Möglichkeit, neue Wege zu erforschen um auf altbekannte Situationen zu reagieren. Das kann bedeuten, sich zu öffnen, statt sich zu verschließen, zu lernen mit dem Schmerz zu bleiben und herausfordernde Situationen willkommen zu heißen.
+
+**Experimentelles Lernen:**Unsere workshops sind sehr experimentell und geben den Teilnehmern die Möglichkeit, zwischen Aktion und Reflektion zu wechseln. Alle Übungen sind so gestaltet, dass keine Vorkenntnisse nötig sind und können oft wiederholt werden, da jedes Mal neue Erfahrungen entstehen. Der Clown ermuntert uns dazu, vollständig engagiert, neugierig und interessiert daran zu sein, auch in den größten Stressmomenten die Verbindung zu unserer inneren Stimme zu wahren. Unsere Ängste und Verwundbarkeit versuchen wir dabei wohlwollend anzunehmen und begrüßen sogar den Kontrollverlust und das Nichtwissen.
+
+**Philosophie:** Die Besonderheit unseres Zuganges liegt nicht in den Übungen, Spielen oder Improvisationen, sondern in den Prinzipien, die unser Unterricht vermittelt. Einige dieser Grundprinzipien sind: Respekt, positive Zuwendung und die größtmögliche Authentizität.
+
+**Übungen und Improvisationen:** Wir bevorzugen Spiel und Improvisation und zielen nicht auf darstellerische Fertigkeiten und Techniken ab. Der Fokus der Improvisation liegt dabei auf dem Erleben und nicht auf dem Ergebnis. In dieser Arbeit geht es nicht darum, besonders lustig zu sein, auch wenn wir viel lachen. Die Struktur einer Übung dient nur als Ausgangspunkt und kann nicht als Rezept gesehen werden, dem zu folgen ist. Für das Clowning nutzen wir viele wohlbekannte Strukturen aus dem Gebiet des physischen Theaters und der Improvisation. Aber sie bekommen in unserem Zusammenhang und mit unseren Absichten einen anderen Charakter. Unser Augenmerk liegt darauf, zu einer vollen persönlichen Anteilnahme beim Tun zu ermutigen und dabei gleichzeitig eine gesunde Selbstdistanz beizubehalten, besonders in den Feedback-Runden. Mit jeder Übung beginnt ein Erkundungsprozess für den Einzelnen, die Gruppe und den Anleiter.
+
+**Reflektion:**Reflektion ist ein wichtiger Teil dieser Arbeit. Wir unterstützen jede Art offener Fragen, die einen Entdeckungsprozess fördern. Wir nehmen davon Abstand, Dinge als richtig oder falsch einzuordnen, bleiben bei den persönlichen Erfahrungen und ermutigen dazu, über die schönsten Momente zu sprechen und darüber, was wirklich Spaß gemacht hat. Wir sind davon überzeugt, dass das Nacherzählen, das Mitteilen von Beobachtungen und das Benennen von Gefühlen wie Unbehagen oder Freude, mit dazu beiträgt, eine höhere Achtsamkeit für sich selbst und die Vorgänge im Raum zu entwickeln und zu kultivieren. Klassische Fragen, die wir hierbei verwenden sind: Wie war das? Was hast Du bemerkt? Wie hast Du Dich gefühlt als…? Dabei wird deutlich, dass es in einer gemeinsamen Improvisation wichtig ist, genau auf den Partner zu hören, gut hinzuschauen, im Dialog präsent zu bleiben und immer wieder Blickkontakt zum Publikum aufzunehmen.
+
+**[![Hopkins_04.04.17-16neu](http://www.nosetonose.info/de/wp-content/uploads/2015/11/Hopkins_04.04.17-16neu-300x200.jpg)](https://www.nosetonose.info/de/wp-content/uploads/2015/11/Hopkins_04.04.17-16neu.jpg)***Wir haben beispielsweise die Möglichkeit, im Clowning Folgendes zu praktizieren:*
+
+*1. Empathie üben und mit dem Herzen zu hören*  
+ *2. mit Herz arbeiten*  
+ *3. Authentizität*  
+ *4. Unsere Vorurteile über die Welt loslassen*  
+ *5. Unsere Geschichte der Welt gegenüberstellen*  
+ *6. Dialog*  
+ *7. Machtspiele, denen wir unterworfen sind, wahrnehmen und ändern*  
+ *8. Die Welt und Andere auf unterschiedliche Weise zu                                                                                                                                                                                                       betrachten.*  
+*9. Emotionale Fähigkeit und Klarheit erlangen*
+
+**1. Empathie üben:**  
+Die emotionale Überfülle des Clowns lädt dazu ein, uns über das Herz mit der Welt zu verbinden, bevor wir in den Kopf gehen. Clowns identifizieren sich emotional mit Dingen und anderen Menschen, ohne dabei ihre eigene Wahrheit aufzugeben. Das schult Empathie und Einfühlungsvermögen.
+
+**2. Mit Herz arbeiten**  
+Der Clown braucht Empathie um mit offenem und verwundbarem Herzen in die Welt zu gehen. Es gibt keinen Konflikt, der nicht mit dem Herz und der Naivität eines Clowns gelöst werden kann, wenn wir uns dem stellen, was wir im Konflikt am meisten fürchten, so lange darauf vertraut wird, dass das, wovor man sich in dem Konflikt am meisten fürchtet, angegangen wird.
+
+**3. Authentizität**  
+Clowning ist die Suche nach Authentizität und damit eine gewisse Gratwanderung. Für den Clown besteht, wie für den Narren, die Herausforderung darin, auszusprechen, was jeder weiß und denkt, aber was unter der Decke der sozialen Konventionen verschwiegen bleibt. So wie bei: „des Königs neue Kleider,“ ist der Clown als naiver Außenseiter der Einzige, der die Dinge benennen darf. Um vom König gehört zu werden, ist es effektiver, leicht und vom Herzen her zu sprechen, als anzugreifen und zu verurteilen. Denn so kann der Clown auch leichter gehört werden. Im Clowning gibt es eine zutiefst demütige Haltung gegenüber der Wahrheit.
+
+**4. Unsere Vorurteile über die Welt loslassen**  
+Wenn wir urteilen, anklagen und beschuldigen (andere oder uns selbst), verschließen wir dem gegenseitigen Verständnis unsere Herzen. Dialog gibt es nur, wo wir nicht versuchen, andere unserem Willen zu beugen. Die Naivität des Clowns lädt uns ein, die Welt dadurch neu zu entdecken, dass wir ihr ohne Vorurteile oder Pläne begegnen. Wir lernen, forschend zu agieren und nicht voreilig zu urteilen. Im Loslassen unserer Neigung, die Dinge zu kontrollieren, schärfen wir unsere Wahrnehmung. Wir können uns dann wieder mit ihnen verbinden und sie auf neue Art verstehen.  
+**5. Unsere Geschichte der Welt gegenüberzustellen**  
+Clowns sind sehr gut darin, sich völlig absurde und komplexe Ansichten über die Welt zu erzählen. Sie sind durchgehend von heftigen und paradoxen Gefühlen überflutet. Sie offenbaren uns die Schwierigkeiten, die uns widerfahren, wenn wir unsere Ansichten mit der Wirklichkeit konfrontieren. Letztendlich gewinnt aber der unerschütterliche Optimismus des Clowns und erlaubt es ihm, über eine Lösung zu stolpern. Wir können mit dem Clown lachen und darin unsere eigene Torheit erleben. Für eine Konfliktlösung müssen unsere Ansichten begründet sein und mit beobachtbaren Tatsachen abgeglichen werden. Das Clowning gibt uns die Möglichkeit, Beziehungen zwischen unseren Ansichten und den Tatsachen herzustellen und zu üben, emotional in diesen Beziehungen zu bestehen.
+
+**6. Dialog**  
+Clowns stehen in einem ununterbrochenen Dialog mit dem Publikum, lauschen auf die Auswirkung ihrer Handlungen und reagieren augenblicklich, um sich anzupassen, so unpassend oder zusammenhangslos das auch sein mag. Clowns sind feinfühlig und in ihren Absichten durchschaubar. Für Konfliktlösungen müssen wir nicht nur unserer eigenen Wahrheit und Gefühlen gegenüber achtsam sein, sondern auch dafür, wie diese Wahrheit aufgenommen und gehört wird.
+
+**7. Machtspiele wahrnehmen und ändern**  
+Der Gesprächsraum ist ein Raum, der vor Machtspielen geschützt werden muss. Diese entstehen, wenn wir versuchen die Wahrnehmung und Meinung anderer zu beeinflussen. Durch das Clowning können wir in einem geschützten Raum mit den extremen Aspekten dieser Machtspiele experimentieren und auf eine praktische Art ihre Wirkung erkunden, sowie auch die Frage nach dem Umgang damit. Durch Spiele und Übungen können wir eine echte Gemeinschaft entwickeln und erleben, zuhören lernen und lernen, uns Gehör zu verschaffen.
+
+**8. Die Welt und Andere auf unterschiedliche Arten zu betrachten**  
+Clowning lädt uns dazu ein, uns eigentümliche und absurde Arten der Weltbetrachtung auszudenken und auszuloten. Beispielsweise kann ein Clown, wenn er einen Stuhl sieht, ohne erkennbaren Grund selbst zum Stuhl werden und anfangen, das Leben eines Stuhls mit großer physischer und emotionaler Intensität zu leben. Wie sieht die Welt aus, wenn Dich die Menschen kaum anschauen und ganze Tage auf Dir herum sitzen? So wird das Clowning zu einer mächtigen Metapher, die unsere Art die Welt zu betrachten verändern kann. In der Konfliktlösung kann unsere Fähigkeit, neue Ansichten über uns und die anderen zu entwickeln, stark dazu beitragen, kreative Lösungen zu finden.
+
+**9. Emotionale Fähigkeit und Klarheit erlangen**  
+Die Regel für emotionale Transparenz im Clowning bedeutet, dass wir unserem Partner immer unsere Intentionen mitteilen, auch wenn es die Intention ist, sich gegen ihn zu verschwören oder unsichtbar von hinten anzuschleichen. Heimliche Absichten, verborgenen Intentionen und verdeckte Manipulationen können im Clowning gespielt werden, allerdings nur mit dem vollen Wissen des Partners. Die Clowns spielen dann so, als ob sie nichts wüssten und das im vollen Wissen darüber, was sie angeblich nicht wissen. In der Konfliktlösung, muss der Gesprächsraum vor verdeckten Spielen und Manipulationen bewahrt werden. Die emotionale Überfülle des Clowns lehrt uns, dass wir alle Spiele die wir spielen, vor unserem Partner offen legen müssen.
+
+**Kommunikationstools:** Es gibt viele grundlegende Fertigkeiten eines Clowns, die uns helfen im alltäglichen Leben empathischer zu kommunizieren. Zum Beispiel üben wir: Warten oder eine Reaktion herauszuzögern, sich die Zeit lassen, zu schauen, was wirklich passiert und den anderen wahrzunehmen, was den Prozess verlangsamt. Im Feedback nehmen wir den Prozess dann noch auseinander. Wir lernen, wahrhaftige Gefühle wahrzunehmen und erweitern unseren Wortschatz in Bezug auf Gefühlsnuancen. Wir üben eine tiefere Art des Zuhörens, das Öffnen aller Sinne, um Raum für neue Intuitionen zu schaffen. Wir lernen unsere Grenzen kennen.
+
+Nottools:  
+– STOP! Unterbrechung. Wenn sich etwas nicht gut anfühlt, unterbrich, was passiert.  
+– WARTE! Lass Dir Zeit, atme, schau, nimm wahr, was passiert.  
+– ACHTUNG! Nimm Deine eigenen Gefühle und die der anderen in dieser Situation wahr.  
+– HÖRE! Höre aufrichtig auf Dich selbst und die anderen, lausche hinter die Worte.
+
+**Beispielsübung: Blickkontakt**  
+Die Paare schauen sich während der ganzen Übung in die Augen, wobei sie durch den Raum laufen, sich mal näher kommen, mal weiter voneinander entfernen und zwischen Gegenständen und anderen Menschen durch den Raum schlängeln. Diese Übung wird still durchgeführt und die Teilnehmer bewegen sich langsam und vorsichtig. Die Partner achten im und durch den Blickkontakt aufeinander. Jeder Partner sieht sozusagen durch das Auge des Anderen und wird durch seine Mimik gelenkt. Langsam entwickelt sich daraus ein Dialog zwischen den Spielenden.
+
+**Feedback:** Die Teilnehmer tauschen sich darüber aus, wie es sich angefühlt hat, so lange in die Augen eines anderen zu schauen. Sie werden gebeten, zu sagen, was anstrengend oder entspannt war und was sie besonders genossen haben. Die Partner teilen sich ihre eigenen Erfahrungen mit und stellen Gemeinsamkeiten und Unterschiede in der Wahrnehmung fest. Dazu wird nahe gelegt, in der ersten Person zu sprechen (Ich habe bemerkt …, Ich fühlte mich …, ich war verwundert …,). Das hilft dem Zuhörenden, die subjektive Wahrnehmung des Redners zu verstehen, ohne sich kritisiert zu fühlen.
+
+**Beispielsspiel: Simultaneous Leader**  
+Dieses Spiel besteht darin, sich in Gruppen von 4 bis 6 Personen gegenseitig und gleichzeitig zu imitieren. Am Anfang stehen die Gruppen in einem Kreis und nehmen Blickkontakt auf. Jeder muss auf jeden schauen. Durch den Blickkontakt findet die Gruppe zusammen. Der nächste wichtige Schritt für die Gruppe ist es, eine stimmliche und emotionale Einheit zu bilden. Aus dieser Einheit heraus beginnt die Gruppe dann, auf ihre eigentümliche Weise zu agieren und sich zu bewegen. In diesem Spiel kann man sehr viel über Clowning und Empathie lernen. Es ist auch dafür lehrreich, wie wir unsere eigene Identität der Welt vermitteln. Wie erleben wir uns in Resonanz mit den Anderen um uns herum und wie können wir in der Verbindung zu anderen bei uns selbst bleiben? Simultaneous Leader verlangt große Aufmerksamkeit, Offenheit und genaues Zuhören. Wenn Menschen müde sind, ermutigen wir sie, ihre Müdigkeit zu zeigen oder wenn sie gelangweilt sind, ihre Langeweile zu zeigen. Sobald dieses Spiel gut läuft, wird nicht mehr über Regeln und über das, was zu tun ist, nachgedacht. Es entsteht ein Fluss von Führen und Folgen, Imitieren und das Spiel genießen.
+
+Feedback: Hier wird dazu ermutigt, zu benennen, wobei man sich gesehen oder nicht gesehen gefühlt hat, wie der Rhythmus wahrgenommen wurde, wann es anstrengend wurde, wann es sich verfahren angefühlt hat, wann sich Wiederholungen organisch angefühlt haben, wann es Spaß gemacht hat, wann es entspannt war usw.
+
+[![Hopkins_04.04.17-48](https://www.nosetonose.info/de/wp-content/uploads/2015/11/Hopkins_04.04.17-48-300x200.jpg)](https://www.nosetonose.info/de/wp-content/uploads/2015/11/Hopkins_04.04.17-48.jpg)
+
+**Buchempfehlungen**
+
+*Gewaltfreie Kommunikation*, Marshall Rosenberg  
+*Daring Greatly: How the courage to be vulnurable transforms the  way  we live, love, parent and lead,* Bene Brown  
+*Emotional Intelligence*, Daniel Goleman  
+*Why is that so funny?* John Wright  
+*The Improvisation Game,* Chris Johnston
+
+**[![Druck](https://www.nosetonose.info/de/wp-content/uploads/2014/11/02_Karte_rund_clowning_Angela-300x300.jpg)](https://www.nosetonose.info/de/wp-content/uploads/2014/11/02_Karte_rund_clowning_Angela.jpg)**

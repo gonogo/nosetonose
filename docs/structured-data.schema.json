@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nosetonose.local/schemas/structured-data.json",
+  "title": "NoseToNoseStructuredData",
+  "description": "Structured course, venue, and people records extracted from scraped content.",
+  "$defs": {
+    "course": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "source_url", "medium", "facilitators"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string" },
+        "source_url": { "type": "string", "format": "uri" },
+        "start_date": { "type": ["string", "null"], "format": "date" },
+        "end_date": { "type": ["string", "null"], "format": "date" },
+        "location_country": { "type": ["string", "null"] },
+        "venue": { "type": ["string", "null"], "description": "Foreign key to venues.id" },
+        "language": { "type": ["string", "null"] },
+        "facilitators": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Foreign keys to people.id where person_type is facilitator"
+        },
+        "clown_level": { "type": ["string", "null"] },
+        "prerequisites": { "type": ["string", "null"] },
+        "medium": { "type": "string", "enum": ["In-person", "Online"] },
+        "maximum_group_size": { "type": ["integer", "null"] },
+        "course_fee": { "type": ["string", "null"] },
+        "course_fee_deposit": { "type": ["string", "null"] },
+        "schedule": {
+          "type": ["string", "null"],
+          "description": "Markdown text block"
+        },
+        "course_description": {
+          "type": ["string", "null"],
+          "description": "Markdown text block from scraped body_markdown (links, images, bold/italic, lists, blockquotes preserved)"
+        },
+        "accommodation_and_meals": {
+          "type": ["string", "null"],
+          "description": "Markdown text block"
+        }
+      }
+    },
+    "venue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string" },
+        "address": { "type": ["string", "null"] },
+        "email": { "type": ["string", "null"] },
+        "phone": { "type": ["string", "null"] }
+      }
+    },
+    "person": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "person_type", "status"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string" },
+        "person_type": {
+          "type": "string",
+          "enum": ["facilitator", "team", "team-passed-away"],
+          "description": "Role: course facilitator, team member, or deceased (in memory)"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "previous-associate"],
+          "description": "Facilitator activity; previous-associate for former facilitators on the associates pages"
+        },
+        "background": {
+          "type": ["string", "null"],
+          "description": "Markdown text block"
+        },
+        "photo": { "type": ["string", "null"], "format": "uri" },
+        "country": {
+          "type": ["string", "null"],
+          "description": "Country where the person is based"
+        },
+        "region": {
+          "type": ["string", "null"],
+          "enum": ["UK", "Europe", "North America", null],
+          "description": "Region inferred from country"
+        },
+        "source_urls": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" },
+          "description": "Original site pages this person was extracted from (non-facilitators only)"
+        }
+      }
+    }
+  }
+}

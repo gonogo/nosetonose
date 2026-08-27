@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nosetonose.local/schemas/content-item.json",
+  "title": "NoseToNoseContentItem",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "source_url",
+    "title",
+    "region",
+    "language",
+    "body_html",
+    "body_markdown",
+    "images",
+    "scraped_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable slug derived from the URL path."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "page",
+        "people",
+        "article",
+        "thought",
+        "testimonial",
+        "course",
+        "course_archive"
+      ]
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "title": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string",
+      "enum": ["international", "uk", "na", "de", "it", "pl", "ie"]
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 5
+    },
+    "body_html": {
+      "type": "string"
+    },
+    "body_markdown": {
+      "type": "string"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["src", "alt"],
+        "properties": {
+          "src": {
+            "type": "string",
+            "format": "uri"
+          },
+          "alt": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "scraped_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "slug": {
+      "type": "string",
+      "description": "WordPress slug when sourced from WP REST."
+    },
+    "date": {
+      "type": "string",
+      "description": "WordPress date/modified string when present."
+    },
+    "meta": {
+      "type": "object",
+      "description": "Source-specific extras (encoding, wp_id, dates, detail, etc.)."
+    }
+  }
+}
