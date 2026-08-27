@@ -1,0 +1,47 @@
+---
+description: Nose to Nose 3-stage pipeline and where to edit data vs rendering
+alwaysApply: true
+---
+
+# Nose to Nose — architecture
+
+Python-only pipeline: scrape nosetonose.info → extract structured JSON → build static HTML. No Node.js, no template engine.
+
+## Three stages
+
+```text
+Stage 1  ./scripts/scrape_all.sh              → data/*.json + data/bodies/*.md
+Stage 2  python scripts/extract_structured.py → data/structured/*.json
+Stage 3  python scripts/build_web.py          → web/
+```
+
+## Key paths
+
+| Path | Role |
+|------|------|
+| `ntn_scraper/` | Scrapy spiders, cleaners, pipelines |
+| `data/` | Raw scrape output (merge by `id` on re-run) |
+| `data/structured/` | Courses, venues, people (full overwrite on re-run) |
+| `scripts/` | `extract_structured.py`, `build_web.py` |
+| `web/` | Generated static site (full regenerate on re-run) |
+
+## Critical gotcha
+
+Two different `people.json` files:
+
+- `data/people.json` — 5 whole team pages → "People & team" on `other-content.html`
+- `data/structured/people.json` — individual people → `people.html`, `people/{id}.html`
+
+They are **not merged**.
+
+## Where to edit
+
+| Goal | Edit |
+|------|------|
+| Raw page content / scrape behaviour | `ntn_scraper/`, `data/*.json`, `data/bodies/*.md` |
+| Structured fields (courses, venues, people) | `scripts/extract_structured.py`, `docs/structured-data.schema.json` |
+| HTML layout, CSS, Markdown rendering | `scripts/build_web.py` only — do not edit `web/style.css` directly |
+
+## Full documentation
+
+Read `docs/SCRAPING.md`, `docs/STRUCTURED_DATA.md`, `docs/WEB.md`, and `docs/*.schema.json` for schemas and extraction details.

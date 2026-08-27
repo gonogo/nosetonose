@@ -1,0 +1,38 @@
+---
+description: Structured course/venue/people extraction and JSON schemas
+globs: scripts/extract_structured.py,data/structured/**,docs/structured-data.schema.json
+alwaysApply: false
+---
+
+# Structured data extraction
+
+Script: [`scripts/extract_structured.py`](scripts/extract_structured.py)
+
+Input: `data/courses_current.json` (detail pages only), `data/people.json`, regional team pages in `data/pages.json`.
+
+Output (full overwrite each run): `data/structured/courses.json`, `venues.json`, `people.json`.
+
+## Schemas
+
+- **Courses**: scalar fields + Markdown text blocks (`schedule`, `course_description`, `accommodation_and_meals`); foreign keys `venue` → venues, `facilitators[]` → people
+- **Venues**: `id`, `name`, `address`, `email`, `phone`
+- **People**: `id`, `name`, `person_type` (`facilitator` / `team` / `team-passed-away`), `status` (`active` / `previous-associate`), `background` (Markdown), `photo`, `source_urls` (non-facilitators only)
+
+Text fields are Markdown, not HTML. Extraction is heuristic (regex, BeautifulSoup).
+
+## Key functions
+
+- `extract_courses()` — course records from raw scrape
+- `extract_course_facilitators()`, `extract_venue_from_course()` — per-field parsers
+- `main()` — merges people from team pages, courses, regional pages; writes JSON
+
+## Example: add a new course field
+
+1. Parse it in `extract_courses()` or a helper in `extract_structured.py`
+2. Add to [docs/structured-data.schema.json](docs/structured-data.schema.json) and [docs/STRUCTURED_DATA.md](docs/STRUCTURED_DATA.md)
+3. Render in `build_web.py` → `build_course_page()`
+4. Re-run: `python scripts/extract_structured.py && python scripts/build_web.py`
+
+## Full reference
+
+See [docs/STRUCTURED_DATA.md](docs/STRUCTURED_DATA.md).

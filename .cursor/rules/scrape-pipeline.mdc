@@ -1,0 +1,37 @@
+---
+description: Scrapy scrape pipeline, ContentItem schema, and raw data conventions
+globs: ntn_scraper/**,data/**,scripts/scrape_all.sh
+alwaysApply: false
+---
+
+# Scrape pipeline
+
+Spiders yield `ContentItem` records ([`ntn_scraper/items.py`](ntn_scraper/items.py)). Pipeline writes JSON + Markdown bodies.
+
+## ContentItem fields
+
+Required: `id`, `type`, `source_url`, `title`, `region`, `language`, `body_html`, `body_markdown`, `images`, `scraped_at`.
+
+Types → files: `page` → `pages.json`, `people` → `people.json`, `article` → `articles.json`, `thought` → `thoughts.json`, `testimonial` → `testimonials.json`, `course` → `courses_current.json`.
+
+## Merge behaviour
+
+Re-scraping **merges by `id`** into existing JSON — updates records, does not duplicate. Markdown mirrors: `data/bodies/{id}.md` with YAML front matter.
+
+## Spiders
+
+| Spider | Command | Source |
+|--------|---------|--------|
+| `legacy` | `scrapy crawl legacy` | Dreamweaver `.htm` pages |
+| `wordpress` | `scrapy crawl wordpress` | WP REST API |
+| `courses` | `scrapy crawl courses` | UK Events Manager HTML |
+
+Run all: `./scripts/scrape_all.sh`
+
+## Example: edit raw content without re-scraping
+
+Edit `data/bodies/approach.md` or the matching record in `data/pages.json`, then run `python scripts/build_web.py` (Stage 3 only).
+
+## Full reference
+
+See [docs/SCRAPING.md](docs/SCRAPING.md) and [docs/content-item.schema.json](docs/content-item.schema.json).
