@@ -2,7 +2,7 @@
   {
     "id": "abigail-dancey",
     "name": "Abigail Dancey",
-    "person_type": "facilitator",
+    "person_type": "associate-facilitator",
     "status": "active",
     "background": "After getting as much clowning experience in the USA over the past ten years as I could– through Nose to Nose, Christopher Bayes at the Pandemonium Studio, as well as through Michael Chekov’s beautiful approach to the clown – I’m excited to be in the facilitator training with Nose to Nose here in Europe!\n\nI currently spend most of my time with two excellent clowns, my three year old and one year old. This is perfect training. Not only am I playing, but I also have the almost constant experience of chaos and failure. However, when I’m not raising children I’ve worked as a therapist in family therapy, for young adults, as well as addiction therapy. I’ve done workshops for young people in creative theater and improvisation who are interested in clowning and the experience of social authenticity. These things I hope to do more of through Nose to Nose as a facilitator.",
     "photo": "https://www.nosetonose.info/de/wp-content/uploads/2023/12/abigail.jpg",
@@ -12,7 +12,7 @@
   {
     "id": "alexia-elliott",
     "name": "Alexia Elliott",
-    "person_type": "facilitator",
+    "person_type": "associate-facilitator",
     "status": "active",
     "background": "Alexia Elliott is based in sunny Leicester in the UK. She is a Hypnotherapist and Shamanic Practitioner/Trainer with 20+ years exp and is renowned for being a maverick in the field. After her first Clowning experience with Nose to Nose she fell in love with the work and later embarked on the Clown facilitator training.",
     "photo": null,
@@ -22,7 +22,7 @@
   {
     "id": "alison-stockford",
     "name": "Alison Stockford",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "Ali participated in her first Nose to Nose workshop in 2000 and\n fell in love with the work. Since training as a facilitator she\n has worked with Nose to Nose for over 5 years . She holds this work\n in high esteem as a perfect grounding for all creative work and\n the bigger picture of trusting ourselves and life. Alison is a qualified\n and experienced teacher of over 25 years having delivered Performing\n Arts workshops in mainstream and special schools and older peoples\n settings. Dancing since the age of four she is drawn to facilitating\n how others explore the dimension of movement in their clown.\n\n Performing experience includes: tap dancing and comedy in café-théâtre\n with Les Amuses Gueules Lille, France; Street Theatre and Theatre\n in Education with Inside Out Theatre Company, Hastings. In recent\n work for Nose to Nose Ali has presented trainings for the Giggle\n Doctors – Theodora Foundation and for Lis’n Tell Speech\n and Language Practitioners, UK. Ali speaks both English and French.",
     "photo": "https://www.nosetonose.info/ALI.jpg",
     "country": "United Kingdom",
@@ -30,23 +30,9 @@
     "region": "UK"
   },
   {
-    "id": "allie-bowler",
-    "name": "Allie Bowler",
-    "person_type": "team",
-    "background": "[allie@nosetonose.info](mailto:allie@nosetonose.info)",
-    "photo": null,
-    "country": "United Kingdom",
-    "status": "active",
-    "region": "UK",
-    "source_urls": [
-      "https://www.nosetonose.info/facilitators%20in%20training.htm",
-      "https://www.nosetonose.info/uk/facilitators-in-training-2012-14"
-    ]
-  },
-  {
     "id": "an-valenteyn",
     "name": "An Valenteyn",
-    "person_type": "facilitator",
+    "person_type": "associate-facilitator",
     "status": "active",
     "background": "An was born in Belgium where she lives and works. She trained as a social worker and went on to study mime and movement theatre at the [Lassaad International School](https://www.lassaad.com/gb/)in Brussels – a school influenced by the teachings of Jacques Lecoq.\n\nShe became so inspired by clowning as a playful and authentic way of being and living in the moment that in 2006 she joined the [Cliniclown](https://www.cliniclowns.nl/en)team in Belgium working as a hospital clown. She is also a coach and a trainer for new members of the team.\n\nIn 2015 she met [Nose to Nose](https://www.nosetonose.info/uk/). She finished the Clown facilitator training in 2023 with Nose to Nose. She also performs as a clown and actor in music theatre.",
     "photo": "https://www.nosetonose.info/uk/wp-content/uploads/2023/10/valenteyn-300x138.jpg",
@@ -56,7 +42,7 @@
   {
     "id": "andreas-l-maier",
     "name": "Andreas L. Maier",
-    "person_type": "facilitator",
+    "person_type": "associate-facilitator",
     "status": "active",
     "background": "Andreas has a degree in acting and works as a performer, artistic speaker, presenter and audio artist. Since 2006 he has been training young actors at universities, professional performers and offers numerous workshops and seminars on presence training and storytelling.\n\nHe studied at the Berlin University of the Arts and has worked at numerous municipal and state theatres in Germany, including the Maxim Gorki Theatre, Schauspiel Bonn and TuP Essen as well as the Schauspielhaus Bochum and the Opera House Dortmund.\n\nHe has been freelancing in DACH since 2006 and has performed with various independent groups and artistic collectives, e.g. kainkollektiv, Drama Köln and subbotnik. Since 2008 he has completed numerous further training courses, e.g. as a somatic movement teacher according to BMC ©, with voice training according to the Lichtenberg method and clown training with Nose to Nose. Currently he’s taking part in their ongoing clowning facilitator training 2024-2026.\n\nAndreas’ work as a performer has received several awards since 1998. He lives in Cologne and speaks German and English fluently.",
     "photo": "https://www.nosetonose.info/de/wp-content/uploads/2023/06/Andreas-300x200.jpg",
@@ -66,7 +52,7 @@
   {
     "id": "angela-hopkins",
     "name": "Angela Hopkins",
-    "person_type": "facilitator",
+    "person_type": "associate-facilitator",
     "background": "Angela was born and grew up in Bristol, England. Always living and\n working in a creative environment she has always been fascinated\n by clowning. Many years of clowning experience with groups in Italy,\n Germany and the U.K with small scale public performances have enabled\n her to come to an understanding of the work with Nose to Nose. Angela´s\n background is Steiner education; a holistic view of the individual\n influences her work. As a mother of four children, after building\n up a centre with agricultural features for children and young people\n with special needs in a South German community, Angela now works\n as a foreign language teacher in Potsdam and is bilingual.",
     "photo": "https://www.nosetonose.info/images/angela.jpg",
     "country": "Germany",
@@ -76,7 +62,7 @@
   {
     "id": "angie-foster",
     "name": "Angie Foster",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "Angie Foster is a Clowning Facilitator, Actress, Director, and teacher.  She trained with Vivian Gladwell and is on the team of Nose to Nose of North America.  She has facilitated clowning workshops in the Philadelphia area and at the Rudolf Steiner College in Sacramento, California as well as Threefold Education Center in Spring Valley, New York and elsewhere in the country.  She teaches co-workers regularly at Kimberton Hills, Beaver Run, and Soltane communities.\n\nShe trained first as a classical actress at the Royal Academy of Dramatic Arts.  She has performed on Broadway in two productions as well as off-Broadway.  She did several years of experimental theater with Andre Gregory, as well as regional theaters around the country.  Other trainings include Spacial Dynamics with Jaimen Macmillan and Gestalt Training with Mariah Gladis.  She has been teaching Drama and directing plays at Kimberton Waldorf School for 20 years.  This form of clowning combines her passion for improvisation and theatre, her quest for what it is to be human, and discovering freedom through play.",
     "photo": "https://www.nosetonose.info/images/Angie.jpg",
     "country": "United States",
@@ -99,7 +85,7 @@
   {
     "id": "bertil-sylvander",
     "name": "Bertil Sylvander",
-    "person_type": "facilitator",
+    "person_type": "associate-facilitator",
     "status": "active",
     "background": "Cofondateur du Bataclown, Responsable de formation au Bataclown, acteur-clown et clownanalyste dans la Compagnie “Les Clownanalystes du Bataclown”. Formateur dans les stages du Bataclown (formation de base et formation certifiante “clown et intervention sociale”, coresponsable pédagogique de la filière “Secteur événementiel” ).\n\nIl a travaillé le théâtre et l’improvisation, le masque, le mime, la commedia dell’arte, la voix, le clown, le bouffon et le fou du roi avec la Cie “Le Fil à Plomb” (Christian Cailleret), la Cie “Omnibus” (méthode Decroux), Serge Martin, Georges Bonnaud, Hervé Laudières, le Roy Hart Théâtre, etc. Il a travaillé le piano et la clarinette. Gymnastique sensorielle méthode Danis Bois depuis 2006.\nIl a joué dans les spectacles du “Rateau Bavoir” (Fanfare clownesque) de 1978 à 80 et du Bataclown (depuis 1980).\nMetteur en scène de spectacles de clown-théâtre : “Avec Plaisir” (Cie les Karamazones, 1988), “La Papillonne” (Cie Clown toi-même, 1990), “La débâcle” (Cie Nez au vent , 1992), “Comme un cheveu sur la soupe” (Cie les Piqués du Nez, 1993), “Le Grand Poucet” (Cie Pierre Courtiade, 2008), “Les grands mythes d’Albert” (Cie Bulldartis, 2008).\nCofondateur du Centre de Recherche sur le Clown Contemporain et membre du comité de rédaction de la revue semestrielle Culture clown (2000-2015). Cofondateur de la Fédération Optimiste du Clown d’utilité social (FOCUS-Acteurs-clowns).",
     "photo": "https://www.bataclown.com/local/cache-vignettes/L350xH230/arton981-a98c1.jpg?1732687055",
@@ -109,7 +95,7 @@
   {
     "id": "beth-maiden",
     "name": "Beth Maiden",
-    "person_type": "facilitator",
+    "person_type": "associate-facilitator",
     "status": "active",
     "background": "– Movement and Dance Improvisation\n\nBeth has always enjoyed dancing, but fell in love with movement improvisation in her 30s. At first practicing solo and in secret (“what is this weird thing I love to do?”) and then finding the courage to move with others (“wow, it’s even better when we do it together!”)\n\nShe is fascinated by the the magic that happens when we allow our bodies to move and communicate without judgement. Sometimes silly, sometimes profound, often both, Beth believes dance and movement are powerful ways to listen to those parts of ourselves that don’t get heard in everyday life.\n\nBeth now considers dance improvisation central to her life and wellbeing, and is continually seeking out new approaches to dance to deepen her understanding of this practice. Among others she has studied with Nose to Nose, the School of Disobedience and Cai Tomos, as well as teacher training with Mettler Studios in the US.",
     "photo": "https://www.nosetonose.info/uk/wp-content/uploads/2022/09/IMG_7670-239x300.jpg",
@@ -119,7 +105,7 @@
   {
     "id": "blondine-maurice",
     "name": "Blondine Maurice",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "Blondine has raised 7 children, has 8 grand children and been\n a Waldorf Early Childhood teacher since 1980. These experiences\n granted her many opportunities to find the humor in everyday life.\n\nAssisting for 7 years in various transformative workshops and\n Body Mind Therapy training has helped Blondine to develop ease in\n holding space, listening and creating a safe environment for emerging\n clowns. Meanwhile she creates a lifetime journey towards her business:\n The Heart Nose and the healing power of laughter.\n\nHer quest ...encountering in innocence & wonder, favorite\n quote of the day: You can\n discover more about a person in an hour of play than in a year of\n conversation Plato",
     "photo": "https://www.nosetonose.info/images/blondine.jpg",
     "country": "United States",
@@ -129,7 +115,7 @@
   {
     "id": "carol-thompson",
     "name": "Carol Thompson",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "Carol's training was in English and Theatre Arts at the University\n of Toronto and the Drama Studio in London. She worked in Education\n and Theatre for some years and then qualified to be a Psychosynthesis\n therapeutic counsellor and an NLP Master Practitioner. Carol took\n these skills into business in the private and public sectors as\n a Communication Skills Trainer. In recent years she has become involved\n in the positive psychology movement as a Laughter Leader and now\n a Clowning Facilitator, combining her interests in education, theatre\n and psychology.",
     "photo": "https://www.nosetonose.info/images/carol.jpg",
     "country": "Canada",
@@ -139,7 +125,7 @@
   {
     "id": "catherine-bryden-canada-uk",
     "name": "Catherine Bryden (Canada / UK)",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "Catherine\nhas been teaching at the Rudolf-Steiner School in Gröbenzell,\nMunich, Germany since 2001. In Canada, she studied Developmental\nPsychology, Theater, Teaching English as a Second Language (TESL),\nand Translation. She has taught ESL in Canada, Taiwan, Singapore\nand Germany, where she founded and directed children’s summer\nlanguage camps in French and English. In the last 5 years, she has\nbeen conducting workshops for teachers and student-teachers in communication,\nimprovisation and clowning in Stuttgart and the Witten Annen Seminar\nfor Waldorf teachers, as well as at her school in Munich. She has\nbeen coordinating various UNESCO projects, in conjunction with students,\nparents, and colleagues. For the last two years, she has been training\nand practicing conflict and mediation. She speaks English, French,\nand German.",
     "photo": null,
     "country": "Canada",
@@ -149,7 +135,7 @@
   {
     "id": "chris-seeley",
     "name": "Chris Seeley",
-    "person_type": "facilitator",
+    "person_type": "associate-facilitator",
     "background": "I spent much of my childhood making art and my first degree was in\ndesign, specialising in typography. Beginning in corporate design,\nI moved (via Masters' degrees in Marketing and Responsibility and\nBusiness Practice), to business consultancy, action research and sustainability.\nI then came to weave arts-based practice back into the mainstream\nof my work. My involvement with sustainability issues brought to the\nfore the need for our species, to come to know the world in many different\nways - including \"presentational knowing\" or arts-based\npractice. Increasingly, I have worked in the visual arts, improvisation,\nstorytelling, clowning and forum theatre (in Sri Lanka) in my educational,\nbusiness and development work. I am a Visiting Fellow at the Centre\nfor Action Research in Professional Practice, and my consultancy work\nis deeply informed by and concerned with action research processes.\nThis interweaving of my concerns was articulated in my unconventional\n2006 PhD - \"Wild Margins: Playing at work and life\" which\nexplores the overlapping relationship between purposeful work and\nthe arts, and arts-based practice (especially clowning) which holds\nintentions around sustainability issues.\n\n© 2024 - Nose to Nose - Clown workshops.\n\n:   [![](https://www.nosetonose.info/images/nez.gif)](https://www.nosetonose.info/previousassociates.htm)\n\n:   [![](https://www.nosetonose.info/images/nez.gif)](https://www.nosetonose.info/previousassociates.htm)\n\n:   [![](https://www.nosetonose.info/images/nez.gif)](https://www.nosetonose.info/previousassociates.htm)\n\n:   [![](https://www.nosetonose.info/images/nez.gif)](https://www.nosetonose.info/previousassociates.htm)\n\n:   [![](https://www.nosetonose.info/images/nez.gif)](https://www.nosetonose.info/previousassociates.htm)\n\n:   [![](https://www.nosetonose.info/images/nez.gif)](https://www.nosetonose.info/previousassociates.htm)\n\n:   [![](https://www.nosetonose.info/images/nez.gif)](https://www.nosetonose.info/previousassociates.htm)",
     "photo": null,
     "country": null,
@@ -159,34 +145,17 @@
   {
     "id": "christine-marie-macri",
     "name": "Christine Marie Macri",
-    "person_type": "team",
+    "person_type": "team-facilitator",
     "background": "Christine Macri, nata a Harrisburg, Pennsylvania, USA nel 1960. Laureata alla Miami University, Ohio; Bachelor of Arts con specializzazione in psicologia nell’età evolutiva. Oltre trent’anni di lavoro nell’arte dell’ insegnamento della lingua inglese a tutte le età da 0 a 99 anni, esperienze alternative al classico modo di formazione. Insegnante presso le scuole dell’Associazione per la Pedagogia Steineriana di Bologna per 20 anni. Coordinatrice di seminari nazionali ed internazionali e formatrice nel campo dell’ arte di insegnamento delle lingue straniere dal 2012 al 2017 per le Scuole Waldorf Italia.\n\nSi interessa al Clowning dal 2007 e comincia nello stesso anno ad organizzare e a partecipare ad una serie di laboratori di Clowning per adulti e ragazzi. Ha studiato l’arte del teatro e del Clowning con ilmaestro Robert McNeer, fondatore dell’associazione, “La Luna nel Pozzo” che promuove il teatro e l’arte del Clown anche come esperienza e terapia per i disabili. Ha collaborato con Patrizia Krauss – Clown, Mime e Ballerina Statunitense, 2011/2012.\n\nA gennaio di 2012 inizia la formazione per approfondire l’argomento del clown, diventando facilitatore progettando e conducendo diversi laboratori insieme a Vivian Gladwell, fondatore di Nose to Nose.E’ Coordinatrice di Nose to Nose Italia dal 2012.\n\nHa participato nel 2023 in collaborazione con “The Hands Up Project” nel progetto di Remote Theatre (teatro da remoto) producendo un cortometraggio da remoto assieme ad un gruppo internazionale di ragazzi tra i 12 ed i 14 anni.\n\nPerché il clown è puramente un educatore, l’esperienza del clowning viene riportata non solo nei percorsi didattico formativi espressivi nell’insegnamento della lingua ma anche praticato conducendo laboratori di clowning per adulti, ragazzi e famiglie con Nose to Nose Italia.",
     "photo": null,
     "country": "United States",
     "status": "active",
-    "region": "North America",
-    "source_urls": [
-      "https://www.nosetonose.info/it/il-nostro-gruppo"
-    ]
-  },
-  {
-    "id": "david-wheeler",
-    "name": "David Wheeler",
-    "person_type": "team",
-    "background": "[wheeler@nosetonose.info](mailto:wheeler@nosetonose.info)",
-    "photo": null,
-    "country": "United Kingdom",
-    "status": "active",
-    "region": "UK",
-    "source_urls": [
-      "https://www.nosetonose.info/facilitators%20in%20training.htm",
-      "https://www.nosetonose.info/uk/facilitators-in-training-2012-14"
-    ]
+    "region": "North America"
   },
   {
     "id": "dr-andy-pride-gp",
     "name": "Dr Andy Pride (GP)",
-    "person_type": "facilitator",
+    "person_type": "associate-facilitator",
     "background": "SECOND FACILITATOR TRAINING (2006-2008) Not active presently\n\nAndy is a practicing GP. He has found that clowning maintained his sanity whilst working within the sometime mad world of public services.\n\nHe has studied clowning with Vivian Gladwell (Nose to Nose) Didier Danthois (Fool at Heart) Patch Adams (Gesundheit!) Angela De Castro (Why Not Institute of Contemporary Clowning) and others.\n\nHe has experience of clowning in theatre, street, social and institutional settings and more recently lead workshops using clowning to enhance communication skills and personal awareness for groups such as GP’s and Palliative care staff.\n\n[read more …](http://www.nosetonose.info/courses/jackiemoore.htm)\n\nI spent much of my childhood making art and my first degree was in design, specialising in typography. Beginning in corporate design, I moved (via Masters’ degrees in Marketing and Responsibility and Business Practice), to business consultancy, action research and sustainability. I then came to weave arts-based practice back into the mainstream of my work. My involvement with sustainability issues brought to the fore the need for our species, to come to know the world in many different ways – including “presentational knowing” or arts-based practice. Increasingly, I have worked in the visual arts, improvisation, storytelling, clowning and forum theatre (in Sri Lanka) in my educational, business and development work. I am a Visiting Fellow at the Centre for Action Research in Professional Practice, and my consultancy work is deeply informed by and concerned with action research processes. This interweaving of my concerns was articulated in my unconventional 2006 PhD – “Wild Margins: Playing at work and life” which explores the overlapping relationship between purposeful work and the arts, and arts-based practice (especially clowning) which holds intentions around sustainability issues.",
     "photo": null,
     "country": "United Kingdom",
@@ -196,7 +165,7 @@
   {
     "id": "emma-leech",
     "name": "Emma Leech",
-    "person_type": "facilitator",
+    "person_type": "associate-facilitator",
     "status": "active",
     "background": "Emma Leech’s teaching embodies the spirit of Gabrielle Roth, the inspirational founder of 5 Rhythms.\n\nAfter identifying her potential in London in 1991 , Gabrielle encouraged her, took her to the US to work with her, and funded her training.\n\nFor the past 25 years Emma has taught 5 Rhythms in Britain and around the world, always staying true to the original approach she learned direct from Gabrielle.\n\nRecognising the extraordinary power of the practice to heal and to transform lives, she pioneered its use in prisons, refugee camps , addiction recovery clinics in Harley Street to the slums of Kolkata.\n\nEmma is now one of the most skilled and experienced 5 Rhythms instructors in the world.\n\nThe 5 Rhythms came into Emma’s world of theatre, visual arts and social justice work over 30 years ago.\n\nTeaching since 2001 her particular flavour is rich with the tapestry woven of “street wise’ and humour, weaving in the edges of the artistic meets’ real life.’\n\n[![](https://www.nosetonose.info/uk/wp-content/uploads/2021/04/128838192_10158816587148684_35942922814197665_n-2-257x300.jpg)](https://www.nosetonose.info/uk/wp-content/uploads/2021/04/128838192_10158816587148684_35942922814197665_n-2.jpg)",
     "photo": "https://www.nosetonose.info/uk/wp-content/uploads/2025/04/emmaleach_22062023_BW-155-225x300.jpeg",
@@ -206,18 +175,12 @@
   {
     "id": "hanna-mosch",
     "name": "Hanna Mosch",
-    "person_type": "team",
+    "person_type": "team-facilitator",
     "background": "Hanna has worked as a school teacher, also teaching German to people from all over the world. Currently she works as a legal guardian and as a consultant for families. People with questions and difficulties are close to her heart as they have taught her the most about life and love.\n\nShe discovered clowning at 2004, qualified in the Facilitator training of 2012-2014 with Nose to Nose and has worked with various groups teaching clowning in Germany and Britain since. Her warm receptiveness and joy in accompanying others resonates in her work.\n\nShe is fluent in German and English and lives as a mother of three near Munich.\n\n[Click here for previous associates…](http://www.nosetonose.info/previousassociates.htm)",
     "photo": null,
     "country": "Germany",
     "status": "active",
-    "region": "Europe",
-    "source_urls": [
-      "https://www.nosetonose.info/de/dozentinnen",
-      "https://www.nosetonose.info/facilitators%20in%20training.htm",
-      "https://www.nosetonose.info/uk/facilitators-in-training-2012-14",
-      "https://www.nosetonose.info/uk/our-team"
-    ]
+    "region": "Europe"
   },
   {
     "id": "jackie-moore",
@@ -238,7 +201,7 @@
   {
     "id": "jessica-hernandez",
     "name": "Jessica Hernandez",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "Jessica studied Speech and Drama in Switzerland and England from 2002 and decided to try out a Nose to Nose clowning course in 2004, which sent her on a wonderfully joyous clown journey and messed badly with her sense of wanting to get things “right”. From 2006, she trained as a clown facilitator with Vivian Gladwell. Since then, Jessica has been working as an actress, storyteller and clown facilitator. Her multilinguistic background has sent her on many adventures abroad to work with teachers, health care professionals and people with additional support needs. A mother of two young clowns, Jessica lives and mainly works in Scotland, where she has recently trained to become a Forest School Leader. This allows her to combine her love of stories and playfulness with all that Mother Nature has to offer.\n\n---\n\n# Germany team\n\n---\n\n#",
     "photo": null,
     "country": "Switzerland",
@@ -248,7 +211,7 @@
   {
     "id": "kate-raworth",
     "name": "Kate Raworth",
-    "person_type": "facilitator",
+    "person_type": "associate-facilitator",
     "status": "active",
     "background": "Kate Raworth (sounds like ‘Ray-worth’) is a renegade economist focused on making economics fit for 21st century realities. She is the creator of the [Doughnut](https://doughnuteconomics.org/about-doughnut-economics) of social and planetary boundaries, and co-founder of [Doughnut Economics Action Lab](https://doughnuteconomics.org/).\n\nHer internationally best-selling book *Doughnut Economics: seven ways to think like a 21st century economist* has been translated into over 20 languages and has been widely influential with diverse audiences, from the UN General Assembly to Pope Francis to Extinction Rebellion.\n\nKate is a Senior Teaching Fellow at Oxford University’s [Environmental Change Institute](http://www.eci.ox.ac.uk/), where she teaches on the Masters in [Environmental Change and Management](https://www.ox.ac.uk/admissions/graduate/courses/msc-environmental-change-and-management?wssl=1). She is also Professor of Practice at [Amsterdam University of Applied Sciences](https://www.amsterdamuas.com/).\n\nOver the past 25 years, Kate’s career has taken her from working with micro-entrepreneurs in the villages of Zanzibar to co-authoring the Human Development Report for UNDP in New York, followed by a decade as Senior Researcher at Oxfam.\n\nShe holds a first class BA in Politics, Philosophy and Economics, and an MSc in Economics for Development, both from Oxford University. She has been awarded honorary doctorates by the University of York, University College Dublin, KU Leuven, and Business School Lausanne. She is also a member of the Club of Rome and Honorary Fellow of the Royal Academy of the Arts.\n\nKate has written extensively for media including *The Guardian*, *The New Statesman*, *Newsweek.com*, and *Wired.com*, and has contributed to many radio programmes including for BBC Radio 4, The World Service, ABC and NPR, as well as television including CNN World News, Al-Jazeera, BBC, ITV and CBC. Her 2018 [TED talk](https://www.ted.com/talks/kate_raworth_a_healthy_economy_should_be_designed_to_thrive_not_grow) has over 5 million views.",
     "photo": "https://www.kateraworth.com/wp/wp-content/uploads/2021/01/Kate-Raworth-04-by-Roman-Krznaric-1-scaled.jpg",
@@ -258,7 +221,7 @@
   {
     "id": "kristin-spaeth-crowley",
     "name": "Kristin Spaeth Crowley",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "Kristin did not come to clowning by choice, but was forced into\n it by wiser others who knew where she belonged. Her work as a clown\n and facilitator led her to the fumbling discovery and recovery of\n a language she knows inwardly, loves, and could have lost. Her specialties\n include weeping, falling in love, making mischief, and the invisible.\n She is grateful for the inspiration and example of those brilliant,\n talented and generous people she has been privileged to work with\n or been touched by - artists, musicians, athletes, educators, poets,\n seekers, thinkers, healers, and other ordinary fearful and courageous\n spirits willing to risk and dare. She is amazed and astonished by\n her family, her parents and siblings, her children, and those she\n has claimed unjustly as her own; by those braver than she, facing\n the ordinary challenges connected with being alive; and by forgiveness.\n\n She is interested in presences and possibilities.\n\n She is informed by life and living, by beauty, ugliness, music,\n laughter, poetry, nature, stillness, cruelty, and compassion, by\n brave souls and tender hearts  by the struggle to realize the impulse\n that initiated a wish to be, and by the work she has to do. The\n mistakes she makes: the limitations she must overcome; the struggles\n she faces in being and becoming; the gifts she has been given; and\n her sense of wonder, reverence, and gratitude inform and guide her\n in her work with others. She works with individuals, companies,\n institutions, agencies, and organizations. She still struggles and\n falls down.",
     "photo": "https://www.nosetonose.info/images/Kristin.jpg",
     "country": "United States",
@@ -268,7 +231,7 @@
   {
     "id": "laura-geilen",
     "name": "Laura Geilen",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "Laura Geilen teaches dance, Spacial Dynamics,\n circus arts, therapeutic movement, acro-yoga and clowning to children,\n adults, and special needs groups in schools, workplaces, institutions\n and privately. Laura is a member of Walking the dog Theater's\n OFF LEASH! Improv Theater Ensemble, and is a facilitator\n with Nose to Nose. She believes in clowning as a personal practice\n and journey towards greater truth, freedom and aliveness and also\n as a social art that can re-connect us to the world and bring\n healing to our relationships.",
     "photo": "https://www.nosetonose.info/images/laura.jpg",
     "country": "United States",
@@ -276,23 +239,9 @@
     "region": "North America"
   },
   {
-    "id": "lilach-danin-lavee",
-    "name": "Lilach Danin Lavee",
-    "person_type": "team",
-    "background": "[lilach@nosetonose.info](mailto:lilach@nosetonose.info)*",
-    "photo": null,
-    "country": "Israel",
-    "status": "active",
-    "region": "Europe",
-    "source_urls": [
-      "https://www.nosetonose.info/facilitators%20in%20training.htm",
-      "https://www.nosetonose.info/uk/facilitators-in-training-2012-14"
-    ]
-  },
-  {
     "id": "paul-macdonald",
     "name": "Paul MacDonald",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "FIRST FACILITATOR TRAINING (1998-2000)\n\nPaul taught drama and clowning at the Artemis School in Peredur, East\nSussex where he first trained in Creative Speech. He also runs clown\nworkshops for Waldorf teachers, doctors and Special Needs groups.\nHe is currently directing a number of clown performances.",
     "photo": "https://www.nosetonose.info/images/paul2.jpg",
     "country": "United Kingdom",
@@ -302,7 +251,7 @@
   {
     "id": "piotr-bujak",
     "name": "Piotr Bujak",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "Piotr has been facilitating ‘Discover the Clown Within’\n workshops for 7 years. After graduating from Artemis School of Speech\n and Drama (UK 2004) he completed the Nose to Nose clown facilitator\n training and was organizing clowning workshops in Scotland, Poland\n and New Zealand, before settling down in Ireland in 2010. He also\n works as a therapeutic speech practitioner for Camphill Communities\n of Ireland. Piotr has his origins in Poland. He and his familly\n now reside in Callan Co. Kilkenny.\n\n[read more ...](https://www.nosetonose.info/courses/jackiemoore.htm)\n\n[![](https://www.nosetonose.info/images/nez.gif)](https://www.nosetonose.info/team.htm)",
     "photo": "https://www.nosetonose.info/images/piotr.jpg",
     "country": "Ireland",
@@ -312,7 +261,7 @@
   {
     "id": "robert-mcneer",
     "name": "Robert McNeer",
-    "person_type": "facilitator",
+    "person_type": "associate-facilitator",
     "background": "SECOND FACILITATOR TRAINING (2006-2008)\n\nBorn in the United States in 1957, McNeer has worked as an actor and\ntheatrical educator in the USA and in Europe since 1977.\nWith a Bachelor’s degree in the “Interpretation of Literature”\nfrom Northwestern University, he also studied at the Mimenschule Ilg\nin Zurich and with Tadashi Suzuki in Togamura, Japan.\nHe regularly conducts seminars for actors and educators in Germany,\nand acting courses in Puglia, southern Italy. In 13 years of acting\nwork with Teatro Kismet in Bari, Italy, he has also taught theatre\nin schools, prisons and psychiatric wards. He has worked as an actor\nin front of children and adults in Asia and the Middle East as well\nas throughout Europe.\nIn 1999, together with his wife Pia Wachter, he founded La Luna nel\nPozzo (The Moon in the Well), a cultural centre in the countryside\nnear Ostuni (Brindisi province), in southern Italy, where, aside from\nhis work as director and actor, he continues his theatrical research\nwith non-professional actors (young people, teachers, social workers,\ndifferently-abled), both in theatrical and non-theatrical settings,\nsuch as the countryside, town squares and historical neighborhoods,\narcheological sites. ... read more.",
     "photo": null,
     "country": "United States",
@@ -322,7 +271,7 @@
   {
     "id": "sarah-french",
     "name": "Sarah French",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "Sarah French was a practicing psychotherapist before turning,\nwith relief and joy, to the paradoxical world of Clown. Sarah\nsees clowning as an invitation to celebrate full being. She\nhas practiced clowning around the world with Jef Johnson, Vivian\nGladwell, and the wild dolphins of Hawaii, who are all research\npartners in a lifelong study of play. Sarah facilitates playshops\non her own and with other collaborators. She holds an MSW from\nNew York University and lives in Brooklyn, NY.\n\n![](https://www.nosetonose.info/images/ann.jpg)",
     "photo": "https://www.nosetonose.info/images/French-5.jpg",
     "country": "United States",
@@ -332,7 +281,7 @@
   {
     "id": "sharon-usher",
     "name": "Sharon Usher",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "Sharon's background is in scientific and environmental research, organisational\nconsultancy, group facilitation and community building. She has worked\nin both corporate and community contexts. She was director of the\nSutton Courtenay Abbey (*a community and retreat centre*) for\n8 years. In addition to training with Nose to Nose she has studied\nsacred clowning with Didier Danthois and toured with an improvisational\ntheatre company with Jonathan Kay’s Theatre of Now. Her main\ninterest these days is in Social Clowning - how the clown can allow\nthe heart fully back into organisational life.",
     "photo": "https://www.nosetonose.info/images/sharon.jpg",
     "country": "United Kingdom",
@@ -340,23 +289,9 @@
     "region": "UK"
   },
   {
-    "id": "susan-coughlan",
-    "name": "Susan Coughlan",
-    "person_type": "team",
-    "background": "[dublin@nosetonose.info](mailto:dublin@nosetonose.info)*",
-    "photo": null,
-    "country": "Ireland",
-    "status": "active",
-    "region": "Europe",
-    "source_urls": [
-      "https://www.nosetonose.info/facilitators%20in%20training.htm",
-      "https://www.nosetonose.info/uk/facilitators-in-training-2012-14"
-    ]
-  },
-  {
     "id": "terry-harrington",
     "name": "Terry Harrington",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "FIRST FACILITATOR TRAINING (1998-2000)\n\nTerry began organising Nose to Nose workshops in the UK in 1994. A\ntrained counsellor, she works on a helpline for children and families\nand facilitates non-directive play with children and young people.\nShe runs clown workshops for counsellors and for team building in\norganisation.",
     "photo": "https://www.nosetonose.info/images/terry5.jpg",
     "country": "United Kingdom",
@@ -366,20 +301,17 @@
   {
     "id": "tita-ruggeri",
     "name": "Tita Ruggeri",
-    "person_type": "team",
+    "person_type": "team-facilitator",
     "background": "La sua passione per il teatro nasce ai tempi del liceo, dove ha occasione di partecipare ad alcuni spettacoli di teatro sperimentale. Decide, così di approfondire la sua conoscenza del teatro iscrivendosi al DAMS Spettacolo di Bologna e frequentando diversi stages di recitazione, dizione, acrobatica, mimo e clownerie. Incontra insegnanti come Dominique De Fazio, Matilde Marullo, Pierre Byland, Vivian Gladwell, che è stato suo formatore per diventare **Clowning facilitator.**\n\nContemporaneamente comincia a lavorare con gruppi e compagnie interpretando **differenti ruoli,** fino ad arrivare al cabaret ed al comico, passando per la **presentazione** “ironica” di decine di manifestazioni di vario genere sia bolognesi che italiane, senza mai tralasciare la **prosa.**\n\nTeatro, cinema e televisione fanno parte della sua carriera artistica.\n\nInoltre, proprio l’esperienza accumulata negli anni, le permette di portare avanti parallelamente, la **conduzione di workshops teatrali** , e ultimamente anche di **Clowning,** rivolti a bambini e bambine, adolescenti e anche adulti. [www.titaruggeri.com](https://www.titaruggeri.com)",
     "photo": "http://www.nosetonose.info/it/wp-content/uploads/2015/01/tita_edited-230x300.jpg",
     "country": "Italy",
     "status": "active",
-    "region": "Europe",
-    "source_urls": [
-      "https://www.nosetonose.info/it/il-nostro-gruppo"
-    ]
+    "region": "Europe"
   },
   {
     "id": "toby-spaven",
     "name": "Toby Spaven",
-    "person_type": "facilitator",
+    "person_type": "associate-facilitator",
     "status": "active",
     "background": "Toby is a drag artist, and dancer and works as a builder by day.  They have been training with nose to nose as a clown facilitator and has been transformed by the nose to nose courses. They facilitate groups in the construction and sports industry to build trust and vulnerability within the working and playing culture. They love to play.\n\nToby has had the fortune to be involved in the building maintenance on Ynys Enlli and fell in love with the island as soon as they stepped off the boat.",
     "photo": "https://www.nosetonose.info/uk/wp-content/uploads/2026/06/Image-1-300x233.jpeg",
@@ -389,7 +321,7 @@
   {
     "id": "vivian-gladwell",
     "name": "Vivian Gladwell",
-    "person_type": "facilitator",
+    "person_type": "team-facilitator",
     "background": "Vivian is the founder and director of Nose to Nose and has given\n hundreds of workshops around the world. He lives both in the UK\n and France where he started clowning in 1978. He speaks French and\n English fluently.\n\nVivian began teaching in 1988 as part of the Lifeways Festival\n at [Emerson College](http://www.emerson.org.uk/clowning)\n – UK. He trained as a facilitator with the [Bataclown](http://www.bataclown.com/)\n in 1990 and joined their team in 1991 also working as a modern day\n Court Jester ([Clownanalyst](http://www.bataclown.com/Congres-colloques-journees-professionnelles-AG-seminaires-d-entreprise.html)).\n\nHe created [Nose to Nose UK](http://nosetonose.info/uk)\n in 1990, [Nose to Nose of North\n America](http://nosetonose.info/na/) in 2006, [Nose\n to Nose Germany](http://www.nosetonose.info/de/) in 2008, [NTN\n Italy](http://www.nosetonose.info/it) in 2016 and Fool View, the Social Clowning group and has\n trained facilitators in the UK, the USA, Germany and Italy –\n [view history](http://www.nosetonose.info/briefhistory.htm).\n\n He continues his role as ambassador for the work by researching\n the applications of clowning in the context of teacher training,\n medicine, conflict management, ecology and intercultural work in\n many countries (South Africa, USA, Senegal, Vietnam, India, Malaysia,\n Italy, Germany, Norway…)\n\nHe holds clowning as a social playground for exploring our humanity.",
     "photo": "https://www.nosetonose.info/imagesViviannew.jpg",
     "country": "United Kingdom",

@@ -804,6 +804,19 @@ FACILITATOR_SOURCE_PAGE_IDS = frozenset({
     "nax/team-na",
 })
 
+TEAM_FACILITATOR_PAGE_IDS = FACILITATOR_SOURCE_PAGE_IDS | frozenset({
+    "uk/our-team",
+    "de/dozentinnen",
+    "it/il-nostro-gruppo",
+    "pl/team",
+    "na/our-team-in-north-america",
+})
+
+TRAINING_PAGE_IDS = frozenset({
+    "facilitators-in-training",
+    "uk/facilitators-in-training-2012-14",
+})
+
 PREVIOUS_ASSOCIATE_PAGE_IDS = frozenset({
     "previousassociates",
     "uk/previous-associates",
@@ -815,9 +828,40 @@ PASSED_AWAY_PAGE_IDS = frozenset({
 
 PERSON_TYPE_PRIORITY = {
     "facilitator": 4,
+    "team-facilitator": 4,
+    "associate-facilitator": 4,
     "team-passed-away": 3,
     "team": 1,
 }
+
+
+def is_facilitator_person_type(person_type: str | None) -> bool:
+    return person_type in {"facilitator", "team-facilitator", "associate-facilitator"}
+
+
+def person_on_team_pages(person: dict) -> bool:
+    pages = set(person.get("source_page_ids") or [])
+    return bool(pages & TEAM_FACILITATOR_PAGE_IDS)
+
+
+def person_only_from_training_pages(person: dict) -> bool:
+    pages = set(person.get("source_page_ids") or [])
+    return bool(pages) and pages <= TRAINING_PAGE_IDS
+
+
+def classify_facilitator_person_type(
+    person: dict,
+    *,
+    on_team: bool,
+    facilitates: bool,
+) -> str | None:
+    if person.get("person_type") == "team-passed-away":
+        return "team-passed-away"
+    if on_team:
+        return "team-facilitator"
+    if facilitates or is_facilitator_person_type(person.get("person_type")):
+        return "associate-facilitator"
+    return None
 
 TEAM_PAGE_EXCLUDES = (
     "approach",
@@ -854,6 +898,222 @@ def canonicalize_venue_name(name: str) -> str:
     if "bardsey" in key or "enlli" in key or "ynys" in key:
         return "Bardsey Island / Ynys Enlli"
     return name
+
+
+UK_POSTCODE_RE = re.compile(r"^[A-Z]{1,2}\d{1,2}[A-Z]?\s*\d[A-Z]{2}$", re.I)
+EU_POSTAL_CITY_RE = re.compile(r"^\d{4,5}\s+(.+)$")
+
+LOCATION_ADMIN_TERMS = {
+    *COUNTRY_ALIASES.keys(),
+    "suisse",
+    "west sussex",
+    "east sussex",
+    "north sussex",
+    "south sussex",
+    "leicestershire",
+    "surrey",
+    "kent",
+    "essex",
+    "hampshire",
+    "yorkshire",
+    "lancashire",
+    "cornwall",
+    "devon",
+    "somerset",
+    "norfolk",
+    "suffolk",
+    "cumbria",
+}
+
+STREET_WORDS_RE = re.compile(
+    r"\b(?:road|street|st|avenue|ave|lane|drive|way|close|crescent|court|"
+    r"place|boulevard|blvd|straat|strasse|straße)\b",
+    re.I,
+)
+
+TITLE_LOCATION_SKIP = {
+    "uk",
+    "usa",
+    "a one-day introduction to clowning",
+    "a five day workshop",
+    "a 5-day clowning workshop",
+    "weekend",
+    "weekend clown",
+    "clown",
+    "clowning",
+    "introduction to clowning",
+    "one day intro to clowning",
+    "setting your clown free",
+    "the courage to be",
+    "courage to be",
+    "clown 1",
+    "clown 2",
+    "clown 3",
+    "masterclass",
+    "social clowning",
+    "the heart and clown",
+    "the joy of breaking rules",
+    "le clown",
+    "le conflit et sa transformation",
+}
+
+
+def _title_case_location(text: str) -> str:
+    text = clean_text(text)
+    if text.isupper() and len(text) > 2:
+        return text.title()
+    return text
+
+
+def _is_postcode_part(part: str) -> bool:
+    part = part.strip()
+    if UK_POSTCODE_RE.match(part):
+        return True
+    if EU_POSTAL_CITY_RE.match(part):
+        return True
+    return False
+
+
+def _postal_city_part(part: str) -> str | None:
+    m = EU_POSTAL_CITY_RE.match(part.strip())
+    return _title_case_location(m.group(1)) if m else None
+
+
+def _is_admin_area(part: str) -> bool:
+    return part.strip().lower() in LOCATION_ADMIN_TERMS
+
+
+def _is_street_part(part: str) -> bool:
+    part = part.strip()
+    lower = part.lower()
+    if re.match(r"^\d", part):
+        return True
+    if STREET_WORDS_RE.search(part):
+        return True
+    if "community centre" in lower or "front hall" in lower:
+        return True
+    if lower.endswith(" village hall") or lower == "village hall":
+        return True
+    return False
+
+
+def _is_venue_facility_name(part: str) -> bool:
+    lower = part.lower()
+    return any(hint in lower for hint in VENUE_NAME_HINTS)
+
+
+def _place_parts_from_text(text: str, *, skip_facility_names: bool = False) -> list[str]:
+    parts = [clean_text(p) for p in text.split(",") if clean_text(p)]
+    places: list[str] = []
+    for part in parts:
+        postal_city = _postal_city_part(part)
+        if postal_city:
+            places.append(postal_city)
+            continue
+        if _is_postcode_part(part) or _is_admin_area(part) or _is_street_part(part):
+            continue
+        if skip_facility_names and _is_venue_facility_name(part):
+            continue
+        places.append(_title_case_location(part))
+    return places
+
+
+def _location_quality(location: str, venue_name: str) -> int:
+    if not location:
+        return -1
+    if len(location.split()) > 4:
+        return 0
+    if _is_venue_facility_name(location):
+        return 0
+    if location.lower() == clean_text(venue_name).lower():
+        if len(location.split()) == 1:
+            return 1
+        return 0
+    return 1
+
+
+def _city_from_title_segment(segment: str) -> str | None:
+    segment = clean_text(segment)
+    if not segment or segment.lower() in TITLE_LOCATION_SKIP:
+        return None
+    at_end = re.search(
+        r"\b(?:at|on|near)\s+([A-Za-zÀ-ÿ][A-Za-zÀ-ÿ\s/\-]{0,40})$",
+        segment,
+        re.I,
+    )
+    if at_end:
+        segment = clean_text(at_end.group(1))
+    if segment.lower() in TITLE_LOCATION_SKIP or _is_street_part(segment):
+        return None
+    return _title_case_location(segment)
+
+
+def extract_location_from_title(title: str) -> str | None:
+    if not title:
+        return None
+
+    if re.search(r"\bcentral\s+london\b", title, re.I):
+        return "London"
+
+    near = re.search(r"\bnear\s+([A-Za-zÀ-ÿ\-]+)", title, re.I)
+    if near:
+        return _title_case_location(near.group(1))
+
+    parts = [clean_text(p) for p in re.split(r"[–\-,]", title) if clean_text(p)]
+    if len(parts) >= 2 and parts[-1].lower() in COUNTRY_ALIASES:
+        candidate = _city_from_title_segment(parts[-2])
+        if candidate:
+            return candidate
+
+    return None
+
+
+def extract_venue_location(name: str, address: str | None = None) -> str | None:
+    name = clean_text(name)
+
+    if address and clean_text(address).lower() != name.lower():
+        places = _place_parts_from_text(address, skip_facility_names=True)
+        if places:
+            return places[-1]
+
+    places = _place_parts_from_text(name, skip_facility_names=True)
+    if places:
+        return places[-1]
+
+    village = re.match(r"^([A-Za-zÀ-ÿ\-]+)\s+village\s+hall", name, re.I)
+    if village:
+        return _title_case_location(village.group(1))
+
+    simple = clean_text(name.split(",")[0])
+    lower = simple.lower()
+    if simple and len(simple.split()) == 1 and lower not in LOCATION_ADMIN_TERMS:
+        if not _is_venue_facility_name(simple):
+            return _title_case_location(simple)
+
+    return None
+
+
+def update_venue_location(venue: dict, title: str = "") -> None:
+    candidates: list[tuple[int, str]] = []
+    name = venue.get("name", "")
+
+    loc = extract_venue_location(name, venue.get("address"))
+    if loc:
+        candidates.append((_location_quality(loc, name), loc))
+
+    if title:
+        title_loc = extract_location_from_title(title)
+        if title_loc:
+            candidates.append((_location_quality(title_loc, name), title_loc))
+
+    if not candidates:
+        return
+
+    best_score, best_loc = max(candidates, key=lambda item: item[0])
+    current = venue.get("location")
+    current_score = _location_quality(current or "", name)
+    if not current or best_score > current_score:
+        venue["location"] = best_loc
 
 
 def canonicalize_facilitator_name(name: str) -> str:
@@ -1957,6 +2217,9 @@ def merge_facilitator(existing: dict, new: dict) -> dict:
     if not out.get("country") and new.get("country"):
         out["country"] = new["country"]
     out["sources"] = sorted(set(out.get("sources", []) + new.get("sources", [])))
+    out["source_page_ids"] = sorted(
+        set(out.get("source_page_ids", []) + new.get("source_page_ids", []))
+    )
     return out
 
 
@@ -1999,6 +2262,7 @@ def extract_courses(raw_courses: list[dict], venue_registry: dict, people_regist
                     for k in ("address", "email", "phone"):
                         if venue_data.get(k) and not venue_registry[vid].get(k):
                             venue_registry[vid][k] = venue_data[k]
+                update_venue_location(venue_registry[vid], title)
                 venue_id = vid
 
         start_date, end_date = parse_date_range(
@@ -2055,6 +2319,7 @@ def extract_courses(raw_courses: list[dict], venue_registry: dict, people_regist
                 "start_date": start_date,
                 "end_date": end_date,
                 "location_country": country,
+                "region": infer_region_from_country(country),
                 "venue": venue_id,
                 "language": extract_language(title, md, raw.get("language", "en")),
                 "facilitators": facilitator_ids,
@@ -2095,6 +2360,7 @@ def main() -> None:
                 "photo": person.get("photo"),
                 "country": person.get("country"),
                 "sources": [src] if src else [],
+                "source_page_ids": [page_id] if page_id else [],
             }
             page_status = status_for_team_page(page)
             if page_status:
@@ -2139,9 +2405,12 @@ def main() -> None:
         v for v in venue_registry.values()
         if v.get("name") and is_valid_venue_name(v["name"])
     ]
+    for venue in venues_out:
+        update_venue_location(venue)
     venues_out = sorted(venues_out, key=lambda v: v["id"])
     people_out = sorted(people_registry.values(), key=lambda p: p["id"])
     people_out = [p for p in people_out if is_person_name(p.get("name", ""))]
+    classified_people: list[dict] = []
     for person in people_out:
         person.setdefault("person_type", "team")
         if person.get("person_type") == "team-previous-associate":
@@ -2151,9 +2420,26 @@ def main() -> None:
         if (
             person["id"] in previous_associate_ids
             and person["id"] not in current_course_facilitator_ids
-            and person.get("person_type") == "facilitator"
+            and is_facilitator_person_type(person.get("person_type"))
         ):
             person["status"] = "previous-associate"
+
+        fid = person["id"]
+        on_team = person_on_team_pages(person)
+        facilitates = fid in current_course_facilitator_ids
+        only_training = person_only_from_training_pages(person) and not on_team
+        if only_training and not facilitates:
+            continue
+
+        new_type = classify_facilitator_person_type(
+            person,
+            on_team=on_team,
+            facilitates=facilitates,
+        )
+        if not new_type:
+            continue
+        person["person_type"] = new_type
+
         person["country"] = extract_person_country(person.get("name", ""), person.get("background"))
         if not person["country"]:
             person["country"] = course_countries.get(person["id"])
@@ -2161,7 +2447,8 @@ def main() -> None:
             person["country"] = page_country_hints.get(person["id"])
         person["region"] = infer_region_from_country(person.get("country"))
         sources = person.pop("sources", None) or []
-        if person.get("person_type") != "facilitator":
+        person.pop("source_page_ids", None)
+        if not is_facilitator_person_type(person.get("person_type")):
             source_urls = sorted({url for url in sources if url})
             if source_urls:
                 person["source_urls"] = source_urls
@@ -2169,6 +2456,8 @@ def main() -> None:
             person["background"] = strip_leading_images_from_background(
                 person["background"], person.get("photo")
             )
+        classified_people.append(person)
+    people_out = classified_people
 
     (OUT_DIR / "venues.json").write_text(
         json.dumps(venues_out, ensure_ascii=False, indent=2) + "\n",
@@ -2178,7 +2467,9 @@ def main() -> None:
         json.dumps(people_out, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    valid_fac_ids = {p["id"] for p in people_out if p.get("person_type") == "facilitator"}
+    valid_fac_ids = {
+        p["id"] for p in people_out if is_facilitator_person_type(p.get("person_type"))
+    }
     valid_venue_ids = {v["id"] for v in venues_out}
     for course in courses:
         course["facilitators"] = [f for f in course.get("facilitators", []) if f in valid_fac_ids]

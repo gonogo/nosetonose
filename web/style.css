@@ -118,13 +118,28 @@ body.people-page .name-list {
   margin-bottom: 0;
 }
 
-body.contents-page {
+body.contents-page,
+body.people-page,
+body.content-analysis-page,
+body.approach-page,
+body.training-programme-page,
+body.applied-clowning-page,
+body.booking-page,
+body.articles-page {
   max-width: 56rem;
+}
+
+body.approach-page .page-intro,
+body.training-programme-page .page-intro,
+body.applied-clowning-page .page-intro,
+body.booking-page .page-intro,
+body.articles-page .page-intro {
+  color: #444;
 }
 
 .contents-layout {
   display: grid;
-  grid-template-columns: 10rem 1fr;
+  grid-template-columns: 12rem 1fr;
   gap: 2rem;
   align-items: start;
 }
@@ -135,7 +150,7 @@ body.contents-page {
   font-size: 0.95rem;
 }
 
-.contents-sidebar ul {
+.contents-sidebar > ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -143,6 +158,18 @@ body.contents-page {
 
 .contents-sidebar li {
   margin-bottom: 0.35rem;
+}
+
+.contents-sidebar-nested {
+  list-style: none;
+  padding: 0.15rem 0 0.35rem 0.75rem;
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+.contents-sidebar-nested li {
+  margin-bottom: 0.25rem;
 }
 
 .contents-sidebar a {
@@ -162,6 +189,132 @@ body.contents-page {
 .contents-section > p {
   margin: 0 0 0.75rem;
   color: #444;
+}
+
+.contents-subsection {
+  margin-bottom: 2rem;
+  scroll-margin-top: 1.5rem;
+}
+
+.contents-subsection h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.subsection-count {
+  margin: 0 0 0.75rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.page-link-list li {
+  margin-bottom: 1rem;
+}
+
+.page-link-list .meta {
+  margin: 0.25rem 0 0;
+}
+
+.contents-analysis {
+  margin-bottom: 3rem;
+  scroll-margin-top: 1.5rem;
+}
+
+.contents-analysis h2 {
+  margin: 1.75rem 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.contents-analysis h4 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1rem;
+}
+
+.analysis-point-block {
+  margin-bottom: 1rem;
+}
+
+.analysis-point-block ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.analysis-point-block li {
+  margin-bottom: 0.35rem;
+}
+
+.analysis-note-inline {
+  font-weight: normal;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.analysis-conclusion {
+  margin-top: 1rem;
+  color: #444;
+}
+
+.detailed-analysis-subsection {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.contents-analysis:first-of-type h2 {
+  margin-top: 0;
+}
+
+.analysis-intro,
+.analysis-note {
+  color: #444;
+}
+
+.analysis-patterns {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: #333;
+}
+
+.analysis-patterns li {
+  margin-bottom: 0.5rem;
+}
+
+.analysis-table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0 1rem;
+}
+
+.analysis-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.analysis-table th,
+.analysis-table td {
+  border: 1px solid #ccc;
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.analysis-table thead th {
+  background: #f5f5f5;
+}
+
+.analysis-table-compact {
+  width: auto;
+  min-width: 14rem;
+}
+
+.analysis-table-compact th {
+  font-weight: 600;
+  background: #fafafa;
+}
+
+.analysis-table-catalogue td:nth-child(3),
+.analysis-table-catalogue td:nth-child(4) {
+  min-width: 12rem;
 }
 
 .link-list {
@@ -228,9 +381,20 @@ body.contents-page {
     margin-bottom: 0.5rem;
   }
 
-  .contents-sidebar ul {
+  .contents-sidebar > ul {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem 1rem;
+  }
+
+  .contents-sidebar > ul > li:has(.contents-sidebar-nested) {
+    flex: 1 1 100%;
+  }
+
+  .contents-sidebar-nested {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    padding-left: 0;
   }
 }
