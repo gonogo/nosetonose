@@ -4,69 +4,79 @@
     "name": "Bagworth Community Centre, Front Hall, Station Road, Bagworth, Leicestershire",
     "address": null,
     "email": "mail@nosetonose.info",
-    "phone": null
+    "phone": null,
+    "location": "Bagworth"
   },
   {
     "id": "bardsey-island-ynys-enlli",
     "name": "Bardsey Island / Ynys Enlli",
     "address": null,
     "email": null,
-    "phone": null
+    "phone": null,
+    "location": "Bardsey Island / Ynys Enlii"
   },
   {
     "id": "dornach",
     "name": "Dornach",
     "address": null,
     "email": null,
-    "phone": null
+    "phone": null,
+    "location": "Dornach"
   },
   {
     "id": "emerson-college",
     "name": "Emerson College",
     "address": "Forest Row, East Sussex",
     "email": "bookings@emerson.org.uk",
-    "phone": null
+    "phone": null,
+    "location": "Forest Row"
   },
   {
     "id": "greystoke-village-hall",
     "name": "Greystoke village hall",
     "address": null,
     "email": "nosetonoseoffice@gmail.com",
-    "phone": null
+    "phone": null,
+    "location": "Greystoke"
   },
   {
     "id": "huis-van-haroen",
     "name": "Huis van Haroen",
     "address": "Jan-Pieter Minckelersstraat 186, 3000 Leuve",
     "email": null,
-    "phone": null
+    "phone": null,
+    "location": "Leuve"
   },
   {
     "id": "peredur-centre",
     "name": "Peredur Centre",
     "address": "West Hoathly Road, East Grinstead, West Sussex, RH19 4NF",
     "email": "info@peredurcentre.org.uk",
-    "phone": "01342 312527"
+    "phone": "01342 312527",
+    "location": "East Grinstead"
   },
   {
     "id": "rudolf-steiner-house",
     "name": "Rudolf Steiner House",
     "address": "Rudolf Steiner House",
     "email": null,
-    "phone": null
+    "phone": null,
+    "location": "London"
   },
   {
     "id": "the-dance-space",
     "name": "The Dance Space",
     "address": null,
     "email": null,
-    "phone": null
+    "phone": null,
+    "location": "Brighton"
   },
   {
     "id": "the-stade",
     "name": "The Stade",
     "address": null,
     "email": null,
-    "phone": null
+    "phone": null,
+    "location": "Hastings"
   }
 ]
