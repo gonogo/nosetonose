@@ -6,6 +6,7 @@
     "start_date": "2026-09-12",
     "end_date": "2026-09-17",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -28,6 +29,7 @@
     "start_date": "2027-07-03",
     "end_date": "2027-07-08",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -50,6 +52,7 @@
     "start_date": "2027-07-18",
     "end_date": "2027-07-23",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -72,6 +75,7 @@
     "start_date": "2026-10-13",
     "end_date": "2026-10-18",
     "location_country": "Belgium",
+    "region": "Europe",
     "venue": "huis-van-haroen",
     "language": "English",
     "facilitators": [
@@ -95,6 +99,7 @@
     "start_date": "2026-09-04",
     "end_date": "2026-09-06",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -118,6 +123,7 @@
     "start_date": "2027-01-08",
     "end_date": "2027-01-10",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -141,6 +147,7 @@
     "start_date": "2026-09-12",
     "end_date": "2026-09-16",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "bardsey-island-ynys-enlli",
     "language": "English",
     "facilitators": [
@@ -164,6 +171,7 @@
     "start_date": "2027-01-23",
     "end_date": "2027-01-23",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "rudolf-steiner-house",
     "language": "English",
     "facilitators": [
@@ -186,6 +194,7 @@
     "start_date": "2027-04-10",
     "end_date": "2027-04-10",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "rudolf-steiner-house",
     "language": "English",
     "facilitators": [
@@ -208,6 +217,7 @@
     "start_date": "2027-07-10",
     "end_date": "2027-07-10",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "rudolf-steiner-house",
     "language": "English",
     "facilitators": [
@@ -230,6 +240,7 @@
     "start_date": "2027-10-09",
     "end_date": "2027-10-09",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "rudolf-steiner-house",
     "language": "English",
     "facilitators": [
@@ -252,6 +263,7 @@
     "start_date": "2027-07-25",
     "end_date": "2027-07-30",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "rudolf-steiner-house",
     "language": "English",
     "facilitators": [
@@ -275,6 +287,7 @@
     "start_date": "2026-09-22",
     "end_date": "2026-09-27",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "emerson-college",
     "language": "English",
     "facilitators": [
@@ -298,6 +311,7 @@
     "start_date": "2027-03-07",
     "end_date": "2027-03-12",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "emerson-college",
     "language": "English",
     "facilitators": [
@@ -321,6 +335,7 @@
     "start_date": "2027-08-15",
     "end_date": "2027-08-20",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "emerson-college",
     "language": "English",
     "facilitators": [
@@ -344,6 +359,7 @@
     "start_date": "2027-08-01",
     "end_date": "2027-08-06",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -367,6 +383,7 @@
     "start_date": "2027-02-15",
     "end_date": "2027-02-20",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -390,6 +407,7 @@
     "start_date": "2027-05-05",
     "end_date": "2027-05-10",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -413,6 +431,7 @@
     "start_date": "2027-08-08",
     "end_date": "2027-08-13",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -436,6 +455,7 @@
     "start_date": "2027-01-15",
     "end_date": "2027-01-17",
     "location_country": "Switzerland",
+    "region": "Europe",
     "venue": "dornach",
     "language": "English",
     "facilitators": [
@@ -459,6 +479,7 @@
     "start_date": "2026-10-06",
     "end_date": "2026-10-11",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -481,6 +502,7 @@
     "start_date": "2026-09-18",
     "end_date": "2026-09-20",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "bagworth-community-centre-front-hall-station-road-bagworth-leicestershire",
     "language": "English",
     "facilitators": [
@@ -504,6 +526,7 @@
     "start_date": "2026-10-17",
     "end_date": "2026-10-18",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "greystoke-village-hall",
     "language": "English",
     "facilitators": [
@@ -526,6 +549,7 @@
     "start_date": "2026-11-07",
     "end_date": "2026-11-08",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": null,
     "language": "English",
     "facilitators": [
@@ -548,6 +572,7 @@
     "start_date": "2026-11-01",
     "end_date": "2026-11-01",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "the-dance-space",
     "language": "English",
     "facilitators": [],
@@ -568,6 +593,7 @@
     "start_date": "2027-07-11",
     "end_date": "2027-07-16",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -591,6 +617,7 @@
     "start_date": "2027-02-06",
     "end_date": "2027-02-07",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "the-stade",
     "language": "English",
     "facilitators": [
@@ -614,6 +641,7 @@
     "start_date": "2026-11-11",
     "end_date": "2026-11-15",
     "location_country": "Germany",
+    "region": "Europe",
     "venue": null,
     "language": "German",
     "facilitators": [
@@ -637,6 +665,7 @@
     "start_date": "2027-06-01",
     "end_date": "2027-06-04",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -660,6 +689,7 @@
     "start_date": "2027-08-22",
     "end_date": "2027-08-27",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -683,6 +713,7 @@
     "start_date": "2027-01-10",
     "end_date": "2027-02-14",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": null,
     "language": "English",
     "facilitators": [
@@ -706,6 +737,7 @@
     "start_date": "2027-06-06",
     "end_date": "2027-06-09",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": "peredur-centre",
     "language": "English",
     "facilitators": [
@@ -729,6 +761,7 @@
     "start_date": "2027-01-07",
     "end_date": "2027-02-11",
     "location_country": "United Kingdom",
+    "region": "UK",
     "venue": null,
     "language": "English",
     "facilitators": [
