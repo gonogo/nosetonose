@@ -19,7 +19,7 @@ venues, and people. Text-block fields use **Markdown** (not HTML).
 |------|-------------|
 | `data/structured/courses.json` | One record per current UK course event |
 | `data/structured/venues.json` | Deduplicated venues referenced by courses |
-| `data/structured/people.json` | Deduplicated people (facilitators, team, previous associates, in memory) |
+| `data/structured/people.json` | Deduplicated people (team facilitators, associate facilitators, previous associates, in memory) |
 
 Machine-readable schemas: [`docs/structured-data.schema.json`](structured-data.schema.json).
 
@@ -69,9 +69,10 @@ Each object in `courses.json`:
 | `start_date` | string \| null | ISO date `YYYY-MM-DD` |
 | `end_date` | string \| null | ISO date `YYYY-MM-DD` |
 | `location_country` | string \| null | Country name, e.g. `United Kingdom` |
+| `region` | string \| null | `UK`, `Europe`, or `North America` (inferred from `location_country`) |
 | `venue` | string \| null | **Foreign key** → `venues.json` `id` |
 | `language` | string \| null | e.g. `English`, `French` |
-| `facilitators` | string[] | **Foreign keys** → `people.json` `id` (where `person_type` is `facilitator`) |
+| `facilitators` | string[] | **Foreign keys** → `people.json` `id` (where `person_type` is `team-facilitator` or `associate-facilitator`) |
 | `clown_level` | string \| null | Parsed from title: `Clown 1`, `Masterclass`, `Introduction`, etc. |
 | `prerequisites` | string \| null | Plain text |
 | `medium` | string | `In-person` or `Online` |
@@ -92,6 +93,7 @@ Each object in `courses.json`:
   "start_date": "2026-10-13",
   "end_date": "2026-10-18",
   "location_country": "Belgium",
+  "region": "Europe",
   "venue": "huis-van-haroen",
   "language": "English",
   "facilitators": ["vivian-gladwell", "an-valenteyn"],
@@ -118,11 +120,16 @@ Each object in `venues.json`:
 | `id` | string | URL slug derived from venue name |
 | `name` | string | Venue name |
 | `address` | string \| null | Street / city when available |
+| `location` | string \| null | Town or city extracted from address or name, e.g. `East Grinstead` |
 | `email` | string \| null | Contact email (often from accommodation block) |
 | `phone` | string \| null | Phone number when available |
 
 Venues are deduplicated across courses. Peredur Centre variants are normalised
 to a single `peredur-centre` record.
+
+`location` is extracted from the venue address or name (comma-separated parts,
+postcodes and counties stripped). When that fails, the course title is used as
+a fallback (e.g. `CENTRAL LONDON` → `London`, `… LEICESTER, UK` → `Leicester`).
 
 ---
 
@@ -134,11 +141,11 @@ Each object in `people.json`:
 |-------|------|-------------|
 | `id` | string | URL slug derived from name |
 | `name` | string | Display name |
-| `person_type` | string | `facilitator`, `team`, or `team-passed-away` |
+| `person_type` | string | `team-facilitator`, `associate-facilitator`, or `team-passed-away` |
 | `status` | string | `active` (default) or `previous-associate` |
 | `country` | string \| null | Country where the person is based |
 | `region` | string \| null | `UK`, `Europe`, or `North America` (inferred from `country`) |
-| `source_urls` | string[] | Original site page URLs (non-facilitators only) |
+| `source_urls` | string[] | Original site page URLs (rare; most people are facilitators and omit this field) |
 | `background` | string \| null | **Markdown** bio |
 | `photo` | string \| null | Absolute image URL |
 
@@ -146,57 +153,52 @@ Each object in `people.json`:
 
 | `person_type` | Meaning | Typical sources |
 |---------------|---------|-----------------|
-| `facilitator` | Course facilitator | Main team pages (`team`, `new-team`, `nax/team-na`), course pages |
-| `team` | Regional team member or trainee | Regional team pages, facilitators-in-training rosters |
+| `team-facilitator` | Facilitator on core or regional team pages | `team`, `new-team`, `nax/team-na`, `uk/our-team`, `de/dozentinnen`, etc. |
+| `associate-facilitator` | Facilitator who leads courses but is not on team pages | Course pages |
 | `team-passed-away` | Deceased; remembered on the site | “In memory of … who died” sections, `uk/in-memory` |
 
-Previous associates are stored as **`person_type: "facilitator"`** with **`status: "previous-associate"`**.
+Previous associates keep their facilitator subtype (`team-facilitator` or `associate-facilitator`) but are grouped on the site by **`status: "previous-associate"`**.
 They come from `previousassociates` and `uk/previous-associates`. Someone listed there
 who also facilitates a current UK course keeps `status: "active"`.
 
-Anyone extracted as `team` or `team-passed-away` who also appears as a course facilitator
-is upgraded to `person_type: "facilitator"`.
+People who appear only on facilitators-in-training pages, are not on any team page,
+and do not facilitate current courses are **excluded** from the export.
 
 ### Extraction sources
 
-**Facilitators** (`person_type: "facilitator"`) are merged from:
+**Team facilitators** (`person_type: "team-facilitator"`) are merged from:
 
 1. **Main team pages** in `people.json` (`team`, `new-team`, `nax/team-na`) — parsed from both HTML headings and Markdown
    sections (bios often sit in sibling blocks, not directly under the heading)
-2. **Course pages** — facilitator sections, “with X and Y” intro lines, headings,
-   and inline “Name … bio text” paragraphs
+2. **Regional team pages** in `pages.json` (`uk/our-team`, `de/dozentinnen`, `it/il-nostro-gruppo`, `pl/team`, `na/our-team-in-north-america`)
 
-**Team members** (`person_type: "team"`) are extracted from regional team pages
-(UK, North America, Italy, Germany, Poland) and facilitators-in-training rosters.
+**Associate facilitators** (`person_type: "associate-facilitator"`) are extracted from
+course pages (facilitator sections, “with X and Y” intro lines, headings,
+and inline “Name … bio text” paragraphs) when the person is not on a team page.
 
 **Previous associates** (`status: "previous-associate"`) are identified from the
-previous-associates pages above. They remain `person_type: "facilitator"` unless
-upgraded by a current course listing.
+previous-associates pages above.
 
 **In memory** (`person_type: "team-passed-away"`) is assigned from “in memory of … who died”
 headings across team pages and the dedicated `uk/in-memory` page.
 
-### Example (team member)
+### Example (team facilitator)
 
 ```json
 {
   "id": "hanna-mosch",
   "name": "Hanna Mosch",
-  "person_type": "team",
+  "person_type": "team-facilitator",
   "status": "active",
   "country": "Germany",
   "region": "Europe",
-  "source_urls": [
-    "https://www.nosetonose.info/de/dozentinnen",
-    "https://www.nosetonose.info/uk/our-team"
-  ],
   "background": "Hanna has worked as a school teacher…",
   "photo": null
 }
 ```
 
-Facilitators omit `source_urls`. Previous associates use `"person_type": "facilitator"`
-and `"status": "previous-associate"`.
+Facilitators omit `source_urls`. Previous associates use `"status": "previous-associate"`
+and retain their facilitator subtype.
 
 Name aliases are normalised (e.g. `Ali Stockford` → `Alison Stockford`).
 
@@ -213,8 +215,8 @@ the regional context of team pages (`uk`, `na`, etc.).
 `region` is derived from `country`: United Kingdom → `UK`; United States and
 Canada → `North America`; all other countries → `Europe`.
 
-`source_urls` lists the nosetonose.info pages a non-facilitator was parsed from.
-Facilitators do not get this field. Values are deduplicated and sorted.
+`source_urls` lists original nosetonose.info pages when present. Facilitators
+typically omit this field. Values are deduplicated and sorted when included.
 
 ---
 
@@ -234,6 +236,11 @@ Inferred from the course title using patterns such as `CLOWN 1`, `CLOWN 2`,
 
 `Online` only when the title or early body text explicitly says “online course”.
 Deposit/booking text mentioning “online” does not trigger this.
+
+### Region
+
+Derived from `location_country` using the same rules as people: United Kingdom → `UK`;
+United States and Canada → `North America`; all other countries → `Europe`.
 
 ### Venues
 
@@ -322,10 +329,11 @@ Typical counts after a full scrape + extract (re-run to refresh):
 |------|---------|
 | `courses.json` | 33 |
 | `venues.json` | ~10 |
-| `people.json` | ~36 |
+| `people.json` | ~32 |
 
-Typical `people.json` breakdown: ~20 active facilitators, ~7 previous associates,
-~7 team members, ~2 in memory (counts vary with scrape).
+Typical `people.json` breakdown: ~17 team facilitators, ~13 associate facilitators,
+~7 previous associates (by `status`), ~2 in memory (counts vary with scrape).
+Training-only roster entries without current courses are excluded.
 
 Field coverage varies by course (not every page has schedule, accommodation,
 or prerequisites blocks).
@@ -343,8 +351,6 @@ or prerequisites blocks).
   (typically team-page text), not simply the longest string.
 - Some facilitators have no photo or no current UK courses in the export; the
   web site still renders a page with placeholder text for missing sections.
-- Non-facilitator person pages link back to original `source_urls`; facilitator
-  pages do not.
 
 ---
 

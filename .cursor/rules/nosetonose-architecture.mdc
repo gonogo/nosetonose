@@ -21,6 +21,8 @@ Stage 3  python scripts/build_web.py          → web/
 |------|------|
 | `ntn_scraper/` | Scrapy spiders, cleaners, pipelines |
 | `data/` | Raw scrape output (merge by `id` on re-run) |
+| `data/*.md` | Editorial page copy (approach, booking, etc.) → top-level `web/*.html` |
+| `data/pages_content_analysis.json` | Optional page taxonomy for content-analysis index |
 | `data/structured/` | Courses, venues, people (full overwrite on re-run) |
 | `scripts/` | `extract_structured.py`, `build_web.py` |
 | `web/` | Generated static site (full regenerate on re-run) |
@@ -34,11 +36,14 @@ Two different `people.json` files:
 
 They are **not merged**.
 
+People use `person_type`: `team-facilitator`, `associate-facilitator`, or `team-passed-away` (not a separate `team` type). Training-only roster entries without current courses are excluded from structured export.
+
 ## Where to edit
 
 | Goal | Edit |
 |------|------|
 | Raw page content / scrape behaviour | `ntn_scraper/`, `data/*.json`, `data/bodies/*.md` |
+| Editorial top-level pages (Approach, Booking, …) | `data/approach.md`, `data/booking.md`, etc. + `EDITORIAL_PAGES` in `build_web.py` |
 | Structured fields (courses, venues, people) | `scripts/extract_structured.py`, `docs/structured-data.schema.json` |
 | HTML layout, CSS, Markdown rendering | `scripts/build_web.py` only — do not edit `web/style.css` directly |
 

@@ -92,9 +92,9 @@ python scripts/extract_structured.py
 
 | File | Contents |
 |------|----------|
-| `courses.json` | 33 UK courses — dates, fees, Markdown descriptions (with links), venue/facilitator refs |
-| `venues.json` | Deduplicated venues (name, address, email, phone) |
-| `people.json` | Deduplicated people — type, status, country, region, bio, photo; `source_urls` for non-facilitators |
+| `courses.json` | 33 UK courses — dates, fees, Markdown descriptions (with links), venue/facilitator refs, `region` |
+| `venues.json` | Deduplicated venues (name, address, location, email, phone) |
+| `people.json` | Deduplicated people — team/associate facilitator types, status, country, region, bio, photo |
 
 No HTML in output. Courses link to venues and facilitators by `id`.
 See [docs/STRUCTURED_DATA.md](docs/STRUCTURED_DATA.md).
@@ -109,14 +109,14 @@ python scripts/build_web.py
 
 Generates plain semantic HTML:
 
-- **Course list** — sorted by start date, links to detail pages
+- **Course list** — grouped by region and clown level, with sidebar navigation
+- **Editorial pages** — Approach, training programme, applied clowning, booking, articles (from `data/*.md`)
 - **Course detail** — all structured fields; venue/facilitator names resolved
-- **People list** — four sections (facilitators, team, previous associates, in memory)
-- **Person detail** — photo, background, courses (facilitators only), source links
-  (non-facilitators only); placeholders when data is missing
-- **All other content** — index of scraped pages (articles, thoughts, site pages,
-  testimonials, team) with sidebar navigation; one detail page per item under
-  `web/content/`
+- **People list** — team facilitators, associate facilitators, previous associates, in memory (grouped by region)
+- **Person detail** — photo, background, courses (facilitators only); placeholders when data is missing
+- **All other content** — scraped pages index with category sidebar; links to `content-analysis.html`
+- **Content analysis** — page taxonomy and catalogue (from `data/pages_content_analysis.json` when present)
+- **Scraped detail pages** — one page per item under `web/content/`
 
 See [docs/WEB.md](docs/WEB.md).
 
@@ -139,12 +139,20 @@ scripts/
   extract_structured.py   # courses/venues/people JSON
   build_web.py            # Static HTML generator
 data/                     # Scrape output
+  approach.md             # Editorial copy → web/approach.html
+  training-programme.md   # Editorial copy → web/training-programme.html
+  applied-clowning.md
+  booking.md
+  articles.md
+  pages_content_analysis.json  # Optional page taxonomy for content-analysis
   structured/             # Extracted course data
   bodies/                 # Markdown mirrors
 web/                      # Generated static site
   index.html              # Course list
+  approach.html           # Editorial pages (from data/*.md)
   people.html             # People (from structured data)
-  other-content.html      # Scraped content index (articles, pages, …)
+  other-content.html      # Scraped content index
+  content-analysis.html   # Page taxonomy and catalogue
   courses/ people/ content/
 docs/                     # Documentation + JSON schemas
 ```

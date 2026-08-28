@@ -15,12 +15,17 @@
         "start_date": { "type": ["string", "null"], "format": "date" },
         "end_date": { "type": ["string", "null"], "format": "date" },
         "location_country": { "type": ["string", "null"] },
+        "region": {
+          "type": ["string", "null"],
+          "enum": ["UK", "Europe", "North America", null],
+          "description": "Region inferred from location_country"
+        },
         "venue": { "type": ["string", "null"], "description": "Foreign key to venues.id" },
         "language": { "type": ["string", "null"] },
         "facilitators": {
           "type": "array",
           "items": { "type": "string" },
-          "description": "Foreign keys to people.id where person_type is facilitator"
+          "description": "Foreign keys to people.id where person_type is team-facilitator or associate-facilitator"
         },
         "clown_level": { "type": ["string", "null"] },
         "prerequisites": { "type": ["string", "null"] },
@@ -50,6 +55,10 @@
         "id": { "type": "string", "minLength": 1 },
         "name": { "type": "string" },
         "address": { "type": ["string", "null"] },
+        "location": {
+          "type": ["string", "null"],
+          "description": "Town or city extracted from address or venue name, e.g. East Grinstead"
+        },
         "email": { "type": ["string", "null"] },
         "phone": { "type": ["string", "null"] }
       }
@@ -63,8 +72,8 @@
         "name": { "type": "string" },
         "person_type": {
           "type": "string",
-          "enum": ["facilitator", "team", "team-passed-away"],
-          "description": "Role: course facilitator, team member, or deceased (in memory)"
+          "enum": ["team-facilitator", "associate-facilitator", "team-passed-away"],
+          "description": "Role: core team facilitator, associate facilitator, or deceased (in memory)"
         },
         "status": {
           "type": "string",
@@ -88,7 +97,7 @@
         "source_urls": {
           "type": "array",
           "items": { "type": "string", "format": "uri" },
-          "description": "Original site pages this person was extracted from (non-facilitators only)"
+          "description": "Original site pages (rare; facilitators typically omit this field)"
         }
       }
     }

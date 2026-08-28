@@ -11,13 +11,15 @@ thoughts, pages, etc.).
 | Source | Used for |
 |--------|----------|
 | `data/structured/courses.json`, `venues.json`, `people.json` | Course and people pages |
+| `data/approach.md`, `training-programme.md`, `applied-clowning.md`, `booking.md`, `articles.md` | Editorial top-level pages |
+| `data/pages_content_analysis.json` | Content analysis page (optional) |
 | `data/pages.json`, `articles.json`, `thoughts.json`, `testimonials.json`, `people.json` | All other content pages |
 
 ### Two different `people.json` files
 
 | File | Records | Web output |
 |------|---------|------------|
-| `data/structured/people.json` | ~36 individual people (bios, photos, courses) | `people.html`, `people/{id}.html` |
+| `data/structured/people.json` | Individual people (bios, photos, courses) | `people.html`, `people/{id}.html` |
 | `data/people.json` | 5 whole team pages from the scrape | “People & team” section on `other-content.html`, `content/{id}.html` |
 
 Structured people come from `extract_structured.py`. Raw `data/people.json` is
@@ -41,9 +43,15 @@ Then open:
 
 | URL | Page |
 |-----|------|
-| [http://localhost:8080/](http://localhost:8080/) | Course list |
-| [http://localhost:8080/people.html](http://localhost:8080/people.html) | People list (four sections by role) |
+| [http://localhost:8080/](http://localhost:8080/) | Course list (by region and level) |
+| [http://localhost:8080/approach.html](http://localhost:8080/approach.html) | Approach (editorial) |
+| [http://localhost:8080/training-programme.html](http://localhost:8080/training-programme.html) | Training programme (editorial) |
+| [http://localhost:8080/applied-clowning.html](http://localhost:8080/applied-clowning.html) | Applied clowning (editorial) |
+| [http://localhost:8080/booking.html](http://localhost:8080/booking.html) | Booking (editorial) |
+| [http://localhost:8080/articles.html](http://localhost:8080/articles.html) | Articles (editorial) |
+| [http://localhost:8080/people.html](http://localhost:8080/people.html) | People list |
 | [http://localhost:8080/other-content.html](http://localhost:8080/other-content.html) | All other content (index) |
+| [http://localhost:8080/content-analysis.html](http://localhost:8080/content-analysis.html) | Content analysis |
 | [http://localhost:8080/courses/{slug}.html](http://localhost:8080/courses/) | Course detail |
 | [http://localhost:8080/people/{id}.html](http://localhost:8080/people/) | Person detail |
 | [http://localhost:8080/content/{id}.html](http://localhost:8080/content/) | Scraped page detail |
@@ -56,16 +64,22 @@ Re-run `build_web.py` whenever structured JSON or scrape data changes.
 
 ```text
 web/
-  index.html              # Course list (sorted by start date)
-  people.html             # People list (facilitators, team, previous associates, in memory)
-  other-content.html      # Scraped content index with section sidebar
+  index.html              # Course list (by region and clown level)
+  approach.html           # Editorial pages (from data/*.md)
+  training-programme.html
+  applied-clowning.html
+  booking.html
+  articles.html
+  people.html             # People list (team/associate facilitators, previous associates, in memory)
+  other-content.html      # Scraped content index with category sidebar
+  content-analysis.html   # Page taxonomy and catalogue
   style.css               # Minimal typography stylesheet
   courses/
-    {slug}.html           # One page per course (~33 pages)
+    {slug}.html           # One page per course
   people/
-    {id}.html             # One page per person (~36 pages)
+    {id}.html             # One page per person
   content/
-    {id}.html             # One page per scraped item (~160 pages)
+    {id}.html             # One page per scraped item
     articles/…            # Nested paths mirror scrape ids
     uk/archives/…
 ```
@@ -81,16 +95,23 @@ Scraped content paths mirror the scrape record `id`
 
 ## Page structure
 
+### Site navigation
+
+All pages share top nav: Courses · Approach · Training programme · Applied clowning · Booking · Articles · People · All other content · Content analysis.
+
 ### Course list (`index.html`)
 
-- Site nav: Courses · People · All other content
-- Unordered list of courses with title link, dates, country, clown level, medium
+- Sticky **sidebar** with links to each region (`UK`, `Europe`, `North America`) and nested links to clown level within each region
+- Main content grouped by region, then by level (Clown 1, Clown 2, Clown 3, then Social Clowning, Masterclass, and other levels; uncategorised courses under **Other**)
+- Within each level group, courses sorted by start date
+- Each course: title link, dates, venue location (from linked venue, or country when no venue), medium
 
 ### Course detail (`courses/{slug}.html`)
 
 - Breadcrumb back to course list, people index, and all-other-content page
 - `<article>` with:
-  - **Details** — definition list (`<dl>`) for scalar fields
+  - **Details** — definition list (`<dl>`) for scalar fields (including region:
+    `UK`, `Europe`, or `North America`, inferred from location)
   - **Schedule**, **Course description**, **Accommodation and meals** — Markdown
     rendered to HTML (`<p>`, `<ul>`, `<strong>`, `<em>`, `<a>`, `<img>`,
     `<blockquote>`)
@@ -99,13 +120,15 @@ Scraped content paths mirror the scrape record `id`
 
 ### People list (`people.html`)
 
-Four sections, each a two-column name list with country and region:
+Sticky sidebar navigation links to four main sections. Team facilitators and
+associate facilitators are further grouped by region (`UK`, `Europe`,
+`North America`, `Other`) with in-page subsection anchors.
 
 | Section | Structured data |
 |---------|-----------------|
-| **Facilitators** | `person_type: "facilitator"`, `status: "active"` |
-| **Team** | `person_type: "team"` |
-| **Previous associates** | `person_type: "facilitator"`, `status: "previous-associate"` |
+| **Team facilitators** | `person_type: "team-facilitator"`, `status: "active"` |
+| **Associate facilitators** | `person_type: "associate-facilitator"`, `status: "active"` |
+| **Previous associates** | `status: "previous-associate"` |
 | **In memory** | `person_type: "team-passed-away"` |
 
 Each name links to a detail page under `people/`.
@@ -115,17 +138,17 @@ Each name links to a detail page under `people/`.
 Every person page uses the same layout:
 
 - Breadcrumb back to course list, people index, and all-other-content page
-- Person type label at the top — `Facilitator`, `Team`, `Previous associate`, or `In memory`
+- Person type label at the top — `Team facilitator`, `Associate facilitator`, `Previous associate`, or `In memory`
 - `<h1>` — person name
 - **Details** — person type, status, country, and region
 - **Photo** — `<figure>` with image, or “No photo available.”
 - **Background** — Markdown bio rendered to HTML, or “No biography available.”
-- **Courses** — linked list of courses (`facilitator` only); omitted for other types
-- **Footer** — link(s) to original `source_urls` on nosetonose.info (**non-facilitators only**)
+- **Courses** — linked list of courses (team and associate facilitators only); omitted for other types
+- **Footer** — link(s) to original `source_urls` on nosetonose.info when present (facilitators typically omit this field)
 
 Facilitator pages do not show source links or a redundant “Previous associate” type
 label when `status` already conveys that role — the header shows “Previous associate”
-instead of “Facilitator” for those records.
+instead of “Team facilitator” or “Associate facilitator” for those records.
 
 Leading images are stripped from bios when the photo is shown separately.
 
@@ -138,17 +161,40 @@ longer appear in `people.json`.
 ### All other content (`other-content.html`)
 
 Index of scraped site content, grouped by type with a sticky **sidebar** for
-in-page navigation:
+in-page navigation. The **Pages** section is further grouped by primary category
+from `data/pages_content_analysis.json` when that file is present.
 
 | Section | Source | Examples |
 |---------|--------|----------|
-| Pages | `pages.json` | Our approach, booking, brief history |
+| Pages | `pages.json` | Our approach, booking, brief history (grouped by analysis category) |
 | Articles | `articles.json` | Published articles and interviews |
 | Thoughts | `thoughts.json` | Quotes and reflections |
 | Testimonials | `testimonials.json` | Course participant feedback |
 | People & team | `people.json` | Team pages, associates |
 
 Each item links to a detail page under `content/`.
+
+### Editorial pages (`approach.html`, `training-programme.html`, etc.)
+
+Top-level pages built from Markdown in `data/` (not from scrape JSON):
+
+| File | Output |
+|------|--------|
+| `data/approach.md` | `web/approach.html` |
+| `data/training-programme.md` | `web/training-programme.html` |
+| `data/applied-clowning.md` | `web/applied-clowning.html` |
+| `data/booking.md` | `web/booking.html` |
+| `data/articles.md` | `web/articles.html` |
+
+Configured in `EDITORIAL_PAGES` in `build_web.py`. Edit the Markdown file and re-run the build.
+
+### Content analysis (`content-analysis.html`)
+
+Overview, content patterns, suggested category taxonomy, and a full page catalogue
+for scraped `page` records. Reads `data/pages_content_analysis.json` when present;
+shows a placeholder message if the file is missing.
+
+Linked from the Pages section on `other-content.html`.
 
 ### Scraped content detail (`content/{id}.html`)
 
@@ -177,8 +223,8 @@ Older generator output is cleaned up automatically:
 
 - Standard semantic HTML5 (`header`, `nav`, `main`, `article`, `section`, `dl`)
 - No JavaScript
-- Minimal CSS: serif body, narrow column, simple list styling, muted placeholders
-- Sidebar layout on the all-other-content index (responsive collapse on narrow screens)
+- Minimal CSS: serif body, sidebar layouts on index/people/other-content/content-analysis
+- Sidebar layout on index, people, all-other-content, and content-analysis pages (responsive collapse on narrow screens)
 - Suitable for static hosting (S3, GitHub Pages, Cloudflare Pages, etc.)
 
 ---

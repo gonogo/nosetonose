@@ -19,8 +19,6 @@ Preview: [http://localhost:8080](http://localhost:8080)
 
 ## Task checklist
 
-Copy and track progress:
-
 ```
 - [ ] Stage 1: scrape (if raw data changed)
 - [ ] Stage 2: extract (if courses/people/structured data changed)
@@ -36,6 +34,7 @@ Copy and track progress:
 | Structured data only | `python scripts/extract_structured.py && python scripts/build_web.py` |
 | Manual JSON fix | Edit `data/structured/*.json`, then `python scripts/build_web.py` |
 | Raw content edit | Edit `data/bodies/*.md` or `data/*.json`, then `python scripts/build_web.py` |
+| Editorial page copy | Edit `data/approach.md` (etc.), then `python scripts/build_web.py` |
 
 ## Add a new structured field (end-to-end)
 
@@ -43,6 +42,12 @@ Copy and track progress:
 2. **Schema** — update `docs/structured-data.schema.json` and `docs/STRUCTURED_DATA.md`
 3. **Render** — add field to `build_course_page()` or `build_person_page()` in `scripts/build_web.py`
 4. **Rebuild** — `python scripts/extract_structured.py && python scripts/build_web.py`
+
+## Add a new editorial page
+
+1. Create `data/{slug}.md` with Markdown body
+2. Add entry to `EDITORIAL_PAGES` in `scripts/build_web.py`
+3. `python scripts/build_web.py`
 
 ## Fix rendering only
 
@@ -53,8 +58,10 @@ Then: `python scripts/build_web.py`
 ## Gotchas
 
 - `data/people.json` (whole team pages) ≠ `data/structured/people.json` (individual people)
+- Person types are `team-facilitator`, `associate-facilitator`, `team-passed-away` — not `facilitator` or `team`
 - Stage 1 merges by `id`; Stages 2 and 3 fully overwrite their outputs
 - UK courses only in structured export currently
+- `data/pages_content_analysis.json` is optional; content-analysis page shows a placeholder if missing
 
 ## Documentation
 

@@ -32,6 +32,8 @@ Run all: `./scripts/scrape_all.sh`
 
 Edit `data/bodies/approach.md` or the matching record in `data/pages.json`, then run `python scripts/build_web.py` (Stage 3 only).
 
+Editorial top-level pages use separate `data/*.md` files (see `EDITORIAL_PAGES` in `build_web.py`), not scrape JSON.
+
 ## Full reference
 
 See [docs/SCRAPING.md](docs/SCRAPING.md) and [docs/content-item.schema.json](docs/content-item.schema.json).

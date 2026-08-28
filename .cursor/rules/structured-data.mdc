@@ -14,16 +14,17 @@ Output (full overwrite each run): `data/structured/courses.json`, `venues.json`,
 
 ## Schemas
 
-- **Courses**: scalar fields + Markdown text blocks (`schedule`, `course_description`, `accommodation_and_meals`); foreign keys `venue` → venues, `facilitators[]` → people
-- **Venues**: `id`, `name`, `address`, `email`, `phone`
-- **People**: `id`, `name`, `person_type` (`facilitator` / `team` / `team-passed-away`), `status` (`active` / `previous-associate`), `background` (Markdown), `photo`, `source_urls` (non-facilitators only)
+- **Courses**: scalar fields (`region`: UK/Europe/North America) + Markdown text blocks; foreign keys `venue` → venues, `facilitators[]` → people
+- **Venues**: `id`, `name`, `address`, `location` (town/city), `email`, `phone`
+- **People**: `id`, `name`, `person_type` (`team-facilitator` / `associate-facilitator` / `team-passed-away`), `status` (`active` / `previous-associate`), `background` (Markdown), `photo`
 
-Text fields are Markdown, not HTML. Extraction is heuristic (regex, BeautifulSoup).
+Facilitators omit `source_urls`. Training-only roster entries not on team pages and without current courses are excluded.
 
 ## Key functions
 
 - `extract_courses()` — course records from raw scrape
-- `extract_course_facilitators()`, `extract_venue_from_course()` — per-field parsers
+- `extract_venue_from_course()`, venue `location` helpers — venue and town/city
+- `extract_course_facilitators()`, `classify_facilitator_person_type()` — facilitator typing
 - `main()` — merges people from team pages, courses, regional pages; writes JSON
 
 ## Example: add a new course field

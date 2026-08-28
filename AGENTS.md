@@ -22,6 +22,12 @@ python scripts/build_web.py          # Stage 3 → web/
 
 ## Where to edit
 
-- **Raw content / scraping** → `ntn_scraper/`, `data/*.json`
+- **Raw content / scraping** → `ntn_scraper/`, `data/*.json`, `data/bodies/*.md`
+- **Editorial pages** (Approach, Booking, …) → `data/*.md` + `EDITORIAL_PAGES` in `build_web.py`
 - **Structured fields** → `scripts/extract_structured.py`
 - **HTML / CSS / rendering** → `scripts/build_web.py` (not `web/` directly)
+
+## Recent schema notes
+
+- People: `team-facilitator`, `associate-facilitator`, `team-passed-away` (no separate `team` type)
+- Courses and venues: `region` and venue `location` fields for regional grouping in the site

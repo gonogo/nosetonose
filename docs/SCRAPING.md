@@ -408,6 +408,6 @@ python scripts/build_web.py
 
 - Bodies still contain some leftover WP shortcodes, embeds, or odd heading nesting from the source HTML.
 - Course `dates` in raw scrape records are display strings, not timezone-aware ISO datetimes (structured extraction normalises to ISO dates where possible).
-- Raw `people` records are whole pages; structured extraction splits individual people from team pages, regional `pages.json` team records, and course pages into `data/structured/people.json`. Each person has `person_type` (`facilitator`, `team`, or `team-passed-away`), `status` (`active` or `previous-associate`), and optionally `source_urls` (non-facilitators only).
+- Raw `people` records are whole pages; structured extraction splits individual people from team pages, regional `pages.json` team records, and course pages into `data/structured/people.json`. Each person has `person_type` (`team-facilitator`, `associate-facilitator`, or `team-passed-away`), `status` (`active` or `previous-associate`). Training-only roster entries without current courses are excluded.
 - Re-scraping merges raw JSON by `id`; structured extraction overwrites `data/structured/` completely.
 - Re-scraping: delete `data/*.json` (and optionally `data/bodies/`) for a clean raw rebuild.
