@@ -51,10 +51,18 @@ export function courseSlug(courseId: string): string {
 	return courseId.split('/').pop() ?? courseId;
 }
 
-export function formatDate(value: string | null): string {
-	if (!value) return '';
+function parseDay(value: string | null): Date | null {
+	if (!value) return null;
 	const date = new Date(`${value}T00:00:00`);
-	if (Number.isNaN(date.getTime())) return value;
+	return Number.isNaN(date.getTime()) ? null : date;
+}
+
+const MONTH_YEAR = new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric' });
+const MONTH = new Intl.DateTimeFormat('en-GB', { month: 'long' });
+
+export function formatDate(value: string | null): string {
+	const date = parseDay(value);
+	if (!date) return value || '';
 	return date.toLocaleDateString('en-GB', {
 		day: 'numeric',
 		month: 'long',
@@ -63,10 +71,18 @@ export function formatDate(value: string | null): string {
 }
 
 export function formatDateRange(start: string | null, end: string | null): string {
-	const from = formatDate(start);
-	const to = formatDate(end);
-	if (from && to && from !== to) return `${from} – ${to}`;
-	return from || to || 'Dates to be confirmed';
+	const from = parseDay(start);
+	const to = parseDay(end);
+	if (!from && !to) return 'Dates to be confirmed';
+	if (!to || (from && from.getTime() === to.getTime())) return formatDate(start);
+	if (!from) return formatDate(end);
+	if (from.getFullYear() === to.getFullYear() && from.getMonth() === to.getMonth()) {
+		return `${from.getDate()}–${to.getDate()} ${MONTH_YEAR.format(to)}`;
+	}
+	if (from.getFullYear() === to.getFullYear()) {
+		return `${from.getDate()} ${MONTH.format(from)} – ${to.getDate()} ${MONTH_YEAR.format(to)}`;
+	}
+	return `${formatDate(start)} – ${formatDate(end)}`;
 }
 
 export function courseVenue(course: Course): Venue | undefined {
@@ -75,6 +91,75 @@ export function courseVenue(course: Course): Venue | undefined {
 
 export function courseLocation(course: Course): string | null {
 	return courseVenue(course)?.location || course.location_country;
+}
+
+/** Place shown on a listing row. Online runs omit country so “Online” can stand alone. */
+export function courseInstancePlace(course: Course): string | null {
+	if (course.medium === 'Online') return null;
+	return courseLocation(course);
+}
+
+function stripMarkdownInline(text: string): string {
+	return text
+		.replace(/^#{1,6}\s+/gm, '')
+		.replace(/^>\s+/gm, '')
+		.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+		.replace(/[*_]{1,3}([^*_]+)[*_]{1,3}/g, '$1')
+		.replace(/\s+/g, ' ')
+		.trim();
+}
+
+function isJunkSummary(text: string): boolean {
+	if (text.length < 40) return true;
+	if (
+		/^(with |avec |january |february |march |april |may |june |july |august |september |october |november |december |an online course|nb\b|this course is now|the word )/i.test(
+			text
+		)
+	) {
+		return true;
+	}
+	if (/^[“”"'*#>\d]/.test(text)) return true;
+	const letters = text.replace(/[^a-zA-ZÀ-ÿ]/g, '');
+	const upper = text.replace(/[^A-ZÀ-Ÿ]/g, '');
+	return letters.length >= 20 && upper.length / letters.length > 0.55;
+}
+
+const PREFERRED_SUMMARY = /^(this course|join |an intensive|in this |a course |a weekend)/i;
+
+/** Short listing blurb from a course description: first real sentence, no images or credits. */
+export function listingSummary(description: string | null): string | null {
+	if (!description) return null;
+	let cleaned = description.trim();
+	cleaned = cleaned.replace(/^(?:\[!\[[^\]]*\]\([^)]+\)\]\([^)]+\)\s*)+/, '');
+	cleaned = cleaned.replace(/^(?:!\[[^\]]*\]\([^)]+\)\s*)+/, '');
+	cleaned = cleaned.replace(/!\[[^\]]*\]\([^)]+\)/g, ' ');
+
+	const sentences: string[] = [];
+	for (const block of cleaned.split(/\n\s*\n/)) {
+		const paragraph = stripMarkdownInline(
+			block.replace(/\s*The group is limited to \d+\.?/gi, ' ')
+		);
+		if (!paragraph) continue;
+		const parts = paragraph.match(/[^.!?]+[.!?]+(?:\s+|$)|[^.!?]+$/g) ?? [paragraph];
+		for (const part of parts) {
+			const sentence = part.replace(/^[“”"']+|["”']+$/g, '').trim();
+			if (!isJunkSummary(sentence)) sentences.push(sentence);
+		}
+	}
+
+	const chosen = sentences.find((sentence) => PREFERRED_SUMMARY.test(sentence)) ?? sentences[0];
+	if (!chosen) return null;
+	if (chosen.length <= 160) return chosen;
+	const cut = chosen.slice(0, 157);
+	const at = cut.lastIndexOf(' ');
+	return `${cut.slice(0, at > 80 ? at : 157)}…`;
+}
+
+/** Index blurbs come from the course type, not venue-specific listing copy. */
+export function courseGroupSummary(group: Course[]): string | null {
+	const typeId = group.find((course) => course.course)?.course;
+	if (!typeId) return null;
+	return listingSummary(courseTypesById[typeId]?.course_description ?? null);
 }
 
 export function regionAnchor(region: string): string {

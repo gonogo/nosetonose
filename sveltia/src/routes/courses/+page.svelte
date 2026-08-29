@@ -1,7 +1,8 @@
 <script lang="ts">
 	import {
 		countLabel,
-		courseLocation,
+		courseGroupSummary,
+		courseInstancePlace,
 		courseSlug,
 		coursesByCourseTitle,
 		coursesByLevel,
@@ -64,24 +65,38 @@
 							<h3>{levelGroup.level}</h3>
 							<p class="subsection-count">{countLabel(levelGroup.courses.length, 'date')}</p>
 							{#each coursesByCourseTitle(levelGroup.courses) as courseGroup}
-								<div class="contents-course-group">
+								{@const summary = courseGroupSummary(courseGroup.courses)}
+								{@const multi = courseGroup.courses.length > 1}
+								<article class="course-group" class:is-multi={multi}>
 									<h4>{courseGroup.title}</h4>
-									<ul class="course-list">
+									{#if summary}
+										<p class="course-group-summary">{summary}</p>
+									{/if}
+									{#if multi}
+										<p class="course-dates-label">Course dates</p>
+									{/if}
+									<ul class="instance-list">
 										{#each courseGroup.courses as course}
+											{@const place = courseInstancePlace(course)}
 											<li>
-												<a href="/courses/{courseSlug(course.id)}"
-													>{formatDateRange(course.start_date, course.end_date)}</a
-												>
-												<p>
-													{#if courseLocation(course)}
-														{courseLocation(course)} ·
+												<a href="/courses/{courseSlug(course.id)}">
+													<span class="instance-date"
+														>{formatDateRange(course.start_date, course.end_date)}</span
+													>
+													{#if place || course.medium === 'Online'}
+														<span class="instance-place">
+															{#if place}{place}{/if}
+															{#if course.medium === 'Online'}
+																{#if place}<span class="instance-sep"> · </span>{/if}
+																<span class="medium-badge">Online</span>
+															{/if}
+														</span>
 													{/if}
-													{course.medium}
-												</p>
+												</a>
 											</li>
 										{/each}
 									</ul>
-								</div>
+								</article>
 							{/each}
 						</div>
 					{/each}
