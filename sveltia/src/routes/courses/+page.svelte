@@ -3,6 +3,7 @@
 		countLabel,
 		courseLocation,
 		courseSlug,
+		coursesByCourseTitle,
 		coursesByLevel,
 		coursesByRegion,
 		formatDateRange,
@@ -28,12 +29,12 @@
 	</header>
 
 	<div class="layout-with-sidebar">
-		<nav class="contents-sidebar" aria-label="Regions">
+		<nav class="contents-sidebar" aria-label="Regions and levels">
 			<h2>Jump to</h2>
 			<ul>
 				{#each grouped as group}
 					<li>
-						<a href="#{regionAnchor(group.region)}"
+						<a class="contents-sidebar-region" href="#{regionAnchor(group.region)}"
 							>{group.region} ({group.courses.length})</a
 						>
 						<ul class="contents-sidebar-nested">
@@ -61,21 +62,27 @@
 							id={regionLevelAnchor(group.region, levelGroup.level)}
 						>
 							<h3>{levelGroup.level}</h3>
-							<p class="subsection-count">{countLabel(levelGroup.courses.length, 'course')}</p>
-							<ul class="course-list">
-								{#each levelGroup.courses as course}
-									<li>
-										<a href="/courses/{courseSlug(course.id)}">{course.title}</a>
-										<p>
-											{formatDateRange(course.start_date, course.end_date)}
-											{#if courseLocation(course)}
-												· {courseLocation(course)}
-											{/if}
-											· {course.medium}
-										</p>
-									</li>
-								{/each}
-							</ul>
+							<p class="subsection-count">{countLabel(levelGroup.courses.length, 'date')}</p>
+							{#each coursesByCourseTitle(levelGroup.courses) as courseGroup}
+								<div class="contents-course-group">
+									<h4>{courseGroup.title}</h4>
+									<ul class="course-list">
+										{#each courseGroup.courses as course}
+											<li>
+												<a href="/courses/{courseSlug(course.id)}"
+													>{formatDateRange(course.start_date, course.end_date)}</a
+												>
+												<p>
+													{#if courseLocation(course)}
+														{courseLocation(course)} ·
+													{/if}
+													{course.medium}
+												</p>
+											</li>
+										{/each}
+									</ul>
+								</div>
+							{/each}
 						</div>
 					{/each}
 				</section>

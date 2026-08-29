@@ -52,7 +52,7 @@
 			<ul class="course-list">
 				{#each data.courses as course}
 					<li>
-						<a href="/courses/{courseSlug(course.id)}">{course.title}</a>
+						<a href="/courses/{courseSlug(course.id)}">{course.course_title}</a>
 						<p>{formatDateRange(course.start_date, course.end_date)}</p>
 					</li>
 				{/each}

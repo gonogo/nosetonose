@@ -11,7 +11,55 @@ logo_url: /favicon.svg
 media_folder: sveltia/static/media
 public_folder: /media
 
+# JSON null on an unused single relation blanks the whole entry editor.
+# Omit those keys instead; this option stops the CMS writing them back as null.
+output:
+  omit_empty_optional_fields: true
+  json:
+    indent_style: space
+    indent_size: 2
+
 collections:
+  - name: course-types
+    label: Course types
+    label_singular: Course type
+    icon: school
+    folder: sveltia/src/lib/data/course-types
+    create: true
+    format: json
+    extension: json
+    identifier_field: title
+    slug: '{{slug}}'
+    summary: '{{title}}'
+    sortable_fields: [title, clown_level, medium]
+    view_filters:
+      - { label: In-person, field: medium, pattern: In-person }
+      - { label: Online, field: medium, pattern: Online }
+    fields:
+      - { label: ID, name: id, widget: string, hint: 'Stable slug used by course listings, e.g. courage-to-be-clown-1. Set the entry slug to the same value.' }
+      - { label: Title, name: title, widget: string, hint: 'Date-agnostic programme name, e.g. Courage to Be – Clown Level 1' }
+      - { label: Clown level, name: clown_level, widget: string, required: false, hint: 'e.g. Clown 1, Masterclass, Introduction' }
+      - { label: Prerequisites, name: prerequisites, widget: string, required: false }
+      - label: Medium
+        name: medium
+        widget: select
+        options: [In-person, Online]
+        default: In-person
+      - { label: Maximum group size, name: maximum_group_size, widget: number, value_type: int, min: 1, required: false }
+      - { label: Course fee, name: course_fee, widget: string, required: false }
+      - { label: Deposit, name: course_fee_deposit, widget: string, required: false }
+      - label: Facilitators
+        name: facilitators
+        widget: relation
+        multiple: true
+        required: false
+        collection: people
+        value_field: id
+        search_fields: [name]
+        display_fields: [name]
+      - { label: Schedule, name: schedule, widget: text, required: false }
+      - { label: Course description, name: course_description, widget: text, required: false }
+
   - name: courses
     label: Courses
     label_singular: Course
@@ -31,8 +79,18 @@ collections:
       - { label: In-person, field: medium, pattern: In-person }
       - { label: Online, field: medium, pattern: Online }
     fields:
+      - { label: ID, name: id, widget: string, hint: 'Stable id, e.g. uk/events/my-course-slug. The last segment is the public URL. When creating a listing, set the entry slug to that last segment.' }
       - { label: Title, name: title, widget: string }
-      - { label: ID, name: id, widget: string, hint: 'Stable id, e.g. uk/events/my-course-slug. The last segment is the public URL. When creating a course, set the entry slug to that last segment.' }
+      - label: Course type
+        name: course
+        widget: relation
+        required: false
+        collection: course-types
+        value_field: id
+        search_fields: [title, clown_level]
+        display_fields: [title]
+        dropdown_threshold: 0
+        hint: 'Optional. Inherited fields below fill in from this course when left blank.'
       - { label: Source URL, name: source_url, widget: string, required: false }
       - { label: Start date, name: start_date, widget: datetime, type: date, required: false }
       - { label: End date, name: end_date, widget: datetime, type: date, required: false }
@@ -60,19 +118,21 @@ collections:
         value_field: id
         search_fields: [name]
         display_fields: [name]
-      - { label: Clown level, name: clown_level, widget: string, required: false, hint: 'e.g. Clown 1, Masterclass, Introduction' }
-      - { label: Prerequisites, name: prerequisites, widget: string, required: false }
+        hint: Leave blank to use the linked course.
+      - { label: Clown level, name: clown_level, widget: string, required: false, hint: 'Leave blank to use the linked course. e.g. Clown 1, Masterclass, Introduction' }
+      - { label: Prerequisites, name: prerequisites, widget: string, required: false, hint: Leave blank to use the linked course. }
       - label: Medium
         name: medium
         widget: select
+        required: false
         options: [In-person, Online]
-        default: In-person
-      - { label: Maximum group size, name: maximum_group_size, widget: number, value_type: int, min: 1, required: false }
-      - { label: Course fee, name: course_fee, widget: string, required: false }
-      - { label: Deposit, name: course_fee_deposit, widget: string, required: false }
-      - { label: Schedule, name: schedule, widget: markdown, required: false }
-      - { label: Course description, name: course_description, widget: markdown, required: false }
-      - { label: Accommodation and meals, name: accommodation_and_meals, widget: markdown, required: false }
+        hint: Leave blank to use the linked course.
+      - { label: Maximum group size, name: maximum_group_size, widget: number, value_type: int, min: 1, required: false, hint: Leave blank to use the linked course. }
+      - { label: Course fee, name: course_fee, widget: string, required: false, hint: Leave blank to use the linked course. }
+      - { label: Deposit, name: course_fee_deposit, widget: string, required: false, hint: Leave blank to use the linked course. }
+      - { label: Schedule, name: schedule, widget: text, required: false, hint: Leave blank to use the linked course. Markdown is allowed. }
+      - { label: Course description, name: course_description, widget: text, required: false, hint: Leave blank to use the linked course. Markdown is allowed. }
+      - { label: Accommodation and meals, name: accommodation_and_meals, widget: text, required: false, hint: Markdown is allowed. }
 
   - name: venues
     label: Venues
@@ -86,8 +146,8 @@ collections:
     slug: '{{slug}}'
     summary: '{{name}}'
     fields:
-      - { label: Name, name: name, widget: string }
       - { label: ID, name: id, widget: string, hint: 'URL slug used by courses, e.g. peredur-centre' }
+      - { label: Name, name: name, widget: string }
       - { label: Address, name: address, widget: text, required: false }
       - { label: Location, name: location, widget: string, required: false, hint: 'Town or city shown on course listings' }
       - { label: Email, name: email, widget: string, required: false }
@@ -106,8 +166,8 @@ collections:
     summary: '{{name}}'
     sortable_fields: [name, region, person_type, status]
     fields:
-      - { label: Name, name: name, widget: string }
       - { label: ID, name: id, widget: string, hint: 'URL slug used by courses, e.g. vivian-gladwell' }
+      - { label: Name, name: name, widget: string }
       - label: Person type
         name: person_type
         widget: select
@@ -149,8 +209,8 @@ collections:
     summary: '{{title}} — {{date}}'
     sortable_fields: [title, date]
     fields:
-      - { label: Title, name: title, widget: string, hint: 'Attribution line, e.g. R. K. Stroud, UK – Clown 1 March 2024' }
       - { label: ID, name: id, widget: string, hint: 'Stable id, e.g. uk/archives/1877. Set the entry slug to a short URL-friendly name.' }
+      - { label: Title, name: title, widget: string, hint: 'Attribution line, e.g. R. K. Stroud, UK – Clown 1 March 2024' }
       - { label: Source URL, name: source_url, widget: string, required: false }
       - { label: Date, name: date, widget: datetime, type: date, required: false, hint: 'When the testimonial was published on the original site' }
       - { label: Quote, name: quote, widget: markdown, required: false }

@@ -27,6 +27,8 @@ scrape output only — it is not merged into structured people for the all-other
 
 **Output:** `web/` directory (committed or gitignored — your choice)
 
+The SvelteKit site in `sveltia/` is a separate front end. It groups listings by region, then clown level, then course type. See [sveltia/README.md](../sveltia/README.md).
+
 ---
 
 ## Run

@@ -36,6 +36,7 @@ Open [http://localhost:5173](http://localhost:5173).
 ```text
 Parent pipeline (optional)          This site (always)
 ../data/structured/*.json    ──►   src/lib/data/{courses,venues,people}/*.json
+                                          (course-types/ are CMS-owned, not synced)
 ../data/testimonials.json    ──►   src/lib/data/testimonials/*.json
 ../data/*.md + bodies/       ──►   src/lib/content/pages/*.md, articles/*.md
                                           │
@@ -49,20 +50,36 @@ Parent pipeline (optional)          This site (always)
 
 - **Stack:** SvelteKit 2, Svelte 5, `@sveltejs/adapter-static`, `marked` for Markdown.
 - **Data loading:** JSON and Markdown are bundled at build time via `import.meta.glob` — there is no runtime API or database.
-- **Course URLs:** The public slug is the last segment of the course `id` (e.g. `uk/events/my-course` → `/courses/my-course`).
+- **Course URLs:** The public slug is the last segment of the listing `id` (e.g. `uk/events/my-course` → `/courses/my-course`). Dated listings in `courses/` may optionally link to a date-agnostic **course type**.
 
 ## Data
 
 | Location | Contents | CMS collection |
 |----------|----------|------------------|
-| `src/lib/data/courses/*.json` | One JSON file per course | **Courses** (folder) |
+| `src/lib/data/course-types/*.json` | Date-agnostic programmes | **Course types** (folder) |
+| `src/lib/data/courses/*.json` | One JSON file per dated listing (event) | **Courses** (folder) |
 | `src/lib/data/venues/*.json` | One JSON file per venue | **Venues** (folder) |
 | `src/lib/data/people/*.json` | One JSON file per person | **People** (folder) |
 | `src/lib/data/testimonials/*.json` | One JSON file per testimonial | **Testimonials** (folder) |
 | `src/lib/content/pages/*.md` | Editorial pages (YAML front matter + body) | **Pages** (file) |
 | `src/lib/content/articles/*.md` | Article bodies | **Articles** (folder) |
 
-Courses reference venues and facilitators by `id`. In the CMS, **Venue** and **Facilitators** fields are relation widgets that search those collections.
+JSON records keep `id` as the first key. The CMS field lists start with ID so saves stay in that order; `scripts/sync-data.py` also writes `id` first.
+
+### Courses and events
+
+A **course type** is a date- and venue-agnostic programme (for example “Courage to Be – Clown Level 1”). A **listing** in the Courses collection is one run of a workshop (an event). Listings stay under `/courses` and in the CMS **Courses** tab.
+
+| Course type | Listing (event) |
+|-------------|-----------------|
+| Level, medium, group size, fee, deposit, facilitators, description, schedule, prerequisites | Dates, region, country, venue, language, accommodation |
+| `id`, `title` | `id`, `title`, optional `course` (course type `id`), plus optional copies of the course-type fields |
+
+**Inheritance:** if a listing sets `course`, blank inheritable fields are filled from the course type. A filled listing field overrides the course type (so a London Clown 1 can keep a different fee). If `course` is empty, the listing’s own course-related fields are used.
+
+`resolveListing()` in `src/lib/courses.ts` performs that merge at build time. The public `/courses` index groups **region → level → course type** (or listing title if unlinked) **→ date**. Detail URLs remain `/courses/[slug]` (last segment of the listing `id`).
+
+Listings also reference venues and facilitators by `id`. In the CMS, **Course type**, **Venue**, and **Facilitators** are relation widgets.
 
 ### Sync from the parent pipeline
 
@@ -76,7 +93,7 @@ npm run sync-data
 
 | Source | Destination | Notes |
 |--------|-------------|-------|
-| `../data/structured/courses.json` | `src/lib/data/courses/*.json` | Filename = last segment of course `id` |
+| `../data/structured/courses.json` | `src/lib/data/courses/*.json` | Filename = last segment of listing `id`. Existing `course` (course-type) relations are preserved. |
 | `../data/structured/venues.json` | `src/lib/data/venues/*.json` | Filename = venue `id` |
 | `../data/structured/people.json` | `src/lib/data/people/*.json` | Filename = person `id` |
 | `../data/testimonials.json` | `src/lib/data/testimonials/*.json` | Normalized to `id`, `title`, `source_url`, `date`, `quote` |
@@ -85,7 +102,7 @@ npm run sync-data
 
 **Warning:** Re-running sync **overwrites** synced files. CMS or manual edits to those paths will be lost unless you merge them back first.
 
-**Not synced:** `home-team.md` (home-page “About us” copy) is maintained only in this project — edit it in the CMS or directly in `src/lib/content/pages/home-team.md`.
+**Not synced:** `home-team.md` (home-page “About us” copy) and `src/lib/data/course-types/` (date-agnostic programmes). Edit those in the CMS or directly.
 
 Link rewrites applied during sync (and in testimonial quotes) are defined in `LINK_REWRITES` in `scripts/sync-data.py`, e.g. `people.html` → `/team`, `approach.html` → `/approach`.
 
@@ -94,15 +111,19 @@ Link rewrites applied during sync (and in testimonial quotes) are defined in `LI
 1. Start the dev server.
 2. In Chrome, Edge, or Brave, open [http://localhost:5173/admin/index.html](http://localhost:5173/admin/index.html).
 3. Choose **Work with Local Repository** and select the **nosetonose git root** (the folder that contains `.git` and `sveltia/`), not this directory alone.
-4. Edit courses, venues, people, testimonials, pages, and articles. Commit with git as usual.
+4. Edit course types, course listings, venues, people, testimonials, pages, and articles. Commit with git as usual.
 
 Configuration: `static/admin/config.yml`. Collection paths are relative to the git root (e.g. `sveltia/src/lib/data/courses`).
 
-**Folder collections** (courses, venues, people, testimonials) — one file per entry; each record appears as its own CMS item.
+**Folder collections** (course-types, courses, venues, people, testimonials) — one file per entry; each record appears as its own CMS item.
 
 **File collections** (pages) — single Markdown files with `title` and `body` fields.
 
-When creating a course, set the entry **slug** to the last segment of the course `id` so the public URL matches.
+When creating a course listing, set the entry **slug** to the last segment of the listing `id` so the public URL matches. When creating a course type, set the slug to the type `id`.
+
+**Course description, schedule, and accommodation** are plain text fields (Markdown is still rendered on the public site). Sveltia’s rich-text editor cannot load many scraped listings: a `null` value or markup it cannot parse blanks the whole form, so other fields look empty even though the JSON is fine.
+
+Leave **Course type** and **Venue** unset by omitting those keys. JSON `null` or `""` on a single relation blanks the editor. `output.omit_empty_optional_fields` in `config.yml` keeps CMS saves that way. Empty description/schedule/accommodation should be `""`.
 
 ## What is editable where
 
@@ -120,15 +141,20 @@ Not every part of every page is a CMS field. Some sections are assembled in code
 
 Load logic: `src/routes/+page.ts`.
 
+### Courses index (`/courses`)
+
+Listings are grouped by region, then by clown level, then by course type title (or the listing title if unlinked), then by start date. The sidebar lists regions with nested levels. Grouping is derived in `src/lib/courses.ts` (`coursesByRegion`, `coursesByLevel`, `coursesByCourseTitle`); there is no CMS field for it.
+
 ### Course detail (`/courses/[slug]`)
 
 | Section | Source | Editable in CMS? |
 |---------|--------|------------------|
-| Title, dates, fees, descriptions | Course JSON | Yes — **Courses** |
+| Title, dates, region, venue, language | Listing JSON | Yes — **Courses** |
+| Level, medium, group size, fee, description, schedule, facilitators | Listing JSON, or inherited from the linked **Course type** when those listing fields are blank | Yes — **Courses** and **Course types** |
 | Venue name/address | Linked venue JSON | Yes — **Venues** |
 | Facilitators (photo + first paragraph of bio) | Linked people JSON; first paragraph via `firstParagraph()` in `src/lib/people.ts` | Yes — **People** (photo + background) |
 
-Facilitators are resolved from `course.facilitators` ids in `src/routes/courses/[slug]/+page.ts`.
+Facilitators are taken from the merged listing in `src/routes/courses/[slug]/+page.ts` (`resolveListing()`). The index at `/courses` groups by region, then level, then course type, then date.
 
 ### Team (`/team`)
 
@@ -136,6 +162,7 @@ Facilitators are resolved from `course.facilitators` ids in `src/routes/courses/
 |---------|--------|------------------|
 | Page intro | Hardcoded in `src/routes/team/+page.svelte` | No — change in code |
 | Name lists | `src/lib/data/people/*.json`, grouped by `person_type` and region | Yes — **People** |
+| Courses they facilitate | Merged listings whose facilitator ids include this person (`coursesForPerson()` in `src/lib/people.ts`); link text is the course type title when linked | Indirect — **Courses** / **Course types** |
 
 ### Other editorial routes
 
@@ -166,6 +193,6 @@ Static output is written to `build/`.
 | `src/lib/markdown.ts` | Front matter parsing, Markdown render, editorial/article loaders |
 | `src/lib/home.ts` | Home-page helpers: newsletter URL, approach excerpt, testimonial sort |
 | `src/lib/people.ts` | Team grouping, `firstParagraph()` for course facilitator intros |
-| `src/lib/courses.ts` | Course slug helpers, date formatting, list grouping |
+| `src/lib/courses.ts` | Listing merge (`resolveListing`), slug helpers, date formatting, region → level → course grouping |
 | `scripts/sync-data.py` | Copy and transform parent pipeline data into this project |
 | `static/admin/config.yml` | Sveltia CMS collections and fields |

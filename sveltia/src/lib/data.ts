@@ -1,4 +1,4 @@
-import type { Course, Person, Region, Testimonial, Venue } from './types';
+import type { CourseType, Event, Person, Region, Testimonial, Venue } from './types';
 
 function emptyToNull(value: unknown): string | null {
 	if (value == null) return null;
@@ -20,10 +20,32 @@ function stringList(value: unknown): string[] | undefined {
 	return items.length ? items : undefined;
 }
 
-function asCourse(raw: Course): Course {
+function asMedium(value: unknown): 'In-person' | 'Online' | null {
+	if (value === 'Online' || value === 'In-person') return value;
+	return null;
+}
+
+function asCourseType(raw: CourseType): CourseType {
+	return {
+		...raw,
+		clown_level: emptyToNull(raw.clown_level),
+		prerequisites: emptyToNull(raw.prerequisites),
+		medium: raw.medium === 'Online' ? 'Online' : 'In-person',
+		maximum_group_size:
+			typeof raw.maximum_group_size === 'number' ? raw.maximum_group_size : null,
+		course_fee: emptyToNull(raw.course_fee),
+		course_fee_deposit: emptyToNull(raw.course_fee_deposit),
+		facilitators: Array.isArray(raw.facilitators) ? raw.facilitators.filter(Boolean) : [],
+		schedule: emptyToNull(raw.schedule),
+		course_description: emptyToNull(raw.course_description)
+	};
+}
+
+function asEvent(raw: Event): Event {
 	const region = emptyToNull(raw.region);
 	return {
 		...raw,
+		course: emptyToNull(raw.course),
 		start_date: emptyToNull(raw.start_date),
 		end_date: emptyToNull(raw.end_date),
 		location_country: emptyToNull(raw.location_country),
@@ -33,7 +55,7 @@ function asCourse(raw: Course): Course {
 		facilitators: Array.isArray(raw.facilitators) ? raw.facilitators.filter(Boolean) : [],
 		clown_level: emptyToNull(raw.clown_level),
 		prerequisites: emptyToNull(raw.prerequisites),
-		medium: raw.medium === 'Online' ? 'Online' : 'In-person',
+		medium: asMedium(raw.medium),
 		maximum_group_size:
 			typeof raw.maximum_group_size === 'number' ? raw.maximum_group_size : null,
 		course_fee: emptyToNull(raw.course_fee),
@@ -77,10 +99,15 @@ function asTestimonial(raw: Testimonial): Testimonial {
 	};
 }
 
-const courseModules = import.meta.glob('./data/courses/*.json', {
+const eventModules = import.meta.glob('./data/courses/*.json', {
 	eager: true,
 	import: 'default'
-}) as Record<string, Course>;
+}) as Record<string, Event>;
+
+const courseTypeModules = import.meta.glob('./data/course-types/*.json', {
+	eager: true,
+	import: 'default'
+}) as Record<string, CourseType>;
 
 const venueModules = import.meta.glob('./data/venues/*.json', {
 	eager: true,
@@ -97,10 +124,15 @@ const testimonialModules = import.meta.glob('./data/testimonials/*.json', {
 	import: 'default'
 }) as Record<string, Testimonial>;
 
-export const courses = Object.values(courseModules).map(asCourse);
+export const events = Object.values(eventModules).map(asEvent);
+export const courseTypes = Object.values(courseTypeModules).map(asCourseType);
 export const venues = Object.values(venueModules).map(asVenue);
 export const people = Object.values(peopleModules).map(asPerson);
 export const testimonials = Object.values(testimonialModules).map(asTestimonial);
+
+export const courseTypesById: Record<string, CourseType> = Object.fromEntries(
+	courseTypes.map((courseType) => [courseType.id, courseType])
+);
 
 export const venuesById: Record<string, Venue> = Object.fromEntries(
 	venues.map((venue) => [venue.id, venue])

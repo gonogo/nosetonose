@@ -12,41 +12,49 @@ SvelteKit static site with Git-based [Sveltia CMS](https://sveltiacms.app/en/). 
 
 | Python pipeline | Sveltia site |
 |-----------------|--------------|
-| `data/structured/*.json` arrays | `sveltia/src/lib/data/{courses,venues,people,testimonials}/*.json` (one file per entry) |
+| `data/structured/*.json` arrays | `sveltia/src/lib/data/{course-types,courses,venues,people,testimonials}/*.json` (one file per entry) |
 | `scripts/build_web.py` → `web/` | SvelteKit routes → `sveltia/build/` |
 | Edit rendering in `build_web.py` | Edit Svelte components and `sveltia/src/app.css` |
 
-Optional sync: `cd sveltia && npm run sync-data` reads `../data/` and overwrites synced paths.
+Optional sync: `cd sveltia && npm run sync-data` reads `../data/` and overwrites synced paths. Course types are not synced; listing `course` relations are preserved.
 
 ## Data loading
 
 - JSON: `import.meta.glob` in `sveltia/src/lib/data.ts`
 - Markdown: `import.meta.glob` in `sveltia/src/lib/markdown.ts`
-- Course public URL slug = last segment of course `id`
+- Public URL slug = last segment of listing `id`
+- Dated listings (`courses/*.json`) may set `course` to a course-type `id`. `resolveListing()` in `src/lib/courses.ts` fills blank inheritable fields from the course type.
 
 ## CMS (`sveltia/static/admin/config.yml`)
 
-- **Folder collections:** courses, venues, people, testimonials (one JSON file each)
+- **Folder collections:** course-types, courses, venues, people, testimonials (one JSON file each)
 - **File collection:** pages (single Markdown files)
 - **Folder collection:** articles
 - CMS repo root = nosetonose git root (not `sveltia/` alone)
-- Courses link to venues/people via relation widgets (`id` fields)
+- Listings link to course types, venues, and people via relation widgets (`id` fields)
+- The **Courses** tab is dated listings (events). **Course types** are date-agnostic programmes.
+- Course `schedule`, `course_description`, and `accommodation_and_meals` are `text` widgets, not `markdown`. Lexical cannot parse scraped copy and a thrown editor blanks every field. The public site still renders those strings as Markdown.
+- Unused single relations (`course`, `venue`) must **omit the key**. JSON `null` or `""` blanks the CMS entry editor. `output.omit_empty_optional_fields` in `config.yml` stops the CMS writing them back as `null`.
+- Empty Markdown-ish text fields must be `""` (not `null`).
+- JSON files keep `id` as the first key. CMS field order starts with ID so a save does not shuffle it.
 
 ## Page composition gotchas
 
 **Home (`/`):** Only “About us” (`home-team.md`) and testimonials are fully CMS-driven. Approach section is an excerpt of `approach.md` (until `# What happens in a workshop`). Hero and newsletter UI are in `+page.svelte`; newsletter URL in `src/lib/home.ts`.
 
-**Course detail:** Facilitator block shows photo + first paragraph of `background` via `firstParagraph()` in `src/lib/people.ts`.
+**Courses index:** Grouped by region, then clown level, then course type title (or listing title if unlinked), then date. Sidebar lists regions and nested levels.
 
-**Team:** Intro paragraph is hardcoded in `team/+page.svelte`; people lists come from JSON.
+**Course detail:** Merged listing + venue. Facilitator block shows photo + first paragraph of `background` via `firstParagraph()` in `src/lib/people.ts`.
 
-**Not synced by `sync-data.py`:** `home-team.md` — edit in CMS or directly.
+**Team:** Intro paragraph is hardcoded in `team/+page.svelte`; people lists come from JSON. Person course lists use merged facilitator ids.
+
+**Not synced by `sync-data.py`:** `home-team.md`, `course-types/` — edit in CMS or directly.
 
 ## Where to edit
 
 | Goal | Edit |
 |------|------|
-| Course/venue/person/testimonial fields | CMS or `sveltia/src/lib/data/*/` |
+| Course type / listing / venue / person / testimonial fields | CMS or `sveltia/src/lib/data/*/` |
 | Editorial page copy | CMS or `sveltia/src/lib/content/pages/` |
 | Layout, routes, derived page logic | `sveltia/src/routes/`, `sveltia/src/lib/` |
 | CMS collections/fields | `sveltia/static/admin/config.yml` |

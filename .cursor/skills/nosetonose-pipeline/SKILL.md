@@ -62,10 +62,12 @@ Then: `python scripts/build_web.py`
 - Stage 1 merges by `id`; Stages 2 and 3 fully overwrite their outputs
 - UK courses only in structured export currently
 - `data/pages_content_analysis.json` is optional; content-analysis page shows a placeholder if missing
+- Sveltia course types (`sveltia/src/lib/data/course-types/`) are CMS-owned and are not produced by this pipeline. Syncing into `sveltia/` preserves listing `course` relations and does not overwrite course types.
 
 ## Documentation
 
 - [docs/SCRAPING.md](../../docs/SCRAPING.md) — raw scrape, ContentItem, spiders
 - [docs/STRUCTURED_DATA.md](../../docs/STRUCTURED_DATA.md) — course/venue/people schemas
 - [docs/WEB.md](../../docs/WEB.md) — static site pages, Markdown support
+- [sveltia/README.md](../../sveltia/README.md) — SvelteKit site; course types vs dated listings
 - [.cursor/rules/](../../.cursor/rules/) — architecture and file-scoped edit guides

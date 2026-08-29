@@ -23,6 +23,8 @@ venues, and people. Text-block fields use **Markdown** (not HTML).
 
 Machine-readable schemas: [`docs/structured-data.schema.json`](structured-data.schema.json).
 
+The SvelteKit site in `sveltia/` can further group these dated listings under CMS-owned **course types**. That split is not part of this extract — see [sveltia/README.md](../sveltia/README.md).
+
 ---
 
 ## Run
@@ -336,7 +338,9 @@ Typical `people.json` breakdown: ~17 team facilitators, ~13 associate facilitato
 Training-only roster entries without current courses are excluded.
 
 Field coverage varies by course (not every page has schedule, accommodation,
-or prerequisites blocks).
+or prerequisites blocks). French-language pages on the UK events calendar
+(e.g. Morges) use headings such as Tarif, Acompte, Lieu, and Date et heures;
+those are parsed the same way as the English equivalents.
 
 ---
 

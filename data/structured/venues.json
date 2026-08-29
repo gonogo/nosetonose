@@ -48,6 +48,14 @@
     "location": "Leuve"
   },
   {
+    "id": "maison-des-associations",
+    "name": "Maison des Associations",
+    "address": "Rue des Fossés 16, 1110 Morges, Suisse",
+    "email": null,
+    "phone": null,
+    "location": "Morges"
+  },
+  {
     "id": "peredur-centre",
     "name": "Peredur Centre",
     "address": "West Hoathly Road, East Grinstead, West Sussex, RH19 4NF",

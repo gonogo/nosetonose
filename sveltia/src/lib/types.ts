@@ -3,10 +3,25 @@ export type Medium = 'In-person' | 'Online';
 export type PersonType = 'team-facilitator' | 'associate-facilitator' | 'team-passed-away';
 export type PersonStatus = 'active' | 'previous-associate';
 
-export type Course = {
+export type CourseType = {
+	id: string;
+	title: string;
+	clown_level: string | null;
+	prerequisites: string | null;
+	medium: Medium;
+	maximum_group_size: number | null;
+	course_fee: string | null;
+	course_fee_deposit: string | null;
+	facilitators: string[];
+	schedule: string | null;
+	course_description: string | null;
+};
+
+export type Event = {
 	id: string;
 	title: string;
 	source_url: string;
+	course: string | null;
 	start_date: string | null;
 	end_date: string | null;
 	location_country: string | null;
@@ -16,13 +31,19 @@ export type Course = {
 	facilitators: string[];
 	clown_level: string | null;
 	prerequisites: string | null;
-	medium: Medium;
+	medium: Medium | null;
 	maximum_group_size: number | null;
 	course_fee: string | null;
 	course_fee_deposit: string | null;
 	schedule: string | null;
 	course_description: string | null;
 	accommodation_and_meals: string | null;
+};
+
+/** Event with course-type fields merged in for display. */
+export type Course = Event & {
+	course_title: string;
+	medium: Medium;
 };
 
 export type Venue = {

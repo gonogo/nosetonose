@@ -1,5 +1,5 @@
-import { venuesById } from './data';
-import type { Course, Venue } from './types';
+import { courseTypesById, events, venuesById } from './data';
+import type { Course, CourseType, Event, Venue } from './types';
 
 export const REGION_ORDER = ['UK', 'Europe', 'North America', 'Other'] as const;
 
@@ -15,6 +15,37 @@ export const LEVEL_ORDER = [
 	'Facilitator Training',
 	'Performance'
 ];
+
+function inheritString(eventVal: string | null, courseVal: string | null | undefined): string | null {
+	return eventVal || courseVal || null;
+}
+
+function inheritNumber(eventVal: number | null, courseVal: number | null | undefined): number | null {
+	return eventVal ?? courseVal ?? null;
+}
+
+function inheritList(eventVal: string[], courseVal: string[] | undefined): string[] {
+	return eventVal.length ? eventVal : (courseVal ?? []);
+}
+
+export function resolveListing(event: Event, typesById: Record<string, CourseType> = courseTypesById): Course {
+	const courseType = event.course ? typesById[event.course] : undefined;
+	return {
+		...event,
+		course_title: courseType?.title ?? event.title,
+		clown_level: inheritString(event.clown_level, courseType?.clown_level),
+		prerequisites: inheritString(event.prerequisites, courseType?.prerequisites),
+		medium: event.medium ?? courseType?.medium ?? 'In-person',
+		maximum_group_size: inheritNumber(event.maximum_group_size, courseType?.maximum_group_size),
+		course_fee: inheritString(event.course_fee, courseType?.course_fee),
+		course_fee_deposit: inheritString(event.course_fee_deposit, courseType?.course_fee_deposit),
+		facilitators: inheritList(event.facilitators, courseType?.facilitators),
+		schedule: inheritString(event.schedule, courseType?.schedule),
+		course_description: inheritString(event.course_description, courseType?.course_description)
+	};
+}
+
+export const courses = events.map((event) => resolveListing(event));
 
 export function courseSlug(courseId: string): string {
 	return courseId.split('/').pop() ?? courseId;
@@ -87,6 +118,22 @@ export function coursesByLevel(all: Course[]): { level: string; courses: Course[
 		if (!groups.has(level)) groups.set(level, []);
 		groups.get(level)!.push(course);
 	}
+	return [...groups.entries()]
+		.sort((a, b) => {
+			const [ai, al] = levelSortKey(a[0]);
+			const [bi, bl] = levelSortKey(b[0]);
+			return ai - bi || al.localeCompare(bl);
+		})
+		.map(([level, list]) => ({ level, courses: list }));
+}
+
+export function coursesByCourseTitle(all: Course[]): { title: string; courses: Course[] }[] {
+	const groups = new Map<string, Course[]>();
+	for (const course of all) {
+		const title = course.course_title;
+		if (!groups.has(title)) groups.set(title, []);
+		groups.get(title)!.push(course);
+	}
 	for (const list of groups.values()) {
 		list.sort(
 			(a, b) =>
@@ -95,12 +142,8 @@ export function coursesByLevel(all: Course[]): { level: string; courses: Course[
 		);
 	}
 	return [...groups.entries()]
-		.sort((a, b) => {
-			const [ai, al] = levelSortKey(a[0]);
-			const [bi, bl] = levelSortKey(b[0]);
-			return ai - bi || al.localeCompare(bl);
-		})
-		.map(([level, list]) => ({ level, courses: list }));
+		.sort((a, b) => a[0].localeCompare(b[0], undefined, { sensitivity: 'base' }))
+		.map(([title, list]) => ({ title, courses: list }));
 }
 
 export function findCourseBySlug(all: Course[], slug: string): Course | undefined {

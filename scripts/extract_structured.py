@@ -38,8 +38,10 @@ MONTHS = {
     "octobre": 10,
     "nov": 11,
     "november": 11,
+    "novembre": 11,
     "dec": 12,
     "december": 12,
+    "décembre": 12,
 }
 
 COUNTRY_ALIASES = {
@@ -67,6 +69,8 @@ COUNTRY_ALIASES = {
     "czech republic": "Czech Republic",
     "czechia": "Czech Republic",
     "switzerland": "Switzerland",
+    "suisse": "Switzerland",
+    "schweiz": "Switzerland",
     "netherlands": "Netherlands",
     "austria": "Austria",
     "denmark": "Denmark",
@@ -106,6 +110,7 @@ SECTION_COUNTRY_PREFIXES = (
 )
 
 CITY_COUNTRY_HINTS = {
+    "morges": "Switzerland",
     "potsdam": "Germany",
     "cologne": "Germany",
     "munich": "Germany",
@@ -646,6 +651,81 @@ def normalize_markdown(text: str) -> str:
     return text.strip()
 
 
+LINKED_IMAGE_RE = r"\[!?\[[^\]]*\]\([^)]+\)\]\([^)]+\)"
+
+
+def tidy_plain_field(value: str | None) -> str | None:
+    """Strip scrape leftovers from a non-markdown string (fees, deposits)."""
+    if value is None:
+        return None
+    text = str(value).replace("\\*", "").strip()
+    if not text:
+        return None
+    text = re.sub(r"\*{2,}Deposit:.*$", "", text, flags=re.I)
+    text = re.sub(r"\*+", "", text)
+    text = re.sub(r"^[:–—,\s-]+", "", text)
+    text = re.sub(r"[:–—,\s-]+$", "", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    if not text or re.fullmatch(r"[.…]+", text):
+        return None
+    if "please check you know the total cost" in text.lower():
+        return None
+    return text or None
+
+
+def sanitize_cms_markdown(md: str | None) -> str | None:
+    """Flatten scrape artifacts that Sveltia's Lexical editor cannot parse."""
+    if md is None:
+        return None
+    text = str(md)
+    if not text.strip():
+        return None
+    text = text.replace("\\*", "*")
+    text = unwrap_italic_linked_images(text)
+    text = re.sub(rf"\*\*({LINKED_IMAGE_RE})\*\*", r"\1", text)
+    text = re.sub(rf"\*\*({LINKED_IMAGE_RE})", r"\1", text)
+    # Adjacent <strong> tags become ****; break into separate paragraphs.
+    text = re.sub(r"\*{4,}", "\n\n", text)
+    text = re.sub(
+        r"\*\*([^*\n]+)\n\n([^*\n]+)\*\*",
+        r"**\1**\n\n**\2**",
+        text,
+    )
+    text = re.sub(
+        r"^(#{1,6})\s+[*_]{1,3}(.+?)[*_]{1,3}\s*$",
+        r"\1 \2",
+        text,
+        flags=re.M,
+    )
+    text = re.sub(rf"({LINKED_IMAGE_RE})(?=[A-Za-z])", r"\1\n\n", text)
+    # Heading that is also a link — Lexical cannot parse this.
+    text = re.sub(
+        r"\n##\s*\[(?:\*\*)?Click here to book.*",
+        "",
+        text,
+        flags=re.I | re.S,
+    )
+    text = re.sub(
+        r"\n(?:\*{3,}\s*\n)?(?:Note: On some IPADS|To book a course follow|MORE INFO CONCERNING COURSE FEE).*$",
+        "",
+        text,
+        flags=re.I | re.S,
+    )
+    # Closing ** left after a **** split, e.g. "About the Clowning.**"
+    text = re.sub(r"^(\s*-\s+[^*\n]+)\*\*\s*$", r"\1", text, flags=re.M)
+    text = re.sub(r"^(?!\*\*)([^*\n]+)\*\*\s*$", r"**\1**", text, flags=re.M)
+    return normalize_markdown(text) or None
+
+
+def unwrap_italic_linked_images(md: str) -> str:
+    """Pull linked images out of italic wrappers so CMS rich-text editors can parse them."""
+    return re.sub(
+        rf"\*([^*\n]{{0,240}}?)({LINKED_IMAGE_RE})\*",
+        r"\1\n\n\2",
+        md,
+    )
+
+
 def parse_date_string(text: str) -> str | None:
     """Return ISO date YYYY-MM-DD if possible."""
     text = clean_text(text)
@@ -767,6 +847,8 @@ VENUE_NAME_HINTS = (
     "theatre",
     "theater",
     "haroen",
+    "maison",
+    "associations",
     "island",
     "venue",
     "retreat",
@@ -1303,6 +1385,14 @@ def is_valid_venue_name(name: str) -> bool:
         return False
     if re.search(r"\b(?:\d[\d-]*\s*)?day\s+course\b|\bcourse\s+on\b|\bcourse\s+at\b|\bworkshop\b|\bintroduction\b", lower):
         return False
+    if re.search(r"\d+h\d+|\d{1,2}:\d{2}", lower):
+        return False
+    if re.search(
+        r"\b(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|"
+        r"lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche)\b",
+        lower,
+    ):
+        return False
     if "online course" in lower or "day residential course" in lower or "weekly sessions" in lower:
         return False
     if any(h in lower for h in VENUE_NAME_HINTS):
@@ -1385,6 +1475,8 @@ def extract_group_size(text: str) -> int | None:
     patterns = [
         r"limited to\s+(\d+)\s+participants?",
         r"group is limited to\s+(\d+)",
+        r"groupe est limité[e]?\s+à\s+(\d+)",
+        r"limité[e]?\s+à\s+(\d+)\s+personnes?",
         r"maximum\s+(?:of\s+)?(\d+)\s+participants?",
         r"max\.?\s+(\d+)\s+participants?",
         r"(\d+)\s+participants?\s+maximum",
@@ -1489,6 +1581,12 @@ def extract_language(title: str, text: str, fallback: str = "en") -> str:
         return "English"
     if re.search(r"workshop in french|taught in french|en français|in french", combined, re.I):
         return "French"
+    if re.search(
+        r"\bformateur\b|\bfrancs suisses\b|\bhébergement et repas\b|\blogistiques\b",
+        combined,
+        re.I,
+    ):
+        return "French"
     if re.search(r"workshop in german|taught in german|in german|auf deutsch", combined, re.I):
         return "German"
     if re.search(r"workshop in italian|taught in italian|in italian", combined, re.I):
@@ -1549,28 +1647,52 @@ def extract_fee_and_deposit(text: str) -> tuple[str | None, str | None]:
     fee = None
     deposit = None
     fee_patterns = [
+        r"\*\*Course fee:\s*([^*]+)\*\*",
         r"\*\*Course fee:?\*\*\s*(.+?)(?:\n|$)",
-        r"Course fee:?\s*(.+?)(?:\n|$)",
-        r"\*\*Fee(?: \(Tuition only\))?:?\*\*\s*(.+?)(?:\n|$)",
+        r"(?:^|\n)\s*Course fee:\s*(.+?)(?:\n|$)",
+        r"\*\*Fee \(Tuition only\):?\*\*\s*(.+?)(?:\n|$)",
         r"Fee \(Tuition only\):\s*(.+?)(?:\n|Deposit)",
-        r"\*\*FEE\*\*:\s*(.+?)(?:\n|$)",
+        r"\*\*FEE\*\*\s*:?\s*(.+?)(?:\n|$)",
+        r"(?:^|\n)#{0,3}\s*Course fee\s*\n+\s*-\s*\**([£€$]\s*\d[\d,]*)",
+        r"\*\*Cost:\*\*\s*(.+?)(?:\n|$)",
+        r"(?:^|\n)Cost:\s*(CHF\s*\d[\d.]*)",
+        r"Costs?\s*\(sliding scale[^)\n]*\)\**\s*(\d[\d€£$.,\s–-]+)",
+        r"Early bird booking\*?\*?\s*(.+?)(?:\n|$)",
     ]
     for pat in fee_patterns:
         m = re.search(pat, text, re.I)
         if m:
-            fee = clean_text(m.group(1))
-            break
+            fee = tidy_plain_field(m.group(1))
+            if fee:
+                break
+    if not fee:
+        m = re.search(
+            r"Tarif\s*:?\s*\**\s*(\d[\d\s]*)\**\s*(francs?\s+suisses?|CHF)?",
+            text,
+            re.I,
+        )
+        if m:
+            fee = tidy_plain_field(" ".join(g for g in m.groups() if g))
     dep_patterns = [
         r"\*\*Deposit:?\*\*\s*(.+?)(?:\n|$)",
-        r"Deposit[:\s–-]+\s*([£€$]?\s?\d[\d,]*(?:\.\d{2})?\s*(?:GBP|EUR|USD)?)",
-        r"Deposit\s*[–-]\s*(\d+\s*(?:GBP|EUR|USD))",
+        r"Deposit[:\s–-]+\s*([£€$]?\s?\d[\d,]*(?:\.\d{2})?\s*(?:GBP|EUR|USD|CHF)?)",
+        r"Deposit\s*[–-]\s*(\d+\s*(?:GBP|EUR|USD|CHF))",
     ]
     for pat in dep_patterns:
         m = re.search(pat, text, re.I)
         if m:
-            deposit = clean_text(m.group(1))
-            break
-    return fee, deposit
+            deposit = tidy_plain_field(m.group(1))
+            if deposit:
+                break
+    if not deposit:
+        m = re.search(
+            r"Acompte\s*:?\s*\**\s*(\d[\d\s]*)\**\s*(francs?\s+suisses?|CHF)?",
+            text,
+            re.I,
+        )
+        if m:
+            deposit = tidy_plain_field(" ".join(g for g in m.groups() if g))
+    return tidy_plain_field(fee), tidy_plain_field(deposit)
 
 
 def extract_venue_from_course(soup: BeautifulSoup, md: str, title: str = "") -> dict:
@@ -1579,7 +1701,7 @@ def extract_venue_from_course(soup: BeautifulSoup, md: str, title: str = "") -> 
     # Venue: paragraph followed by address or link
     for el in soup.find_all(["p", "h2", "h3", "h4"]):
         heading = clean_text(el.get_text()).lower().rstrip(":")
-        if heading not in ("venue", "venue:"):
+        if heading not in ("venue", "venue:", "lieu", "lieu:"):
             continue
         sib = el.find_next_sibling()
         while sib and isinstance(sib, Tag):
@@ -1656,6 +1778,13 @@ def extract_venue_from_course(soup: BeautifulSoup, md: str, title: str = "") -> 
             line = re.sub(r"\*\*", "", line)
             line = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", line)
             line = re.sub(r"Venue\s*$", "", line, flags=re.I).strip(" .,")
+            if "\n" in m.group(1) and not venue["name"]:
+                lines = [clean_text(re.sub(r"\*\*", "", ln)) for ln in m.group(1).splitlines()]
+                lines = [ln for ln in lines if ln]
+                if lines and is_valid_venue_name(lines[0]):
+                    venue["name"] = lines[0]
+                    venue["address"] = ", ".join(lines[1:]) or None
+                    continue
             if line and not venue["name"]:
                 parts = line.split(",", 1)
                 candidate = parts[0].strip()
@@ -1665,10 +1794,42 @@ def extract_venue_from_course(soup: BeautifulSoup, md: str, title: str = "") -> 
             elif line and not venue["address"]:
                 venue["address"] = line
 
+    lieu = re.search(
+        r"\*\*Lieu\*\*[^\n]*\n+(.+?)(?:\n## |\n\*\*Remarque|\Z)",
+        md,
+        re.I | re.S,
+    )
+    if lieu and not venue["name"]:
+        lines = [clean_text(re.sub(r"\*\*", "", ln)) for ln in lieu.group(1).splitlines()]
+        lines = [ln for ln in lines if ln]
+        if lines and is_valid_venue_name(lines[0]):
+            venue["name"] = lines[0]
+            venue["address"] = ", ".join(lines[1:]) or None
+
+    if not venue["name"]:
+        for el in soup.find_all("p"):
+            for bold in el.find_all(["b", "strong"]):
+                if clean_text(bold.get_text()).lower().rstrip(":") != "lieu":
+                    continue
+                rest = []
+                for sib in bold.next_siblings:
+                    if isinstance(sib, NavigableString):
+                        rest.append(str(sib))
+                    elif isinstance(sib, Tag):
+                        rest.append(sib.get_text("\n", strip=True))
+                lines = [clean_text(ln) for ln in "".join(rest).splitlines()]
+                lines = [ln.lstrip(":").strip() for ln in lines if ln.lstrip(":").strip()]
+                if lines and is_valid_venue_name(lines[0]):
+                    venue["name"] = lines[0]
+                    venue["address"] = ", ".join(lines[1:]) or None
+                break
+            if venue["name"]:
+                break
+
     # Comma-separated title fallback: "… , BRIGHTON, UK"
     if not venue["name"] and title and "," in title:
         parts = [p.strip() for p in title.split(",") if p.strip()]
-        country_words = {"uk", "usa", "belgium", "germany", "france", "wales", "ireland", "switzerland"}
+        country_words = {"uk", "usa", "belgium", "germany", "france", "wales", "ireland", "switzerland", "suisse", "schweiz"}
         if len(parts) >= 2 and parts[-1].lower() in country_words:
             city = parts[-2]
             if city.lower() in ("brighton", "hastings", "leicester", "london", "greystoke", "dornach"):
@@ -1685,7 +1846,7 @@ def extract_venue_from_course(soup: BeautifulSoup, md: str, title: str = "") -> 
     if not venue["name"] and title:
         parts = [p.strip() for p in re.split(r"[–\-]", title) if p.strip()]
         if len(parts) >= 2:
-            country_words = {"uk", "usa", "belgium", "germany", "france", "wales", "ireland", "switzerland"}
+            country_words = {"uk", "usa", "belgium", "germany", "france", "wales", "ireland", "switzerland", "suisse", "schweiz"}
             loc = parts[-1]
             if loc.lower() in country_words and len(parts) >= 3:
                 loc = parts[-2]
@@ -1736,27 +1897,40 @@ def extract_venue_from_course(soup: BeautifulSoup, md: str, title: str = "") -> 
 
 
 def extract_schedule(soup: BeautifulSoup, md: str) -> str | None:
-    nodes = find_section_nodes(soup, ("date and times", "details date & times", "course dates"))
+    nodes = find_section_nodes(
+        soup, ("date and times", "details date & times", "course dates", "date et heures")
+    )
     if nodes:
-        return normalize_markdown("".join(node_to_markdown(n) for n in nodes))
+        return sanitize_cms_markdown("".join(node_to_markdown(n) for n in nodes))
 
     m = re.search(
-        r"(?:\*\*Details Date & Times:\*\*|\*\*COURSE DATES\*\*)(.+?)(?:---|\*\*Booking|\*\*Facilitator|## \*\*Step|\Z)",
+        r"(?:\*\*Details Date & Times:\*\*|\*\*COURSE DATES\*\*)(.+?)(?:---|\*\*Booking|\*\*Facilitator|\*\*Note|\*\*FEE|## \[(?:\*\*)?Click here|## \*\*Step|\Z)",
         md,
         re.I | re.S,
     )
     if m:
-        return normalize_markdown(m.group(1))
+        return sanitize_cms_markdown(m.group(1))
+    m = re.search(
+        r"\*\*Date et heures\*\*[^\n]*\n+(.+?)(?:\n\*\*Lieu|\n## |\Z)",
+        md,
+        re.I | re.S,
+    )
+    if m:
+        return sanitize_cms_markdown(m.group(1))
 
-    # Day-by-day list items
+    # Day-by-day list items (English or French weekday names)
+    day_names = (
+        r"Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|"
+        r"Lundi|Mardi|Mercredi|Jeudi|Vendredi|Samedi|Dimanche"
+    )
     day_items = re.findall(
-        r"^-?\s*(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday).+$",
+        rf"^-?\s*(?:{day_names}).+$",
         md,
         re.I | re.M,
     )
     if day_items:
         lines = re.findall(
-            r"^-?\s*((?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday).+)$",
+            rf"^-?\s*((?:{day_names}).+)$",
             md,
             re.I | re.M,
         )
@@ -1768,17 +1942,22 @@ def extract_schedule(soup: BeautifulSoup, md: str) -> str | None:
         re.I | re.S,
     )
     if m:
-        return normalize_markdown(m.group(0))
+        return sanitize_cms_markdown(m.group(0))
     return None
 
 
 def extract_accommodation(soup: BeautifulSoup, md: str) -> str | None:
     nodes = find_section_nodes(
         soup,
-        ("accommodation and meals", "step 2 – accommodation and meals", "step 2 - accommodation and meals"),
+        (
+            "accommodation and meals",
+            "step 2 – accommodation and meals",
+            "step 2 - accommodation and meals",
+            "hébergement et repas",
+        ),
     )
     if nodes:
-        text = normalize_markdown("".join(node_to_markdown(n) for n in nodes))
+        text = sanitize_cms_markdown("".join(node_to_markdown(n) for n in nodes))
         if text:
             return text
     m = re.search(
@@ -1787,7 +1966,14 @@ def extract_accommodation(soup: BeautifulSoup, md: str) -> str | None:
         re.I | re.S,
     )
     if m:
-        return normalize_markdown(m.group(1))
+        return sanitize_cms_markdown(m.group(1))
+    m = re.search(
+        r"\*\*Hébergement et repas\*\*[^\n]*\n+(.+?)(?:\n\*\*Date|\n## |\Z)",
+        md,
+        re.I | re.S,
+    )
+    if m:
+        return sanitize_cms_markdown(m.group(1))
     return None
 
 
@@ -1796,8 +1982,9 @@ DESCRIPTION_STOP_RE = re.compile(
     r"\n---\s*\n"
     r"|\n## \*\*(?:Step 1|Book on this course)"
     r"|\n## \[(?:\*\*\*|\*\*)?Click here to book"
-    r"|\n(?:\*\*Facilitators?:\*\*|###\s*Facilitators?:?|##\s*Facilitators?:?)"
-    r"|\n\*\*(?:Course fee|Fee \(Tuition only\)|Bursaries):"
+    r"|\n\*\*COURSE DATES\b"
+    r"|\n(?:\*\*Facilitators?:\*\*|###\s*Facilitators?:?|##\s*Facilitators?:?|Formateur:)"
+    r"|\n\*\*(?:Course fee|Fee \(Tuition only\)|Bursaries|LOGISTIQUES):"
     r")",
     re.I,
 )
@@ -1822,7 +2009,7 @@ def extract_course_description_from_markdown(md: str) -> str | None:
 
     if not text or len(text) < 40:
         return None
-    return normalize_markdown(text)
+    return sanitize_cms_markdown(text)
 
 
 def extract_course_description(soup: BeautifulSoup, md: str) -> str | None:
@@ -1860,8 +2047,8 @@ def extract_course_description(soup: BeautifulSoup, md: str) -> str | None:
             break
         parts.append(child)
     if parts:
-        desc = normalize_markdown("".join(node_to_markdown(p) for p in parts))
-        if len(desc) > 40:
+        desc = sanitize_cms_markdown("".join(node_to_markdown(p) for p in parts))
+        if desc and len(desc) > 40:
             return desc
     return None
 
@@ -2270,6 +2457,7 @@ def extract_courses(raw_courses: list[dict], venue_registry: dict, people_regist
         )
         schedule = extract_schedule(soup, md)
         if schedule:
+            schedule = sanitize_cms_markdown(schedule)
             s, e = parse_date_range(schedule.split("\n")[0] if schedule else "")
             start_date = start_date or s
             end_date = end_date or e

@@ -1,5 +1,4 @@
-import { courses } from './data';
-import { REGION_ORDER } from './courses';
+import { REGION_ORDER, courses } from './courses';
 import type { Course, Person } from './types';
 
 export function personDisplayLabel(person: Person): string {

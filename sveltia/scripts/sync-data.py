@@ -4,6 +4,10 @@
 Reads from the parent nosetonose repo (../data) when present, writes into
 src/lib/data and src/lib/content. Re-run after extract_structured.py or
 editorial Markdown edits in the parent repo.
+
+Course types (src/lib/data/course-types) are CMS-owned and are not synced.
+When refreshing course listings, any existing ``course`` relation on a file
+is preserved.
 """
 
 from __future__ import annotations
@@ -129,7 +133,29 @@ def record_slug(record: dict, *, from_id_path: bool = False) -> str:
     return record_id
 
 
-def write_json_entries(dest: Path, records: list[dict], *, from_id_path: bool = False) -> None:
+def id_first(record: dict) -> dict:
+    """Keep ``id`` as the first key so files stay consistent for the CMS."""
+    if "id" not in record:
+        return dict(record)
+    return {"id": record["id"], **{k: v for k, v in record.items() if k != "id"}}
+
+
+def drop_empty_relations(record: dict) -> dict:
+    """Omit unused single relations. JSON null crashes Sveltia's relation widget."""
+    payload = dict(record)
+    for key in ("course", "venue"):
+        if payload.get(key) in (None, ""):
+            payload.pop(key, None)
+    return payload
+
+
+def write_json_entries(
+    dest: Path,
+    records: list[dict],
+    *,
+    from_id_path: bool = False,
+    preserve_keys: tuple[str, ...] = (),
+) -> None:
     dest.mkdir(parents=True, exist_ok=True)
     wanted: set[str] = set()
     for record in records:
@@ -139,8 +165,24 @@ def write_json_entries(dest: Path, records: list[dict], *, from_id_path: bool = 
         if slug in wanted:
             raise SystemExit(f"Duplicate filename slug {slug!r}")
         wanted.add(slug)
-        (dest / f"{slug}.json").write_text(
-            json.dumps(record, ensure_ascii=False, indent=2) + "\n",
+        payload = dict(record)
+        for key in ("schedule", "course_description", "accommodation_and_meals"):
+            if key in payload and payload[key] is None:
+                payload[key] = ""
+        existing_path = dest / f"{slug}.json"
+        if preserve_keys and existing_path.is_file():
+            existing = json.loads(existing_path.read_text(encoding="utf-8"))
+            for key in preserve_keys:
+                if key not in existing:
+                    continue
+                value = existing[key]
+                # Unused relations must be omitted; "" and null both break the editor.
+                if value in ("", None):
+                    continue
+                payload[key] = value
+        payload = id_first(drop_empty_relations(payload))
+        existing_path.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
     for stale in dest.glob("*.json"):
@@ -149,6 +191,10 @@ def write_json_entries(dest: Path, records: list[dict], *, from_id_path: bool = 
 
 
 def copy_structured() -> None:
+    """Copy venues and people from the pipeline. Course listings keep any existing
+    ``course`` (course-type) relation. Course types in ``course-types/`` are CMS-owned
+    and are never overwritten.
+    """
     if not SRC_STRUCTURED.is_dir():
         raise SystemExit(
             f"Parent structured data not found at {SRC_STRUCTURED}. "
@@ -156,16 +202,21 @@ def copy_structured() -> None:
         )
     DEST_DATA.mkdir(parents=True, exist_ok=True)
     specs = (
-        ("courses.json", "courses", True),
-        ("venues.json", "venues", False),
-        ("people.json", "people", False),
+        ("courses.json", "courses", True, ("course",)),
+        ("venues.json", "venues", False, ()),
+        ("people.json", "people", False, ()),
     )
-    for filename, folder, from_id_path in specs:
+    for filename, folder, from_id_path, preserve_keys in specs:
         src = SRC_STRUCTURED / filename
         if not src.is_file():
             raise SystemExit(f"Missing {src}")
         records = json.loads(src.read_text(encoding="utf-8"))
-        write_json_entries(DEST_DATA / folder, records, from_id_path=from_id_path)
+        write_json_entries(
+            DEST_DATA / folder,
+            records,
+            from_id_path=from_id_path,
+            preserve_keys=preserve_keys,
+        )
         combined = DEST_DATA / filename
         if combined.exists():
             combined.unlink()
@@ -213,7 +264,7 @@ def copy_testimonials() -> None:
             slug = f"{slug}-{record_slug(record, from_id_path=True)}"
         wanted.add(slug)
         (dest / f"{slug}.json").write_text(
-            json.dumps(normalized, ensure_ascii=False, indent=2) + "\n",
+            json.dumps(id_first(normalized), ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
     for stale in dest.glob("*.json"):

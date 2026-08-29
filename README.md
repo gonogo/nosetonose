@@ -13,6 +13,7 @@ JSON and a plain static HTML browser (courses, people, and scraped site content)
 | [docs/SCRAPING.md](docs/SCRAPING.md) | Scrapy spiders, raw JSON schema, coverage |
 | [docs/STRUCTURED_DATA.md](docs/STRUCTURED_DATA.md) | Course/venue/people extraction |
 | [docs/WEB.md](docs/WEB.md) | Static HTML site generator |
+| [sveltia/README.md](sveltia/README.md) | SvelteKit + CMS site (course types vs dated listings) |
 
 **JSON schemas:**
 
@@ -53,6 +54,8 @@ Open [http://localhost:8080](http://localhost:8080) (courses),
 
 A separate SvelteKit + [Sveltia CMS](https://sveltiacms.app/en/) front end lives in [`sveltia/`](sveltia/). It keeps its own copy of structured data and editorial content under `sveltia/src/lib/` and does not read `data/` at runtime.
 
+Unlike the Python site (one JSON record per dated listing), Sveltia splits **course types** (date-agnostic programmes) from **listings** (events). The public `/courses` page groups region → level → course. `npm run sync-data` refreshes listings, venues, people, and editorial copy from this pipeline; it does **not** overwrite `course-types/` and it preserves each listing’s `course` relation.
+
 ```bash
 cd sveltia
 npm install
@@ -60,7 +63,7 @@ npm run dev          # http://localhost:5173
 npm run sync-data    # optional: refresh from ../data/structured, testimonials, editorial MD
 ```
 
-See [sveltia/README.md](sveltia/README.md) for routes, CMS setup, which page sections are editable, and how the home page is assembled.
+See [sveltia/README.md](sveltia/README.md) for the course/event model, CMS setup, and which page sections are editable.
 
 ---
 

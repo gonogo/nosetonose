@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
-import { courses, peopleById, venuesById } from '$lib/data';
-import { courseSlug, findCourseBySlug } from '$lib/courses';
+import { peopleById, venuesById } from '$lib/data';
+import { courseSlug, courses, findCourseBySlug } from '$lib/courses';
 
 export function entries() {
 	return courses.map((course) => ({ slug: courseSlug(course.id) }));
