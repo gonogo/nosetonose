@@ -11,6 +11,7 @@ Three-stage pipeline: **scrape → extract → build**. See [README.md](README.m
 | [docs/content-item.schema.json](docs/content-item.schema.json) | Raw scrape JSON schema |
 | [docs/structured-data.schema.json](docs/structured-data.schema.json) | Structured course/venue/people schema |
 | [.cursor/skills/nosetonose-pipeline/SKILL.md](.cursor/skills/nosetonose-pipeline/SKILL.md) | Pipeline workflow checklists |
+| [sveltia/README.md](sveltia/README.md) | SvelteKit + Sveltia CMS site (separate from `web/`) |
 
 ## Pipeline commands
 
@@ -26,6 +27,7 @@ python scripts/build_web.py          # Stage 3 → web/
 - **Editorial pages** (Approach, Booking, …) → `data/*.md` + `EDITORIAL_PAGES` in `build_web.py`
 - **Structured fields** → `scripts/extract_structured.py`
 - **HTML / CSS / rendering** → `scripts/build_web.py` (not `web/` directly)
+- **SvelteKit site / CMS** → `sveltia/` (see [sveltia/README.md](sveltia/README.md)); optional refresh via `cd sveltia && npm run sync-data`
 
 ## Recent schema notes
 

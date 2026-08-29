@@ -1,0 +1,55 @@
+---
+description: SvelteKit + Sveltia CMS site in sveltia/ — data layout, CMS, and page composition
+globs: sveltia/**
+alwaysApply: false
+---
+
+# Sveltia site
+
+SvelteKit static site with Git-based [Sveltia CMS](https://sveltiacms.app/en/). Independent from the Python `web/` generator — uses its own data copy under `sveltia/src/lib/`.
+
+## Do not confuse with the Python pipeline
+
+| Python pipeline | Sveltia site |
+|-----------------|--------------|
+| `data/structured/*.json` arrays | `sveltia/src/lib/data/{courses,venues,people,testimonials}/*.json` (one file per entry) |
+| `scripts/build_web.py` → `web/` | SvelteKit routes → `sveltia/build/` |
+| Edit rendering in `build_web.py` | Edit Svelte components and `sveltia/src/app.css` |
+
+Optional sync: `cd sveltia && npm run sync-data` reads `../data/` and overwrites synced paths.
+
+## Data loading
+
+- JSON: `import.meta.glob` in `sveltia/src/lib/data.ts`
+- Markdown: `import.meta.glob` in `sveltia/src/lib/markdown.ts`
+- Course public URL slug = last segment of course `id`
+
+## CMS (`sveltia/static/admin/config.yml`)
+
+- **Folder collections:** courses, venues, people, testimonials (one JSON file each)
+- **File collection:** pages (single Markdown files)
+- **Folder collection:** articles
+- CMS repo root = nosetonose git root (not `sveltia/` alone)
+- Courses link to venues/people via relation widgets (`id` fields)
+
+## Page composition gotchas
+
+**Home (`/`):** Only “About us” (`home-team.md`) and testimonials are fully CMS-driven. Approach section is an excerpt of `approach.md` (until `# What happens in a workshop`). Hero and newsletter UI are in `+page.svelte`; newsletter URL in `src/lib/home.ts`.
+
+**Course detail:** Facilitator block shows photo + first paragraph of `background` via `firstParagraph()` in `src/lib/people.ts`.
+
+**Team:** Intro paragraph is hardcoded in `team/+page.svelte`; people lists come from JSON.
+
+**Not synced by `sync-data.py`:** `home-team.md` — edit in CMS or directly.
+
+## Where to edit
+
+| Goal | Edit |
+|------|------|
+| Course/venue/person/testimonial fields | CMS or `sveltia/src/lib/data/*/` |
+| Editorial page copy | CMS or `sveltia/src/lib/content/pages/` |
+| Layout, routes, derived page logic | `sveltia/src/routes/`, `sveltia/src/lib/` |
+| CMS collections/fields | `sveltia/static/admin/config.yml` |
+| Refresh from scrape pipeline | `sveltia/scripts/sync-data.py` |
+
+Full details: [sveltia/README.md](../../sveltia/README.md)

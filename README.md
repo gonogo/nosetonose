@@ -49,6 +49,19 @@ Open [http://localhost:8080](http://localhost:8080) (courses),
 [http://localhost:8080/people.html](http://localhost:8080/people.html), or
 [http://localhost:8080/other-content.html](http://localhost:8080/other-content.html) (articles, pages, thoughts, etc.).
 
+### SvelteKit site (`sveltia/`)
+
+A separate SvelteKit + [Sveltia CMS](https://sveltiacms.app/en/) front end lives in [`sveltia/`](sveltia/). It keeps its own copy of structured data and editorial content under `sveltia/src/lib/` and does not read `data/` at runtime.
+
+```bash
+cd sveltia
+npm install
+npm run dev          # http://localhost:5173
+npm run sync-data    # optional: refresh from ../data/structured, testimonials, editorial MD
+```
+
+See [sveltia/README.md](sveltia/README.md) for routes, CMS setup, which page sections are editable, and how the home page is assembled.
+
 ---
 
 ## Stage 1: Scrape (`data/`)
@@ -154,6 +167,7 @@ web/                      # Generated static site
   other-content.html      # Scraped content index
   content-analysis.html   # Page taxonomy and catalogue
   courses/ people/ content/
+sveltia/                  # SvelteKit + Sveltia CMS site (see sveltia/README.md)
 docs/                     # Documentation + JSON schemas
 ```
 

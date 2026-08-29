@@ -50,3 +50,5 @@ People use `person_type`: `team-facilitator`, `associate-facilitator`, or `team-
 ## Full documentation
 
 Read `docs/SCRAPING.md`, `docs/STRUCTURED_DATA.md`, `docs/WEB.md`, and `docs/*.schema.json` for schemas and extraction details.
+
+A separate SvelteKit + Sveltia CMS site lives in `sveltia/` — see [sveltia/README.md](../../sveltia/README.md) and [.cursor/rules/sveltia-site.mdc](sveltia-site.mdc).
