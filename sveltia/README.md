@@ -77,7 +77,7 @@ A **course type** is a date- and venue-agnostic programme (for example “Courag
 
 **Inheritance:** if a listing sets `course`, blank inheritable fields are filled from the course type. A filled listing field overrides the course type (so a London Clown 1 can keep a different fee). If `course` is empty, the listing’s own course-related fields are used.
 
-`resolveListing()` in `src/lib/courses.ts` performs that merge at build time. The public `/courses` index groups **region → level → course type** (or listing title if unlinked) **→ date**. Detail URLs remain `/courses/[slug]` (last segment of the listing `id`).
+`resolveListing()` in `src/lib/courses.ts` performs that merge at build time. The public `/courses` index is **course-first**: region → level → course type (or listing title if unlinked), with dated runs listed compactly under each course rather than as separate events. Detail URLs remain `/courses/[slug]` (last segment of the listing `id`).
 
 Listings also reference venues and facilitators by `id`. In the CMS, **Course type**, **Venue**, and **Facilitators** are relation widgets.
 
@@ -143,7 +143,15 @@ Load logic: `src/routes/+page.ts`.
 
 ### Courses index (`/courses`)
 
-Listings are grouped by region, then by clown level, then by course type title (or the listing title if unlinked), then by start date. The sidebar lists regions with nested levels. Grouping is derived in `src/lib/courses.ts` (`coursesByRegion`, `coursesByLevel`, `coursesByCourseTitle`); there is no CMS field for it.
+The index treats a **course** as the primary unit and each dated listing as an attendance option under it:
+
+- **Course** — what it is (title, plus a short blurb when a course type is linked)
+- **Instance** — when and where you can take it
+- **Action** — the date row links to that listing’s detail page
+
+Grouping is region → clown level → course type title (or the listing title if unlinked) → start date. Levels such as Clown 1 are category labels; the course name is the main heading. The sidebar lists regions with nested levels. There is no CMS field for grouping — it is derived in `src/lib/courses.ts` (`coursesByRegion`, `coursesByLevel`, `coursesByCourseTitle`).
+
+A course with several dates (for example **Courage to Be – Clown Level 1**) shows the title once, an optional type-level summary, a **Course dates** label, and a compact list of instances. Summaries come from the linked course type (`courseGroupSummary()` / `listingSummary()`), not from venue-specific listing copy. In-person is the default and is not repeated on every row; online runs show an **Online** badge instead of a country. Desktop puts date and location in columns; narrow viewports stack them (date, then location). Unlinked listings still appear as their own group, using the listing title.
 
 ### Course detail (`/courses/[slug]`)
 
@@ -154,7 +162,7 @@ Listings are grouped by region, then by clown level, then by course type title (
 | Venue name/address | Linked venue JSON | Yes — **Venues** |
 | Facilitators (photo + first paragraph of bio) | Linked people JSON; first paragraph via `firstParagraph()` in `src/lib/people.ts` | Yes — **People** (photo + background) |
 
-Facilitators are taken from the merged listing in `src/routes/courses/[slug]/+page.ts` (`resolveListing()`). The index at `/courses` groups by region, then level, then course type, then date.
+Facilitators are taken from the merged listing in `src/routes/courses/[slug]/+page.ts` (`resolveListing()`). How the index groups courses is described under **Courses index** above.
 
 ### Team (`/team`)
 
@@ -193,6 +201,6 @@ Static output is written to `build/`.
 | `src/lib/markdown.ts` | Front matter parsing, Markdown render, editorial/article loaders |
 | `src/lib/home.ts` | Home-page helpers: newsletter URL, approach excerpt, testimonial sort |
 | `src/lib/people.ts` | Team grouping, `firstParagraph()` for course facilitator intros |
-| `src/lib/courses.ts` | Listing merge (`resolveListing`), slug helpers, date formatting, region → level → course grouping |
+| `src/lib/courses.ts` | Listing merge (`resolveListing`), compact date ranges, course-type listing blurbs, region → level → course grouping |
 | `scripts/sync-data.py` | Copy and transform parent pipeline data into this project |
 | `static/admin/config.yml` | Sveltia CMS collections and fields |

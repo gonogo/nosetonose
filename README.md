@@ -54,7 +54,7 @@ Open [http://localhost:8080](http://localhost:8080) (courses),
 
 A separate SvelteKit + [Sveltia CMS](https://sveltiacms.app/en/) front end lives in [`sveltia/`](sveltia/). It keeps its own copy of structured data and editorial content under `sveltia/src/lib/` and does not read `data/` at runtime.
 
-Unlike the Python site (one JSON record per dated listing), Sveltia splits **course types** (date-agnostic programmes) from **listings** (events). The public `/courses` page groups region → level → course. `npm run sync-data` refreshes listings, venues, people, and editorial copy from this pipeline; it does **not** overwrite `course-types/` and it preserves each listing’s `course` relation.
+Unlike the Python site (one JSON record per dated listing), Sveltia splits **course types** (date-agnostic programmes) from **listings** (events). The public `/courses` page groups region → level → course and lists dates and locations under each course, so a programme with several runs (for example Courage to Be – Clown Level 1) appears once rather than as a stack of separate events. `npm run sync-data` refreshes listings, venues, people, and editorial copy from this pipeline; it does **not** overwrite `course-types/` and it preserves each listing’s `course` relation.
 
 ```bash
 cd sveltia

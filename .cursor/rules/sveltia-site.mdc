@@ -42,7 +42,7 @@ Optional sync: `cd sveltia && npm run sync-data` reads `../data/` and overwrites
 
 **Home (`/`):** Only “About us” (`home-team.md`) and testimonials are fully CMS-driven. Approach section is an excerpt of `approach.md` (until `# What happens in a workshop`). Hero and newsletter UI are in `+page.svelte`; newsletter URL in `src/lib/home.ts`.
 
-**Courses index:** Grouped by region, then clown level, then course type title (or listing title if unlinked), then date. Sidebar lists regions and nested levels.
+**Courses index:** Course-first: region → clown level → course type title (or listing title if unlinked), with compact date/location rows under each course. Multi-date programmes show the title once; the date row is the link to the listing. Sidebar lists regions and nested levels.
 
 **Course detail:** Merged listing + venue. Facilitator block shows photo + first paragraph of `background` via `firstParagraph()` in `src/lib/people.ts`.
 
