@@ -7,3 +7,6 @@ httpcache/
 dist/
 build/
 .DS_Store
+sveltia/node_modules/
+sveltia/.svelte-kit/
+sveltia/build/

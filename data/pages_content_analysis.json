@@ -1,0 +1,1590 @@
+{
+  "summary": {
+    "total": 127,
+    "emptyPages": 28,
+    "byRegion": {
+      "Germany": 25,
+      "International": 20,
+      "Italy": 24,
+      "North America": 21,
+      "Poland": 10,
+      "UK": 27
+    },
+    "patterns": [
+      {
+        "name": "Regional homepages",
+        "count": 8,
+        "description": "Intro to Nose to Nose for UK, Germany, Italy, Poland, North America, plus legacy international/Italian sites."
+      },
+      {
+        "name": "Training methodology",
+        "count": 19,
+        "description": "Approach, principles, progression, course levels — often repeated per region and language."
+      },
+      {
+        "name": "Course dates and archives",
+        "count": 24,
+        "description": "Upcoming calendars and long chronological archives of past workshops."
+      },
+      {
+        "name": "Team and people",
+        "count": 7,
+        "description": "Facilitator profiles, previous associates, memorial pages."
+      },
+      {
+        "name": "Articles and writing",
+        "count": 15,
+        "description": "Essays on clowning philosophy, applied clowning, and press coverage."
+      },
+      {
+        "name": "Applied/corporate clowning",
+        "count": 11,
+        "description": "Social clowning, in-house workshops, burnout prevention, teacher development."
+      },
+      {
+        "name": "Practical/transactional",
+        "count": 9,
+        "description": "Booking instructions, contact pages, confirmation pages, legal imprint."
+      },
+      {
+        "name": "Site infrastructure",
+        "count": 25,
+        "description": "WordPress placeholders (tags, categories, locations, my-bookings), sitemap, regional link pages."
+      },
+      {
+        "name": "Legacy stubs",
+        "count": 9,
+        "description": "Empty retired pages from the old international site (2012 course listings, empty date pages)."
+      }
+    ],
+    "taxonomy": [
+      {
+        "category": "About",
+        "count": 28,
+        "use_for": "Organisation info, history, homepages"
+      },
+      {
+        "category": "Site infrastructure",
+        "count": 25,
+        "use_for": "Navigation, WP placeholders, sitemap"
+      },
+      {
+        "category": "Courses",
+        "count": 24,
+        "use_for": "Anything course-related"
+      },
+      {
+        "category": "Training methodology",
+        "count": 19,
+        "use_for": "Approach, principles, progression"
+      },
+      {
+        "category": "Articles",
+        "count": 15,
+        "use_for": "Published writing, essays, press"
+      },
+      {
+        "category": "Course dates",
+        "count": 13,
+        "use_for": "Upcoming event listings"
+      },
+      {
+        "category": "Course archive",
+        "count": 12,
+        "use_for": "Historical workshop records"
+      },
+      {
+        "category": "Applied clowning",
+        "count": 11,
+        "use_for": "Corporate, social, wellbeing work"
+      },
+      {
+        "category": "Team",
+        "count": 7,
+        "use_for": "Facilitator and people pages"
+      },
+      {
+        "category": "Placeholder/Legacy stub",
+        "count": 20,
+        "use_for": "Empty or retired content to review"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "de/artikel",
+      "title": "Artikel",
+      "region": "Germany",
+      "description": "German press articles and media coverage about Nose to Nose clowning workshops.",
+      "categories": "Articles, Media coverage, Press",
+      "empty": false
+    },
+    {
+      "id": "de/wo/bilder",
+      "title": "Bilder",
+      "region": "Germany",
+      "description": "Empty images gallery page (German site).",
+      "categories": "Media, Placeholder, Site infrastructure",
+      "empty": true
+    },
+    {
+      "id": "de/bisherige-kurse",
+      "title": "Bisherige Workshops",
+      "region": "Germany",
+      "description": "Archive of past German-region workshops listed chronologically with dates and facilitators.",
+      "categories": "Course archive, Courses, Historical records",
+      "empty": false
+    },
+    {
+      "id": "de/burnout-prevention",
+      "title": "Burnout Prevention",
+      "region": "Germany",
+      "description": "Landing page for burnout prevention workshops using clowning, with introductory imagery.",
+      "categories": "Applied clowning, Wellbeing, Corporate",
+      "empty": false
+    },
+    {
+      "id": "de/was/burnout-prevention",
+      "title": "Clown and Conflict",
+      "region": "Germany",
+      "description": "Full article on 'Clown & Conflict' — working with the heart, handling confusion and humiliation in clown work.",
+      "categories": "Articles, Applied clowning, Wellbeing",
+      "empty": false
+    },
+    {
+      "id": "de/events/clown-in-der-natur-kirnbauernhof-9-bis-13-mai-2018",
+      "title": "CLOWN IN DER NATUR – KIRNBAUERNHOF – 9. bis 13. MAI 2018",
+      "region": "Germany",
+      "description": "Specific past course page: Clown in Nature at Kirnbauernhof, May 2018.",
+      "categories": "Individual course, Course archive, Past event",
+      "empty": false
+    },
+    {
+      "id": "de/dozentinnen",
+      "title": "Dozent/innen",
+      "region": "Germany",
+      "description": "Profiles of German-region facilitators and their approach to teaching clowning.",
+      "categories": "Team, People, About",
+      "empty": false
+    },
+    {
+      "id": "de/filme-uber-uns",
+      "title": "Filme über uns",
+      "region": "Germany",
+      "description": "Links to films about Nose to Nose including Anicca and Nowhere conference footage.",
+      "categories": "Media, About, Film",
+      "empty": false
+    },
+    {
+      "id": "de/flyers-posters",
+      "title": "FlYERS/POSTERS",
+      "region": "Germany",
+      "description": "Printable flyers and posters available on request for promoting workshops.",
+      "categories": "Marketing, Practical information, Resources",
+      "empty": false
+    },
+    {
+      "id": "de/herangehensweise",
+      "title": "Herangehensweise",
+      "region": "Germany",
+      "description": "German translation of the Nose to Nose teaching approach and facilitator philosophy.",
+      "categories": "Training methodology, Philosophy, About",
+      "empty": false
+    },
+    {
+      "id": "de/hurra",
+      "title": "Hurra!",
+      "region": "Germany",
+      "description": "Booking confirmation thank-you page shown after successful course registration.",
+      "categories": "Booking, Confirmation page, Practical information",
+      "empty": false
+    },
+    {
+      "id": "de/impressum",
+      "title": "Impressum",
+      "region": "Germany",
+      "description": "Legal imprint with organisation contact details and responsible persons (German requirement).",
+      "categories": "Legal, Contact, Site infrastructure",
+      "empty": false
+    },
+    {
+      "id": "de/was/integration-with-heart",
+      "title": "Integration with heart",
+      "region": "Germany",
+      "description": "Corporate offering for companies integrating refugees — clowning for integration with heart.",
+      "categories": "Applied clowning, Corporate, Social clowning",
+      "empty": false
+    },
+    {
+      "id": "de/interne-workshops",
+      "title": "Interne/Corporate Workshops",
+      "region": "Germany",
+      "description": "Corporate and in-house workshop offerings for organisations, schools, and institutions.",
+      "categories": "Applied clowning, Corporate, Courses",
+      "empty": false
+    },
+    {
+      "id": "de/events",
+      "title": "Kalender",
+      "region": "Germany",
+      "description": "German course calendar listing upcoming workshops by month.",
+      "categories": "Course dates, Courses, Upcoming events",
+      "empty": false
+    },
+    {
+      "id": "de/contact",
+      "title": "Kontakt",
+      "region": "Germany",
+      "description": "German contact page with Hanna Mosch and Catherine Bryden email addresses.",
+      "categories": "Contact, Practical information",
+      "empty": false
+    },
+    {
+      "id": "de/archives/175",
+      "title": "Kursstufen",
+      "region": "Germany",
+      "description": "Duplicate course levels page (archived URL) describing Clown 1 through Social Clowning stages.",
+      "categories": "Training programme, Training methodology, Duplicate content",
+      "empty": false
+    },
+    {
+      "id": "de/kursstufen",
+      "title": "Kursstufen",
+      "region": "Germany",
+      "description": "Course level descriptions from Clown 1 (Courage to Be) through the full training progression.",
+      "categories": "Training programme, Training methodology, Courses",
+      "empty": false
+    },
+    {
+      "id": "de",
+      "title": "Narrenfreiheit/Clowning",
+      "region": "Germany",
+      "description": "German regional homepage with hero images, upcoming courses, and introduction to Narrenfreiheit/Clowning.",
+      "categories": "Regional home, About, Landing page",
+      "empty": false
+    },
+    {
+      "id": "de/clown-and-personal-development",
+      "title": "Personal Development",
+      "region": "Germany",
+      "description": "Stub page — content marked as 'working on it soon'.",
+      "categories": "Placeholder, Applied clowning, Stub",
+      "empty": false
+    },
+    {
+      "id": "de/clowning-fur-lehrer",
+      "title": "Persönlichkeitsentwicklung für Lehrer",
+      "region": "Germany",
+      "description": "Article on personality development for teachers — preparing for the unexpected in classroom settings.",
+      "categories": "Articles, Applied clowning, Education",
+      "empty": false
+    },
+    {
+      "id": "de/potsdam-newspaper-article",
+      "title": "Potsdam Newspaper article",
+      "region": "Germany",
+      "description": "Embedded PDF of a Potsdam newspaper article about clowning and forbidden films.",
+      "categories": "Media coverage, Press, Articles",
+      "empty": false
+    },
+    {
+      "id": "de/waking-up",
+      "title": "Waking up!",
+      "region": "Germany",
+      "description": "Stub page for a Clown, Eurythmy and Music workshop — content in progress.",
+      "categories": "Placeholder, Courses, Stub",
+      "empty": false
+    },
+    {
+      "id": "de/was",
+      "title": "was",
+      "region": "Germany",
+      "description": "Minimal landing page with a single promotional image (German 'what we offer' section).",
+      "categories": "Placeholder, Site infrastructure, Marketing",
+      "empty": false
+    },
+    {
+      "id": "de/zusammenarbeit",
+      "title": "Zusammenarbeit",
+      "region": "Germany",
+      "description": "Partnership and collaboration listings with universities, schools, and organisations.",
+      "categories": "Partnerships, About, Organisation",
+      "empty": false
+    },
+    {
+      "id": "clown-and-poetry-nov-2012",
+      "title": "(untitled)",
+      "region": "International",
+      "description": "Empty legacy page — likely a retired event or course listing from November 2012.",
+      "categories": "Legacy stub, Course archive, Retired content",
+      "empty": true
+    },
+    {
+      "id": "clown-and-voice-emerson-august-2012",
+      "title": "(untitled)",
+      "region": "International",
+      "description": "Empty legacy page — likely a retired course listing at Emerson College, August 2012.",
+      "categories": "Legacy stub, Course archive, Retired content",
+      "empty": true
+    },
+    {
+      "id": "clownweekends-london-fall-2012",
+      "title": "(untitled)",
+      "region": "International",
+      "description": "Empty legacy page — likely a retired London clown weekend listing from fall 2012.",
+      "categories": "Legacy stub, Course archive, Retired content",
+      "empty": true
+    },
+    {
+      "id": "couragetobe-ireland-oct-2012",
+      "title": "(untitled)",
+      "region": "International",
+      "description": "Empty legacy page — likely a retired Courage to Be course in Ireland, October 2012.",
+      "categories": "Legacy stub, Course archive, Retired content",
+      "empty": true
+    },
+    {
+      "id": "intensivedates",
+      "title": "(untitled)",
+      "region": "International",
+      "description": "Empty legacy page — formerly listed intensive course dates.",
+      "categories": "Legacy stub, Course dates, Retired content",
+      "empty": true
+    },
+    {
+      "id": "introductorydates",
+      "title": "(untitled)",
+      "region": "International",
+      "description": "Empty legacy page — formerly listed introductory course dates.",
+      "categories": "Legacy stub, Course dates, Retired content",
+      "empty": true
+    },
+    {
+      "id": "briefhistory",
+      "title": "A brief history of Nose to Nose - Clowning workshop",
+      "region": "International",
+      "description": "Chronological history of Nose to Nose from 1990 founding through key milestones, partnerships, and team development.",
+      "categories": "About, Organisation history, About Nose to Nose",
+      "empty": false
+    },
+    {
+      "id": "booking",
+      "title": "Booking a clowning course",
+      "region": "International",
+      "description": "Instructions for booking courses via enquiry forms on each course page, covering deposits, cancellations, and waiting lists.",
+      "categories": "Booking, Practical information, Courses",
+      "empty": false
+    },
+    {
+      "id": "principles",
+      "title": "Clown training with Nose to Nose",
+      "region": "International",
+      "description": "Core teaching principles: small groups, person-centred approach, structured progression, supervision, and community.",
+      "categories": "Training methodology, Philosophy, About",
+      "empty": false
+    },
+    {
+      "id": "previouscourses",
+      "title": "Clown workshops with Nose to Nose",
+      "region": "International",
+      "description": "Long archive listing past clown workshops by date, venue, and facilitators (international legacy site).",
+      "categories": "Course archive, Courses, Historical records",
+      "empty": false
+    },
+    {
+      "id": "sorry",
+      "title": "Clown workshops with Nose to Nose",
+      "region": "International",
+      "description": "Placeholder page saying content will be available online soon; prompts mailing list signup.",
+      "categories": "Placeholder, Site infrastructure",
+      "empty": false
+    },
+    {
+      "id": "two-year-training-programme",
+      "title": "Clown workshops with Nose to Nose",
+      "region": "International",
+      "description": "Overview of the coherent two-year clown training programme covering all levels from Clown 1 through Social Clowning.",
+      "categories": "Training programme, Courses, Training methodology",
+      "empty": false
+    },
+    {
+      "id": "courseguideline",
+      "title": "Clowning workshop outline",
+      "region": "International",
+      "description": "Outline of workshop levels from introductory days through Clown 4, describing what each stage covers.",
+      "categories": "Training programme, Courses, Training methodology",
+      "empty": false
+    },
+    {
+      "id": "index",
+      "title": "Clowning workshops in the UK, France, Germany and the USA",
+      "region": "International",
+      "description": "International homepage introducing Nose to Nose clowning workshops across UK, France, Germany, Italy, and North America.",
+      "categories": "Regional home, About, Landing page",
+      "empty": false
+    },
+    {
+      "id": "contact",
+      "title": "Contacting Us",
+      "region": "International",
+      "description": "Contact details and mailing list signup form for the international site.",
+      "categories": "Contact, Practical information",
+      "empty": false
+    },
+    {
+      "id": "social-clowning",
+      "title": "Corporate Clowning and Clowning workshops",
+      "region": "International",
+      "description": "Describes Social Clowning workshops for bringing play and lightness to meetings, conferences, and business events.",
+      "categories": "Applied clowning, Corporate, Social clowning",
+      "empty": false
+    },
+    {
+      "id": "coursedates",
+      "title": "COURSE DATES - Clown workshops with Nose to Nose",
+      "region": "International",
+      "description": "Scrollable list of upcoming course dates with links to individual course pages (legacy international format).",
+      "categories": "Course dates, Courses, Upcoming events",
+      "empty": false
+    },
+    {
+      "id": "movie",
+      "title": "Film of Clown workshop with Nose to Nose",
+      "region": "International",
+      "description": "Embedded YouTube film of a Nose to Nose workshop with Vivian Gladwell explaining the approach.",
+      "categories": "Media, About, Training methodology",
+      "empty": false
+    },
+    {
+      "id": "progression",
+      "title": "Progression and levels",
+      "region": "International",
+      "description": "Training progression through levels 1–5: Courage to Be, Embracing the Unexpected, Clown 3, Towards Performance, Social Clowning.",
+      "categories": "Training programme, Training methodology, Courses",
+      "empty": false
+    },
+    {
+      "id": "approach",
+      "title": "The Nose to Nose approach to teaching clowning",
+      "region": "International",
+      "description": "Explains the Nose to Nose teaching philosophy: facilitators follow each person's creative process, nurture emotional expression, and stay true to clowning spirit.",
+      "categories": "Training methodology, Philosophy, About",
+      "empty": false
+    },
+    {
+      "id": "it/altre-esperienze",
+      "title": "Altre esperienze",
+      "region": "Italy",
+      "description": "Minimal page referencing Special Needs clowning experiences.",
+      "categories": "Applied clowning, Special needs, About",
+      "empty": true
+    },
+    {
+      "id": "it/articoli",
+      "title": "ARTICOLI",
+      "region": "Italy",
+      "description": "Italian articles index linking to published writings on clowning.",
+      "categories": "Articles, Writing, Resources",
+      "empty": false
+    },
+    {
+      "id": "it/calendario",
+      "title": "Calendario",
+      "region": "Italy",
+      "description": "Italian upcoming course calendar with dates and facilitators.",
+      "categories": "Course dates, Courses, Upcoming events",
+      "empty": false
+    },
+    {
+      "id": "it/cercare-il-tuo-clown-e-trovare-te-stesso",
+      "title": "CERCARE IL TUO CLOWN… E TROVARE TE STESSO",
+      "region": "Italy",
+      "description": "Full Italian article (1984, Bertil Sylvander) on finding your clown and yourself, translated by Vivian Gladwell.",
+      "categories": "Articles, Philosophy, Training methodology",
+      "empty": false
+    },
+    {
+      "id": "itx/articoli",
+      "title": "Clown workshops with Nose to Nose",
+      "region": "Italy",
+      "description": "Legacy Italian articles listing on old .htm site format.",
+      "categories": "Articles, Legacy site, Writing",
+      "empty": false
+    },
+    {
+      "id": "itx/calendario",
+      "title": "Clown workshops with Nose to Nose",
+      "region": "Italy",
+      "description": "Legacy Italian calendar page redirecting to main Italian site.",
+      "categories": "Course dates, Legacy site, Upcoming events",
+      "empty": false
+    },
+    {
+      "id": "itx/contattaci",
+      "title": "Clown workshops with Nose to Nose",
+      "region": "Italy",
+      "description": "Legacy Italian contact page with Christine Macri email.",
+      "categories": "Contact, Legacy site, Practical information",
+      "empty": false
+    },
+    {
+      "id": "itx/formazione",
+      "title": "Clown workshops with Nose to Nose",
+      "region": "Italy",
+      "description": "Legacy Italian training/formazione page on old site.",
+      "categories": "Training programme, Legacy site, Courses",
+      "empty": false
+    },
+    {
+      "id": "itx/index",
+      "title": "Clown workshops with Nose to Nose",
+      "region": "Italy",
+      "description": "Legacy Italian homepage on old .htm site format.",
+      "categories": "Regional home, Legacy site, Landing page",
+      "empty": false
+    },
+    {
+      "id": "it/contatti",
+      "title": "CONTATTI",
+      "region": "Italy",
+      "description": "Italian contact page with email for enquiries.",
+      "categories": "Contact, Practical information",
+      "empty": false
+    },
+    {
+      "id": "it/corsi-precedenti",
+      "title": "Corsi precedenti",
+      "region": "Italy",
+      "description": "Italian archive of previous courses.",
+      "categories": "Course archive, Courses, Historical records",
+      "empty": false
+    },
+    {
+      "id": "it/events/categories",
+      "title": "Corsi precedenti",
+      "region": "Italy",
+      "description": "WordPress event categories index (minimal/placeholder content).",
+      "categories": "Site infrastructure, Navigation, WordPress placeholder",
+      "empty": false
+    },
+    {
+      "id": "it/il-nostro-gruppo",
+      "title": "Equipe",
+      "region": "Italy",
+      "description": "Italian team page listing facilitators and their backgrounds.",
+      "categories": "Team, People, About",
+      "empty": false
+    },
+    {
+      "id": "it/events",
+      "title": "Eventi",
+      "region": "Italy",
+      "description": "Italian events listing page.",
+      "categories": "Course dates, Courses, Upcoming events",
+      "empty": false
+    },
+    {
+      "id": "it/formazione",
+      "title": "FORMAZIONE",
+      "region": "Italy",
+      "description": "Italian training programme overview.",
+      "categories": "Training programme, Training methodology, Courses",
+      "empty": false
+    },
+    {
+      "id": "it",
+      "title": "Home",
+      "region": "Italy",
+      "description": "Italian regional homepage introducing Nose to Nose clowning in Italy.",
+      "categories": "Regional home, About, Landing page",
+      "empty": false
+    },
+    {
+      "id": "it/il-clowning-e-limmaginazione",
+      "title": "IL CLOWNING E L’IMMAGINAZIONE",
+      "region": "Italy",
+      "description": "Italian article on clowning and imagination — the relationship between play and creative expression.",
+      "categories": "Articles, Philosophy, Training methodology",
+      "empty": false
+    },
+    {
+      "id": "it/events/my-bookings",
+      "title": "Le mie prenotazioni",
+      "region": "Italy",
+      "description": "WordPress booking management placeholder (minimal content).",
+      "categories": "Site infrastructure, Booking, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "it/events/locations",
+      "title": "Locations",
+      "region": "Italy",
+      "description": "WordPress locations index placeholder (minimal content).",
+      "categories": "Site infrastructure, Navigation, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "it/larchetipo-del-clown-riflessioni-sulla-saggezza-antica-nellumore-del-buffone",
+      "title": "L’archetipo del Clown: Riflessioni sulla saggezza antica nell’umore del buffone",
+      "region": "Italy",
+      "description": "Italian article on the clown archetype and ancient wisdom in the spirit of the fool.",
+      "categories": "Articles, Philosophy, Training methodology",
+      "empty": false
+    },
+    {
+      "id": "it/metodo",
+      "title": "METODO",
+      "region": "Italy",
+      "description": "Italian description of the Nose to Nose method and teaching approach.",
+      "categories": "Training methodology, Philosophy, About",
+      "empty": false
+    },
+    {
+      "id": "it/molto-piu-che-il-pagliaccio-david-wheeler",
+      "title": "Molto più che il pagliaccio – David Wheeler",
+      "region": "Italy",
+      "description": "Full article by David Wheeler: 'Much more than the clown' — published in BMJ Careers.",
+      "categories": "Articles, Philosophy, Writing",
+      "empty": false
+    },
+    {
+      "id": "it/sample-page",
+      "title": "Sample Page",
+      "region": "Italy",
+      "description": "WordPress default sample page with embedded Listly/postlist shortcodes.",
+      "categories": "Placeholder, Site infrastructure, WordPress default",
+      "empty": false
+    },
+    {
+      "id": "it/events/tags",
+      "title": "Tags",
+      "region": "Italy",
+      "description": "WordPress tags index placeholder (minimal content).",
+      "categories": "Site infrastructure, Navigation, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "nax/briefhistory",
+      "title": "(untitled)",
+      "region": "North America",
+      "description": "Empty legacy North America brief history page.",
+      "categories": "Legacy stub, About, Retired content",
+      "empty": true
+    },
+    {
+      "id": "nax/contact",
+      "title": "(untitled)",
+      "region": "North America",
+      "description": "Empty legacy North America contact page.",
+      "categories": "Legacy stub, Contact, Retired content",
+      "empty": true
+    },
+    {
+      "id": "nax/sorry",
+      "title": "(untitled)",
+      "region": "North America",
+      "description": "Empty legacy North America placeholder page.",
+      "categories": "Legacy stub, Placeholder, Retired content",
+      "empty": true
+    },
+    {
+      "id": "na/articles",
+      "title": "Articles",
+      "region": "North America",
+      "description": "Collection of articles on clowning and the Nose to Nose approach, with usage guidelines.",
+      "categories": "Articles, Writing, Resources",
+      "empty": false
+    },
+    {
+      "id": "na/events/categories",
+      "title": "Categories",
+      "region": "North America",
+      "description": "WordPress event categories placeholder.",
+      "categories": "Site infrastructure, Navigation, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "nax/contact-na",
+      "title": "Clown workshops with Nose to Nose",
+      "region": "North America",
+      "description": "North America mailing list signup and contact information.",
+      "categories": "Contact, Mailing list, Practical information",
+      "empty": false
+    },
+    {
+      "id": "nax/index",
+      "title": "Clown workshops with Nose to Nose",
+      "region": "North America",
+      "description": "Legacy North America homepage with Facebook link and regional introduction.",
+      "categories": "Regional home, Legacy site, Landing page",
+      "empty": false
+    },
+    {
+      "id": "nax/new-initiatives-na",
+      "title": "Clown workshops with Nose to Nose",
+      "region": "North America",
+      "description": "Past and present special initiatives (Vietnam 2011, Special Needs carers, Camphill projects).",
+      "categories": "About, Special projects, Applied clowning",
+      "empty": false
+    },
+    {
+      "id": "nax/two-year-clown-training",
+      "title": "Clown workshops with Nose to Nose",
+      "region": "North America",
+      "description": "Announcement of North America's first two-year clown training programme (2013–15).",
+      "categories": "Training programme, Courses, Announcement",
+      "empty": false
+    },
+    {
+      "id": "na/course-dates",
+      "title": "Course dates",
+      "region": "North America",
+      "description": "North America upcoming courses and events with booking notes and waiting list info.",
+      "categories": "Course dates, Courses, Upcoming events",
+      "empty": false
+    },
+    {
+      "id": "nax/coursedates-na",
+      "title": "COURSE DATES - Clown workshops with Nose to Nose",
+      "region": "North America",
+      "description": "Legacy scrollable course dates listing for North America.",
+      "categories": "Course dates, Legacy site, Upcoming events",
+      "empty": false
+    },
+    {
+      "id": "nax/previous-courses-na",
+      "title": "COURSE DATES - Clown workshops with Nose to Nose",
+      "region": "North America",
+      "description": "Legacy archive of past North America course dates back to 2014.",
+      "categories": "Course archive, Legacy site, Historical records",
+      "empty": false
+    },
+    {
+      "id": "na/elsewhere",
+      "title": "Elsewhere",
+      "region": "North America",
+      "description": "Links to Nose to Nose sites in other countries (UK, Germany, Italy).",
+      "categories": "Navigation, Regional links, Site infrastructure",
+      "empty": false
+    },
+    {
+      "id": "na/events",
+      "title": "Events",
+      "region": "North America",
+      "description": "WordPress events index placeholder.",
+      "categories": "Site infrastructure, Navigation, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "na",
+      "title": "Home",
+      "region": "North America",
+      "description": "North America regional homepage for clowning workshops in USA and Canada.",
+      "categories": "Regional home, About, Landing page",
+      "empty": false
+    },
+    {
+      "id": "na/events/locations",
+      "title": "Locations",
+      "region": "North America",
+      "description": "WordPress locations placeholder.",
+      "categories": "Site infrastructure, Navigation, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "na/events/my-bookings",
+      "title": "My Bookings",
+      "region": "North America",
+      "description": "WordPress my-bookings placeholder.",
+      "categories": "Site infrastructure, Booking, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "na/previous-courses",
+      "title": "Previous courses",
+      "region": "North America",
+      "description": "Chronological archive of past North America workshops.",
+      "categories": "Course archive, Courses, Historical records",
+      "empty": false
+    },
+    {
+      "id": "na/events/tags",
+      "title": "Tags",
+      "region": "North America",
+      "description": "WordPress tags placeholder.",
+      "categories": "Site infrastructure, Navigation, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "na/our-team-in-north-america",
+      "title": "Team",
+      "region": "North America",
+      "description": "Team profiles of North American facilitators and their teaching philosophy.",
+      "categories": "Team, People, About",
+      "empty": false
+    },
+    {
+      "id": "nax/approach-na",
+      "title": "The Nose to Nose approach to teaching clowning",
+      "region": "North America",
+      "description": "North America version of the Nose to Nose teaching approach page.",
+      "categories": "Training methodology, Philosophy, Legacy site",
+      "empty": false
+    },
+    {
+      "id": "pl/articles-3",
+      "title": "ARTYKUŁY",
+      "region": "Poland",
+      "description": "Polish articles page with Schiller quote and links to clowning writings.",
+      "categories": "Articles, Writing, Resources",
+      "empty": false
+    },
+    {
+      "id": "pl/events/categories",
+      "title": "Categories",
+      "region": "Poland",
+      "description": "WordPress event categories placeholder.",
+      "categories": "Site infrastructure, Navigation, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "pl/contact",
+      "title": "KONTAKT",
+      "region": "Poland",
+      "description": "Polish contact page and mailing list signup.",
+      "categories": "Contact, Mailing list, Practical information",
+      "empty": false
+    },
+    {
+      "id": "pl",
+      "title": "POCZĄTEK",
+      "region": "Poland",
+      "description": "Polish regional homepage — 'Discover the Clown in Yourself'.",
+      "categories": "Regional home, About, Landing page",
+      "empty": false
+    },
+    {
+      "id": "pl/approach",
+      "title": "SPOSÓB PRACY",
+      "region": "Poland",
+      "description": "Polish translation of core teaching principles (small groups, person-centred, structured progression).",
+      "categories": "Training methodology, Philosophy, About",
+      "empty": false
+    },
+    {
+      "id": "pl/events/tags",
+      "title": "Tags",
+      "region": "Poland",
+      "description": "WordPress tags placeholder.",
+      "categories": "Site infrastructure, Navigation, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "pl/courses-coming-up",
+      "title": "Warsztaty",
+      "region": "Poland",
+      "description": "Empty Polish upcoming courses page.",
+      "categories": "Placeholder, Course dates, Stub",
+      "empty": true
+    },
+    {
+      "id": "pl/events",
+      "title": "Warsztaty",
+      "region": "Poland",
+      "description": "Empty Polish events/workshops page.",
+      "categories": "Placeholder, Course dates, Stub",
+      "empty": true
+    },
+    {
+      "id": "pl/locations",
+      "title": "ZA GRANICĄ",
+      "region": "Poland",
+      "description": "Links to Nose to Nose sites in other countries (Polish 'Elsewhere').",
+      "categories": "Navigation, Regional links, Site infrastructure",
+      "empty": false
+    },
+    {
+      "id": "pl/team",
+      "title": "ZESPÓŁ",
+      "region": "Poland",
+      "description": "Polish team page featuring Piotr Bujak and his training background.",
+      "categories": "Team, People, About",
+      "empty": false
+    },
+    {
+      "id": "uk/a-brief-history-of-nose-to-nose",
+      "title": "A brief history of Nose to Nose",
+      "region": "UK",
+      "description": "UK version of the organisation history from 1990 founding through key milestones.",
+      "categories": "About, Organisation history, About Nose to Nose",
+      "empty": false
+    },
+    {
+      "id": "uk/applied-clowning",
+      "title": "Applied clowning",
+      "region": "UK",
+      "description": "Essay on applied clowning — how play teaches communication, empathy, and human connection.",
+      "categories": "Applied clowning, Philosophy, Articles",
+      "empty": false
+    },
+    {
+      "id": "uk/articles",
+      "title": "Articles",
+      "region": "UK",
+      "description": "Collection of articles on clowning and the Nose to Nose approach with usage note.",
+      "categories": "Articles, Writing, Resources",
+      "empty": false
+    },
+    {
+      "id": "uk/categories",
+      "title": "Categories",
+      "region": "UK",
+      "description": "WordPress categories index placeholder.",
+      "categories": "Site infrastructure, Navigation, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "uk/clown-level-two-9-14-june-2024",
+      "title": "Clown Level Two 9-14 June 2024",
+      "region": "UK",
+      "description": "Empty specific course page — Clown Level Two, June 2024 (content not scraped).",
+      "categories": "Individual course, Placeholder, Past event",
+      "empty": true
+    },
+    {
+      "id": "uk/courses",
+      "title": "Courses",
+      "region": "UK",
+      "description": "UK course listing hub with venue and online course sections, grouped by month.",
+      "categories": "Course dates, Courses, Upcoming events",
+      "empty": false
+    },
+    {
+      "id": "uk/elsewhere",
+      "title": "Elsewhere",
+      "region": "UK",
+      "description": "Links to Nose to Nose regional sites in other countries.",
+      "categories": "Navigation, Regional links, Site infrastructure",
+      "empty": false
+    },
+    {
+      "id": "uk/facilitators-in-training-2012-14",
+      "title": "FACILITATORS IN TRAINING 2012-14",
+      "region": "UK",
+      "description": "Map/list of participants in the 2012–14 facilitator training programme and where they live.",
+      "categories": "Training programme, Team, Historical records",
+      "empty": false
+    },
+    {
+      "id": "uk",
+      "title": "Home",
+      "region": "UK",
+      "description": "UK regional homepage for 2025–26 clowning workshops across multiple countries.",
+      "categories": "Regional home, About, Landing page",
+      "empty": false
+    },
+    {
+      "id": "uk/in-memory",
+      "title": "In memory",
+      "region": "UK",
+      "description": "Memorial tribute to Chris Seeley who died December 2014, with biography.",
+      "categories": "Memorial, People, Tribute",
+      "empty": false
+    },
+    {
+      "id": "uk/locations",
+      "title": "Locations",
+      "region": "UK",
+      "description": "WordPress locations placeholder.",
+      "categories": "Site infrastructure, Navigation, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "uk/my-bookings",
+      "title": "My Bookings",
+      "region": "UK",
+      "description": "WordPress my-bookings placeholder.",
+      "categories": "Site infrastructure, Booking, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "uk/our-approach-2",
+      "title": "Our approach",
+      "region": "UK",
+      "description": "UK version of the teaching approach — facilitators nurturing each person's creative clown process.",
+      "categories": "Training methodology, Philosophy, About",
+      "empty": false
+    },
+    {
+      "id": "uk/our-principles",
+      "title": "OUR PRINCIPLES",
+      "region": "UK",
+      "description": "UK version of core teaching principles with illustrative imagery.",
+      "categories": "Training methodology, Philosophy, About",
+      "empty": false
+    },
+    {
+      "id": "uk/our-team",
+      "title": "Our team",
+      "region": "UK",
+      "description": "UK team page with group photo and profiles of founding team and facilitators.",
+      "categories": "Team, People, About",
+      "empty": false
+    },
+    {
+      "id": "uk/previous-associates",
+      "title": "PREVIOUS ASSOCIATES",
+      "region": "UK",
+      "description": "List of people who completed facilitation training but no longer work with Nose to Nose.",
+      "categories": "Team, People, Historical records",
+      "empty": false
+    },
+    {
+      "id": "uk/previous-courses",
+      "title": "Previous courses",
+      "region": "UK",
+      "description": "Large chronological archive of past UK/international workshops.",
+      "categories": "Course archive, Courses, Historical records",
+      "empty": false
+    },
+    {
+      "id": "uk/previous-courses-no-borders",
+      "title": "Previous courses – no borders",
+      "region": "UK",
+      "description": "Same course archive as previous-courses but with CSS borders removed for cleaner display.",
+      "categories": "Course archive, Courses, Duplicate content",
+      "empty": false
+    },
+    {
+      "id": "uk/sample-page",
+      "title": "Sample Page",
+      "region": "UK",
+      "description": "WordPress default sample page with Listly and postlist shortcode placeholders.",
+      "categories": "Placeholder, Site infrastructure, WordPress default",
+      "empty": false
+    },
+    {
+      "id": "uk/sitemap",
+      "title": "Sitemap",
+      "region": "UK",
+      "description": "Full site sitemap listing pages, posts by category, events, and course categories.",
+      "categories": "Navigation, Site infrastructure, Site map",
+      "empty": false
+    },
+    {
+      "id": "uk/social-clowning",
+      "title": "Social Clowning",
+      "region": "UK",
+      "description": "Social Clowning at Nowhere conference — using clowning for creative dialogue in community settings.",
+      "categories": "Social clowning, Applied clowning, About",
+      "empty": false
+    },
+    {
+      "id": "uk/tags",
+      "title": "Tags",
+      "region": "UK",
+      "description": "WordPress tags index placeholder.",
+      "categories": "Site infrastructure, Navigation, WordPress placeholder",
+      "empty": true
+    },
+    {
+      "id": "uk/testimonials",
+      "title": "Testimonials",
+      "region": "UK",
+      "description": "Participant testimonials from clowning courses with dates and locations.",
+      "categories": "Testimonials, Community, About",
+      "empty": false
+    },
+    {
+      "id": "uk/the-nose-to-nose-progression",
+      "title": "THE NOSE TO NOSE PROGRESSION",
+      "region": "UK",
+      "description": "UK training progression through levels 1–5 with descriptions and images.",
+      "categories": "Training programme, Training methodology, Courses",
+      "empty": false
+    },
+    {
+      "id": "uk/reflections-on-clowning",
+      "title": "Thoughts",
+      "region": "UK",
+      "description": "Collection of quotes, poems, and inspired writings reflecting the spirit of clowning.",
+      "categories": "Articles, Philosophy, Writing",
+      "empty": false
+    },
+    {
+      "id": "uk/uk-clown-facilitator-training",
+      "title": "UK CLOWN FACILITATOR TRAINING",
+      "region": "UK",
+      "description": "Details of the 2012–14 UK facilitator training programme in London.",
+      "categories": "Training programme, Announcement, Historical records",
+      "empty": false
+    },
+    {
+      "id": "uk/course-dates",
+      "title": "UPCOMING COURSES AND EVENTS",
+      "region": "UK",
+      "description": "UK upcoming courses and events with booking instructions and waiting list notes.",
+      "categories": "Course dates, Courses, Upcoming events",
+      "empty": false
+    }
+  ],
+  "detailedSectionAnalyses": [
+    {
+      "id": "training-methodology",
+      "title": "Training methodology",
+      "intro": "Eight pages sit in this grouping on All other content. They largely share a single Nose to Nose teaching philosophy, but differ in language, completeness, and how much they repeat one another.",
+      "pages": [
+        {
+          "id": "approach",
+          "region": "International",
+          "role": "Core “approach” page"
+        },
+        {
+          "id": "principles",
+          "region": "International",
+          "role": "Eight teaching principles (expanded)"
+        },
+        {
+          "id": "uk/our-approach-2",
+          "region": "UK",
+          "role": "Same as international approach"
+        },
+        {
+          "id": "uk/our-principles",
+          "region": "UK",
+          "role": "Same as international principles"
+        },
+        {
+          "id": "nax/approach-na",
+          "region": "North America",
+          "role": "Same as international approach"
+        },
+        {
+          "id": "de/herangehensweise",
+          "region": "Germany",
+          "role": "German merge of approach + principles"
+        },
+        {
+          "id": "it/metodo",
+          "region": "Italy",
+          "role": "Italian approach + workshop format + levels 1–3"
+        },
+        {
+          "id": "pl/approach",
+          "region": "Poland",
+          "role": "Abbreviated principles list + philosophy intro"
+        }
+      ],
+      "mainPoints": [
+        {
+          "heading": "Philosophy of facilitation",
+          "bullets": [
+            "Facilitators stay true to clowning by following each person’s creative process, not imposing a fixed technique.",
+            "The work nurtures emotional expression and imagination, and helps each participant find their own clown — unique to them and rooted in their relationship with the audience.",
+            "Focusing on the individual is presented as the heart of clowning: a search for authenticity in both personal and social life."
+          ]
+        },
+        {
+          "heading": "Who it’s for and why people return",
+          "bullets": [
+            "The approach is framed as relevant to personal growth (“Clown Within”) and social mediation (Court Jester Group).",
+            "Workshops welcome people of all ages and backgrounds, with or without theatre experience.",
+            "Many participants return because the freedom and playfulness of the work becomes essential to them."
+          ]
+        },
+        {
+          "heading": "What happens in a workshop",
+          "bullets": [
+            "Groups are capped at 12 participants.",
+            "Sessions use warm-up games, vocal and physical exercises, then stage improvisations (solo or with others).",
+            "After each improvisation, the group discusses what worked — to draw out the positive, distinctive qualities of each person’s clown.",
+            "This happens within clear rules intended to create a safe, respectful, protective environment."
+          ]
+        },
+        {
+          "heading": "The “inner clown”",
+          "bullets": [
+            "The red nose is described as “the smallest mask in the world” and “the mask that unmasks.”",
+            "Clown work rediscovers openness, spontaneity, and play.",
+            "Imagination is encouraged while staying grounded; the inner clown emerges through improvisation and welcoming whatever arises."
+          ]
+        },
+        {
+          "heading": "Eight committed teaching principles",
+          "note": "On principles pages and in full on the German page.",
+          "bullets": [
+            "Small groups — max 12, so everyone gets solo/pair time, individual coaching, and no competition for space.",
+            "Person-centred approach — authenticity and inner experience matter more than acquiring external skills.",
+            "Structured, level-appropriate teaching — groups formed by experience; curriculum introduced clearly; team meets regularly to refine methods.",
+            "Committed guidance and support — facilitators accompany participants gently through difficulty and foster collaborative enquiry.",
+            "Positive regard — feedback highlights what is working; a supportive environment is seen as essential to clowning courage.",
+            "Learners as their own teachers — reflection after exercises, games, and improvisations is treated as the most important part of learning.",
+            "Collaborative research — many courses use two facilitators to bring diversity and continuity.",
+            "Personal and social voice — clowns are not silent mimes; the work uses language, full emotional range, body, and voice, with a safety rule: never hurt yourself or others, and don’t break anything."
+          ]
+        },
+        {
+          "heading": "Italian page only: progression through levels 1–3",
+          "bullets": [
+            "Level 1 — grounds clowning in authenticity, presence, playfulness, and trust; helps overcome fears that block being in the moment.",
+            "Level 2 — focuses on structure and relationships: awareness of partners, images, stories, characters, and audience; more rigorous improvisation.",
+            "Level 3 — examines strategies used to avoid mistakes; uses repetition and theatrical technique; moves toward performance."
+          ]
+        }
+      ],
+      "duplication": [
+        {
+          "heading": "Near-verbatim duplicates (English)",
+          "bullets": [
+            "approach = uk/our-approach-2 = nax/approach-na — three copies of the same “Our approach” text (philosophy, workshop format, Clown Within).",
+            "principles = uk/our-principles — two copies of the same eight principles and their expanded explanations."
+          ]
+        },
+        {
+          "heading": "Cross-language versions of the same material",
+          "bullets": [
+            "de/herangehensweise is essentially the German translation of both the approach page and the principles page combined — including workshop format, inner clown, and all eight principles with full explanations.",
+            "pl/approach is a short Polish summary: principle headings plus the core philosophy paragraphs, without the detailed expansions.",
+            "it/metodo largely repeats the approach/workshop/inner-clown content in Italian, but is the only page in this group that also includes level 1–3 progression detail."
+          ]
+        },
+        {
+          "heading": "Conceptual overlap between page types",
+          "bullets": [
+            "The opening philosophy in the “approach” pages repeats ideas that reappear inside the “person-centred approach” principle.",
+            "“What happens in a workshop” and “small groups (max 12)” appear in both approach pages and the principles section — stated twice on de/herangehensweise because it merges both sources.",
+            "Links on UK/international pages point to separate progression/course pages that cover material partially duplicated on it/metodo."
+          ]
+        }
+      ],
+      "conclusion": "This grouping is really two core English documents (Approach + Principles), replicated across UK, international, and North America legacy sites, then translated or abbreviated for Germany, Italy, and Poland. Consolidating to one canonical approach page and one principles page per language would remove most redundancy; the Italian level descriptions are the main unique addition not found elsewhere in this group."
+    },
+    {
+      "id": "training-programme",
+      "title": "Training programme",
+      "intro": "Eleven pages sit in this grouping. They describe course formats, the two-year training outline, and level-by-level progression — often repeating the same level descriptions across international, UK, and German sites.",
+      "pages": [
+        {"id": "progression", "region": "International", "role": "Core levels 1–5 + Social Clowning"},
+        {"id": "uk/the-nose-to-nose-progression", "region": "UK", "role": "Same progression text as international"},
+        {"id": "courseguideline", "region": "International", "role": "Course formats (intro, weekends, residential, abroad)"},
+        {"id": "two-year-training-programme", "region": "International", "role": "Two-year programme overview and outline"},
+        {"id": "de/kursstufen", "region": "Germany", "role": "German level descriptions"},
+        {"id": "de/archives/175", "region": "Germany", "role": "Archived duplicate of kursstufen"},
+        {"id": "it/formazione", "region": "Italy", "role": "Italian training programme overview"},
+        {"id": "itx/formazione", "region": "Italy (legacy)", "role": "Legacy Italian formazione page"},
+        {"id": "nax/two-year-clown-training", "region": "North America", "role": "2013–15 NA two-year programme announcement"},
+        {"id": "uk/uk-clown-facilitator-training", "region": "UK", "role": "2012–14 facilitator training programme details"},
+        {"id": "uk/facilitators-in-training-2012-14", "region": "UK", "role": "Participant map for facilitator training"}
+      ],
+      "mainPoints": [
+        {
+          "heading": "Two-year programme",
+          "bullets": [
+            "Nose to Nose offers a coherent two-year programme from basics through performance and Social Clowning.",
+            "Participants can choose their own pace but two years is recommended for integration.",
+            "Basic training: Clown 1 (one week or 3 weekends), Clown 2, Clown 3, five Performance weekends, and Social Clowning (one week)."
+          ]
+        },
+        {
+          "heading": "Course formats",
+          "bullets": [
+            "Introductory days (1–2 days) — light introduction to presence and the unexpected.",
+            "Special theme weekends (2–3 days) — cross-disciplinary research with conflict, biography, ecology, meditation, storytelling, therapy, etc.",
+            "Ongoing weekends (4–6 per year) — same group, building depth month by month.",
+            "Intensive residential weeks (~7 hours/day) — full immersion at levels 1–3.",
+            "Workshops also run outside the UK (Germany, France, Italy, Switzerland, US); groups capped at 12 unless stated otherwise."
+          ]
+        },
+        {
+          "heading": "Level 1 — Courage to Be",
+          "bullets": [
+            "Grounds clowning in presence and authenticity; nurtures each person’s unique clown through listening and receptivity.",
+            "Connects to playful spirit; develops trust in self and life.",
+            "Inward process focused on overcoming fears that block being in the “Here and Now.”"
+          ]
+        },
+        {
+          "heading": "Level 2 — Embracing the Unexpected",
+          "bullets": [
+            "Shifts focus to structure and relationship — partner, audience, images, stories, characters.",
+            "Teaching changes to deepen improvisation and performance technique; new structures bring greater rigour."
+          ]
+        },
+        {
+          "heading": "Level 3 — The Wisdom of Imperfection",
+          "bullets": [
+            "Examines strategies for avoiding mistakes; greater theatrical and improvisational technique.",
+            "Improvs repeated in less comfortable areas; moves toward performance."
+          ]
+        },
+        {
+          "heading": "Towards Performance",
+          "bullets": [
+            "Practice improvising before a real audience; includes public performances.",
+            "Group revisits improvs with insights from each performance.",
+            "Introduces key principles of Social Clowning."
+          ]
+        },
+        {
+          "heading": "Social Clowning",
+          "bullets": [
+            "Draws on Court Jester and Fool traditions.",
+            "Aims to renew creative processes and bring playful irreverence to relationships and institutions.",
+            "Practices mirroring social/symbolic references, reclaiming paradox, parodying power, celebrating the heart.",
+            "Clown holds a mirror to life, puts the human heart at the centre, and speaks truths others cannot."
+          ]
+        },
+        {
+          "heading": "Historical / regional-only content",
+          "bullets": [
+            "nax/two-year-clown-training — 2013–15 North America launch with pricing and application details (partially broken markup).",
+            "uk/uk-clown-facilitator-training and uk/facilitators-in-training-2012-14 — records of a past facilitator training cohort, not part of the public progression path."
+          ]
+        }
+      ],
+      "duplication": [
+        {
+          "heading": "Near-verbatim duplicates",
+          "bullets": [
+            "progression = uk/the-nose-to-nose-progression — identical level 1 through Social Clowning descriptions.",
+            "de/kursstufen = de/archives/175 — same German level content on two URLs."
+          ]
+        },
+        {
+          "heading": "Split across pages (international English)",
+          "bullets": [
+            "two-year-training-programme holds the programme intro and outline; progression holds level detail; courseguideline holds format types — three pages that together form one training guide.",
+            "Level descriptions also appear inside it/metodo (Training methodology group) for levels 1–3 only."
+          ]
+        },
+        {
+          "heading": "Cross-language versions",
+          "bullets": [
+            "de/kursstufen translates the progression levels for Germany.",
+            "it/formazione and itx/formazione are Italian programme overviews on current and legacy sites."
+          ]
+        }
+      ],
+      "conclusion": "The international English training story is really three complementary pages (programme outline, course formats, level progression) plus near-identical UK copies. Consolidating to one training programme page per language would cover the full path from introductory day to Social Clowning; facilitator-training and regional launch announcements are historical records rather than core programme content."
+    },
+    {
+      "id": "applied-clowning",
+      "title": "Applied clowning",
+      "intro": "Six pages describe bringing clowning beyond the training room — into organisations, wellbeing, and social settings. English sources are short; German pages carry the most detailed corporate and burnout-prevention offerings.",
+      "pages": [
+        {"id": "uk/applied-clowning", "region": "UK", "role": "Core essay — play, communication, areas of work"},
+        {"id": "social-clowning", "region": "International", "role": "Social/Corporate Clowning service for events"},
+        {"id": "de/interne-workshops", "region": "Germany", "role": "Corporate and in-house workshop catalogue"},
+        {"id": "de/burnout-prevention", "region": "Germany", "role": "Burnout prevention workshop landing page"},
+        {"id": "de/was/integration-with-heart", "region": "Germany", "role": "Refugee integration offering for employers"},
+        {"id": "it/altre-esperienze", "region": "Italy", "role": "Stub referencing Special Needs clowning"}
+      ],
+      "mainPoints": [
+        {
+          "heading": "Philosophy of applied clowning",
+          "bullets": [
+            "“Play is wiser than words” — through play we learn about the world, others, self, and communication.",
+            "Nose to Nose has worked with teachers, social workers, doctors, nurses, and therapists over many years."
+          ]
+        },
+        {
+          "heading": "Areas of work",
+          "bullets": [
+            "Social Clowning — events, conferences, meetings (see dedicated offering below).",
+            "Teacher training.",
+            "Conflict and communication.",
+            "Personal development.",
+            "Special needs (mentioned on Italian stub only in this group)."
+          ]
+        },
+        {
+          "heading": "Social Clowning for organisations",
+          "bullets": [
+            "Facilitators attend as “normal” guests, observe, then offer 5–10 minute skits summarising key ideas — like Court Jesters.",
+            "Up to four “reviews” per day event.",
+            "Brings cheekiness and gentle chaos to break institutional conventions; gets people talking and reframes issues creatively.",
+            "Example: 2010 Nowhere Academy Creative Dialogue in London (video on original page)."
+          ]
+        },
+        {
+          "heading": "Custom in-house workshops",
+          "bullets": [
+            "Workshops designed for specific organisations and groups on request.",
+            "de/interne-workshops lists past clients: Waldorf teacher training (Stuttgart), Goetheanum student conferences, team building (Potsdam), English/German teacher weeks, circus pedagogy (Berlin), refugee circus training, anthroposophical conferences, and more.",
+            "Recurring themes: intuitive intelligence, courage to be oneself, clown and conflict/communication/trauma."
+          ]
+        },
+        {
+          "heading": "Burnout prevention (German page)",
+          "bullets": [
+            "Addresses work pressure, double burdens, routine, miscommunication, and lack of recognition.",
+            "Uses clowning to discover resources, strengthen perception, and meet professional challenges with lightness and humour.",
+            "Target groups: doctors, teachers, managers, parents, therapists, social workers, and others under high stress.",
+            "Workshop format repeats standard Nose to Nose approach (max 12, warm-ups, improvs, discussion, inner clown)."
+          ]
+        },
+        {
+          "heading": "Integration with heart (German page)",
+          "bullets": [
+            "For companies employing refugees; aims to build empathy and appreciation across language and culture barriers.",
+            "Uses theatre clowning and improvisation so employees find a shared heartfelt language.",
+            "Contact: berlin@nosetonose.de"
+          ]
+        }
+      ],
+      "duplication": [
+        {
+          "heading": "Overlap with other groups",
+          "bullets": [
+            "Social Clowning level content in Training programme repeats themes from social-clowning and links from uk/applied-clowning.",
+            "Burnout prevention page reuses workshop-format and “inner clown” paragraphs from Approach/Principles (in German).",
+            "de/interne-workshops mixes bilingual intro with a long list of one-off past engagements rather than a single service description."
+          ]
+        },
+        {
+          "heading": "Language split",
+          "bullets": [
+            "Only uk/applied-clowning and social-clowning are substantive English pages; burnout and integration exist only in German.",
+            "it/altre-esperienze is essentially empty — a single line pointing to special needs work."
+          ]
+        }
+      ],
+      "conclusion": "Applied clowning content is fragmented: a short UK essay plus a full Social Clowning service page in English, with richer corporate and wellbeing detail on German pages. A consolidated applied clowning page can unite the English sources and translate the unique German offerings; the interne-workshops catalogue is reference material rather than core narrative."
+    },
+    {
+      "id": "booking",
+      "title": "Booking",
+      "intro": "Two pages relate to booking. Only one carries practical instructions; the other is a post-registration thank-you page.",
+      "pages": [
+        {"id": "booking", "region": "International", "role": "Full booking, payment, and cancellation instructions"},
+        {"id": "de/hurra", "region": "Germany", "role": "Booking confirmation thank-you page"}
+      ],
+      "mainPoints": [
+        {
+          "heading": "How to book",
+          "bullets": [
+            "Use the “Click here to enquire…” link on each course page; submit the form with your details.",
+            "Nose to Nose confirms availability and explains deposit payment.",
+            "Deposits by cheque, bank transfer, or online; booking confirmed only after deposit received.",
+            "Check total cost including accommodation and meals — booking usually covers tuition only."
+          ]
+        },
+        {
+          "heading": "Confirmation and waiting list",
+          "bullets": [
+            "A place is confirmed ONLY when Nose to Nose confirms; no deposit taken if the course is full.",
+            "Full courses → waiting list with priority when a place opens; team will try to offer the next available course."
+          ]
+        },
+        {
+          "heading": "Practical expectations",
+          "bullets": [
+            "Early booking appreciated because of venue commitments.",
+            "Groups limited to 12; places allocated in order received.",
+            "Budget separately for board and accommodation."
+          ]
+        },
+        {
+          "heading": "Payment terms and cancellation",
+          "bullets": [
+            "Cancel up to 60 days before → deposit refunded minus £20 cancellation fee.",
+            "No refunds after 60 days unless a replacement takes the place.",
+            "If Nose to Nose cancels → full refund with 14 days’ notice; travel insurance advised for long-distance travellers."
+          ]
+        },
+        {
+          "heading": "Thank-you page (de/hurra)",
+          "bullets": [
+            "Shown after successful registration on the German site — no additional booking information."
+          ]
+        }
+      ],
+      "duplication": [
+        {
+          "heading": "Scattered booking notes",
+          "bullets": [
+            "Course date pages and regional event listings repeat fragments of waiting-list and early-booking advice.",
+            "de/hurra duplicates the confirmation message implied on booking — no conflicting content."
+          ]
+        }
+      ],
+      "conclusion": "Booking is effectively a single international instructions page. Regional course-date pages could link to one canonical booking page; de/hurra remains a post-checkout confirmation, not part of the reader-facing guide."
+    },
+    {
+      "id": "articles",
+      "title": "Articles",
+      "intro": "Thirteen index pages list published writings on clowning. The English catalogues are near-identical; other language sites mirror or subset the same material.",
+      "pages": [
+        {"id": "articles", "region": "International", "role": "Main articles index (legacy .htm)"},
+        {"id": "uk/articles", "region": "UK", "role": "Same catalogue on UK WordPress site"},
+        {"id": "na/articles", "region": "North America", "role": "Same catalogue on NA site"},
+        {"id": "de/artikel", "region": "Germany", "role": "German press articles and media coverage"},
+        {"id": "de/clowning-fur-lehrer", "region": "Germany", "role": "Article on personality development for teachers"},
+        {"id": "de/was/burnout-prevention", "region": "Germany", "role": "Full ‘Clown & Conflict’ article (miscategorised)"},
+        {"id": "it/articoli", "region": "Italy", "role": "Italian articles index"},
+        {"id": "it/cercare-il-tuo-clown-e-trovare-te-stesso", "region": "Italy", "role": "Bertil Sylvander 1984 article (Italian)"},
+        {"id": "it/il-clowning-e-limmaginazione", "region": "Italy", "role": "Clowning and imagination (Italian)"},
+        {"id": "it/larchetipo-del-clown-riflessioni-sulla-saggezza-antica-nellumore-del-buffone", "region": "Italy", "role": "Clown archetype essay (Italian)"},
+        {"id": "it/molto-piu-che-il-pagliaccio-david-wheeler", "region": "Italy", "role": "David Wheeler BMJ article (Italian)"},
+        {"id": "itx/articoli", "region": "Italy (legacy)", "role": "Legacy Italian articles listing"},
+        {"id": "pl/articles-3", "region": "Poland", "role": "Polish articles page with Schiller quote"}
+      ],
+      "mainPoints": [
+        {
+          "heading": "Usage and access",
+          "bullets": [
+            "Articles provided for reading; readers must respect copyright and quote sources.",
+            "Some recent articles/interviews require joining the mailing list (updates twice yearly, no list sharing, easy unsubscribe).",
+            "Several older pieces available on request as PDF by email."
+          ]
+        },
+        {
+          "heading": "Themes across the catalogue",
+          "bullets": [
+            "Clowning in healthcare and GP practice (David Wheeler, David McGavin interviews and articles).",
+            "Teaching and language education (Catherine Bryden, Peter Lutzker, Robert McNeer, German teacher articles).",
+            "Psychotherapy and personal development (Rob Leiper, Bertil Sylvander, Jean-Bernard Bonange).",
+            "Organisational and systemic work (Sharon Usher on clowning and constellations).",
+            "Philosophy and archetype (Deon van Zyl on the fool; Chris Seeley PhD).",
+            "Special needs (Laura Geilen).",
+            "Research and theses (Vivian Gladwell M.A. thesis on clowning for language teachers)."
+          ]
+        },
+        {
+          "heading": "Hosted vs external articles",
+          "bullets": [
+            "Many full texts are scraped to content/articles/ (bertilarticle, catherinebryden, seeley, etc.).",
+            "Others link externally (BMJ Careers, GP Online, blog posts, Clean Language site, Sheridan Hill website).",
+            "“Articles coming up” entries point to placeholder sorry page."
+          ]
+        },
+        {
+          "heading": "Italian and German unique content",
+          "bullets": [
+            "Italian site hosts full translations of key articles not always linked from English indexes.",
+            "de/artikel is press coverage; de/clowning-fur-lehrer and de/was/burnout-prevention are standalone articles miscategorised under Articles or Applied clowning.",
+            "pl/articles-3 is a short Polish landing page rather than a full catalogue."
+          ]
+        }
+      ],
+      "duplication": [
+        {
+          "heading": "Near-verbatim duplicates (English)",
+          "bullets": [
+            "articles = uk/articles = na/articles — same chronological catalogue with the same entries and descriptions.",
+            "International legacy articles.htm matches the WordPress articles pages."
+          ]
+        },
+        {
+          "heading": "Cross-listing",
+          "bullets": [
+            "Several articles also appear as individual scraped article pages under content/articles/.",
+            "de/was/burnout-prevention is a full article but categorised under Articles; topic overlaps Applied clowning.",
+            "David Wheeler appears in multiple entries across years (2001, 2004, 2008, 2014)."
+          ]
+        }
+      ],
+      "conclusion": "The English articles story is one index page replicated three times, linking to a mix of on-site articles and external publications. A consolidated articles page should preserve the copyright note, chronological catalogue, and links to hosted content; Italian and German articles remain language-specific extensions rather than duplicates of the English list."
+    }
+  ]
+}
