@@ -1,4 +1,5 @@
 import { courseTypesById, events, venuesById } from './data';
+import { getEditorialPage } from './markdown';
 import type { Course, CourseType, Event, Venue } from './types';
 
 export const REGION_ORDER = ['UK', 'Europe', 'North America', 'Other'] as const;
@@ -237,4 +238,54 @@ export function findCourseBySlug(all: Course[], slug: string): Course | undefine
 
 export function countLabel(count: number, noun: string): string {
 	return `${count} ${noun}${count === 1 ? '' : 's'}.`;
+}
+
+function parseMarkdownSections(body: string): Map<string, string> {
+	const sections = new Map<string, string>();
+	const matches = [...body.matchAll(/^### (.+)$/gm)];
+	for (let i = 0; i < matches.length; i++) {
+		const heading = matches[i][1].trim();
+		const start = matches[i].index! + matches[i][0].length;
+		const end = i + 1 < matches.length ? matches[i + 1].index! : body.length;
+		const firstParagraph = body.slice(start, end).trim().split(/\n\s*\n/)[0]?.trim() ?? '';
+		if (firstParagraph) sections.set(heading.toLowerCase(), firstParagraph);
+	}
+	return sections;
+}
+
+function findProgrammeSection(sections: Map<string, string>, ...headings: string[]): string | null {
+	for (const heading of headings) {
+		const key = heading.toLowerCase();
+		if (sections.has(key)) return sections.get(key)!;
+		for (const [sectionHeading, text] of sections) {
+			if (sectionHeading.startsWith(key)) return text;
+		}
+	}
+	return null;
+}
+
+function buildLevelSummaries(): Record<string, string> {
+	const body = getEditorialPage('clown-programme')?.body ?? '';
+	const sections = parseMarkdownSections(body);
+	const summaries: Record<string, string> = {};
+	const mappings: [string, ...string[]][] = [
+		['Clown 1', 'Level 1'],
+		['Clown 2', 'Level 2'],
+		['Clown 3', 'Level 3'],
+		['Performance', 'Towards Performance'],
+		['Social Clowning', 'Social clowning'],
+		['Introduction', 'Introductory']
+	];
+	for (const [level, ...headings] of mappings) {
+		const summary = findProgrammeSection(sections, ...headings);
+		if (summary) summaries[level] = summary;
+	}
+	return summaries;
+}
+
+const LEVEL_SUMMARIES = buildLevelSummaries();
+
+/** First paragraph from the matching section on the clown programme page. */
+export function levelSummary(level: string): string | null {
+	return LEVEL_SUMMARIES[level] ?? null;
 }

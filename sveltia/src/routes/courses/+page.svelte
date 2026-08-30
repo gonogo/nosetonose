@@ -8,6 +8,7 @@
 		coursesByLevel,
 		coursesByRegion,
 		formatDateRange,
+		levelSummary,
 		regionAnchor,
 		regionLevelAnchor
 	} from '$lib/courses';
@@ -58,16 +59,21 @@
 					<h2>{group.region}</h2>
 					<p class="meta">{countLabel(group.courses.length, 'course')}</p>
 					{#each coursesByLevel(group.courses) as levelGroup}
+						{@const summary = levelSummary(levelGroup.level)}
 						<div
 							class="contents-subsection"
 							id={regionLevelAnchor(group.region, levelGroup.level)}
 						>
-							<h3>{levelGroup.level}</h3>
-							<p class="subsection-count">{countLabel(levelGroup.courses.length, 'date')}</p>
+							<div class="level-banner">
+								<h3>{levelGroup.level}</h3>
+								{#if summary}
+									<p class="level-summary">{summary}</p>
+								{/if}
+							</div>
 							{#each coursesByCourseTitle(levelGroup.courses) as courseGroup}
 								{@const summary = courseGroupSummary(courseGroup.courses)}
 								{@const multi = courseGroup.courses.length > 1}
-								<article class="course-group" class:is-multi={multi}>
+								<article class="course-group">
 									<h4>{courseGroup.title}</h4>
 									{#if summary}
 										<p class="course-group-summary">{summary}</p>
