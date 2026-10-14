@@ -2,10 +2,14 @@
 
 backend:
   name: github
-  repo: YOUR_ORG/sveltia-outboard
+  repo: gonogo/nosetonose
+  branch: main
+  base_url: https://christopher-neale-f49.workers.dev
 
-site_url: http://localhost:5173
-display_url: http://localhost:5173
+site_url: nosetonose.christopher-neale-f49.workers.dev
+display_url: nosetonose.christopher-neale-f49.workers.dev
+# site_url: http://localhost:5173
+# display_url: http://localhost:5173
 logo_url: /favicon.svg
 
 media_folder: static/media
