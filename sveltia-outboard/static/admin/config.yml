@@ -194,7 +194,7 @@ collections:
         name: source_urls
         widget: list
         required: false
-        field: { label: URL, widget: string }
+        field: { name: url, label: URL, widget: string }
 
   - name: testimonials
     label: Testimonials

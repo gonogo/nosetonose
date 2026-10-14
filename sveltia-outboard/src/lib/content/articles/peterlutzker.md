@@ -16,7 +16,7 @@ here to consult the book](http://www.amazon.de/gp/reader/3772082432/ref=sib_dp_p
 [Click here to
 read a review of the book from Mario Rinvolucri](http://www.hltmag.co.uk/apr09/pubs03.htm)
 
-![](https://www.nosetonose.info/images/book.jpg)**Extract
+![](/media/images/book.jpg)**Extract
 from the book**  
   
 The initial hypothesis upon which this empirical study was based
