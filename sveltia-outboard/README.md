@@ -1,6 +1,8 @@
 # Nose to Nose — Sveltia site
 
-Public website for Nose to Nose, built with SvelteKit and [Sveltia CMS](https://sveltiacms.app/en/). All content lives in this repository under `src/lib/data` and `src/lib/content` and is bundled at build time — there is no runtime database or external data source.
+This is the public Nose to Nose website, built to be hosted and edited on its own. It is a SvelteKit app with [Sveltia CMS](https://sveltiacms.app/en/). Pages, courses, people, venues, and articles live in this repository as JSON and Markdown under `src/lib/data` and `src/lib/content`. A production build bundles that content into static files. There is no runtime database, and the site does not import content from a scrape or any other project.
+
+Editors change content in `/admin/index.html`. Locally, the CMS writes those files on disk. On the hosted site, it commits them to GitHub, and Cloudflare rebuilds from that commit.
 
 ## Quick start
 
@@ -164,7 +166,23 @@ npm run build
 npm run preview
 ```
 
-Static output is written to `build/`.
+Static output is written to `build/`. The site uses `@sveltejs/adapter-static` on SvelteKit 2. Do not add `@sveltejs/adapter-cloudflare`; current releases of that adapter require SvelteKit 3.
+
+## Deploy
+
+Host the `build/` folder as static assets on Cloudflare Workers. [`wrangler.jsonc`](wrangler.jsonc) already points Wrangler at that folder, serves extensionless HTML (so `/courses` maps to `courses.html`), and uses `404.html` for unknown paths.
+
+In the Cloudflare dashboard, open **Workers & Pages**, create an application, and import this Git repository. Under **Settings → Builds**, use:
+
+| Setting | Value |
+|---|---|
+| Root directory | `sveltia-outboard` while this project lives inside a larger repository; leave blank once it is its own repository |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+
+A push to the production branch rebuilds and publishes the site. To rebuild without a new commit, open the project, go to **Deployments**, and retry the latest deployment.
+
+The public pages work as soon as that deploy finishes. `/admin/index.html` on the live site also needs the GitHub backend in `static/admin/config.yml`: set `backend.repo` to `owner/repo`, set `site_url` and `display_url` to the public site URL, and set `backend.base_url` to a [Sveltia CMS Authenticator](https://github.com/sveltia/sveltia-cms-auth) Worker. Local editing is unchanged: on `http://localhost:5173/admin/index.html`, choose **Work with Local Repository**. Preview links inside the CMS follow `site_url`, so they open the live site once that value is the production URL.
 
 ## Key source files
 
@@ -176,3 +194,4 @@ Static output is written to `build/`.
 | `src/lib/people.ts` | Team grouping, `firstParagraph()` for course facilitator intros |
 | `src/lib/courses.ts` | Listing merge (`resolveListing`), compact date ranges, course-type listing blurbs, region → level → course grouping |
 | `static/admin/config.yml` | Sveltia CMS collections and fields |
+| `wrangler.jsonc` | Cloudflare Workers static-asset deploy |
